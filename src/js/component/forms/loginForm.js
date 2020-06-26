@@ -4,17 +4,23 @@ import validate from "./loginFormValidationRules";
 import useForm from "./useForm";
 
 export const LoginForm = () => {
-	const { values, errors, handleChange, handleSubmit } = useForm(login, validate);
+	const { values, errors, handleChangeLogin, handleSubmitLogin, setValues } = useForm(login, validate);
 
-	function login() {
-		console.log("No errors, submit callback called!");
+	async function login() {
+		console.log("No errors, submit callback called!"); //realizar el fetch aquí
+		const resp = await fetch("");
+		const data = await resp.json();
+		if (!data.msg) {
+			actions.storeLoginInfo(event); // validar con el backend aquí
+			setValues("");
+		}
 	}
 
 	return (
 		<div className="container">
 			<div className="row">
 				<div className="col-12 col-md-6 offset-md-3">
-					<form onSubmit={handleSubmit} noValidate>
+					<form onSubmit={handleSubmitLogin} noValidate>
 						<div className="form-group">
 							<label>Correo Electrónico</label>
 							<br />
@@ -23,7 +29,7 @@ export const LoginForm = () => {
 								type="email"
 								name="email"
 								autoComplete="off"
-								onChange={handleChange}
+								onChange={handleChangeLogin}
 								value={values.email || ""}
 								required
 							/>
@@ -36,7 +42,7 @@ export const LoginForm = () => {
 								className={`form-control input ${errors.password && "border-danger"}`}
 								type="password"
 								name="password"
-								onChange={handleChange}
+								onChange={handleChangeLogin}
 								value={values.password || ""}
 								required
 							/>

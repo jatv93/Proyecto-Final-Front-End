@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			student: {
+			studentRegister: {
 				name: "",
 				lastName: "",
 				email: "",
@@ -9,23 +9,53 @@ const getState = ({ getStore, getActions, setStore }) => {
 				verification: ""
 			},
 
-			studentList: []
-		},
-		actions: {
-			addInfo: e => {
-				const store = getStore();
-				const { student } = store;
-				student[e.target.name] = e.target.value;
-				setStore({ student: student });
-				e.preventDefault();
+			studentRegisterList: [],
+
+			studentLogin: {
+				email: "",
+				password: ""
 			},
 
-			submitInfo: e => {
+			studentLoginList: []
+		},
+
+		actions: {
+			handleChangeLogin: e => {
 				const store = getStore();
-				const { student } = store;
+				const { studentLogin } = store;
+				studentLogin[e.target.name] = e.target.value;
 				setStore({
-					studentList: student,
-					student: {
+					studentLogin: studentLogin
+				});
+			},
+
+			handleChangeRegister: e => {
+				const store = getStore();
+				const { studentRegister } = store;
+				studentRegister[e.target.name] = e.target.value;
+				setStore({ studentRegister: studentRegister });
+			},
+
+			storeLoginInfo: e => {
+				e.preventDefault();
+				const store = getStore();
+				const { studentLogin } = store;
+				setStore({
+					studentLoginList: studentLogin,
+					studentLogin: {
+						email: "",
+						password: ""
+					}
+				});
+			},
+
+			storeRegisterInfo: e => {
+				e.preventDefault();
+				const store = getStore();
+				const { studentRegister } = store;
+				setStore({
+					studentRegisterList: studentRegister,
+					studentRegister: {
 						name: "",
 						lastName: "",
 						email: "",
@@ -33,15 +63,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						verification: ""
 					}
 				});
-				e.preventDefault();
-			},
-
-			addLoginInfo: e => {
-				const store = getStore();
-				const { loginDataStudent } = store;
-				loginDataStudent[e.target.name] = e.target.value;
-				setStore({ loginDataStudent: loginDataStudent });
-				e.preventDefault();
 			}
 		}
 	};
