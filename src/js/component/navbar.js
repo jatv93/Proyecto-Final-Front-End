@@ -9,7 +9,7 @@ export const Navbar = () => {
 				<img className="navbar-brand mb-0 h1" src={logo} />
 			</Link>
 			<div className="ml-auto">
-				<Link to="/signIn">
+				<Link to="/register">
 					<button className="btn btn-warning mr-3">Registrarte</button>
 				</Link>
 				<Link to="/login">
