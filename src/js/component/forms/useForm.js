@@ -22,16 +22,16 @@ const useForm = (callback, validate) => {
 		actions.handleChangeLogin(event);
 	};
 
-	const handleChangeRegister = event => {
-		event.persist();
-		setValues(values => ({ ...values, [event.target.name]: event.target.value }));
-		actions.handleChangeRegister(event);
-	};
-
 	const handleSubmitLogin = event => {
 		if (event) event.preventDefault();
 		setErrors(validate(values));
 		setIsSubmitting(true);
+    };
+    
+    	const handleChangeRegister = event => {
+		event.persist();
+		setValues(values => ({ ...values, [event.target.name]: event.target.value }));
+		actions.handleChangeRegister(event);
 	};
 
 	const handleSubmitRegister = event => {
