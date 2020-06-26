@@ -1,42 +1,68 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			studentRegister: {
+				name: "",
+				lastName: "",
+				email: "",
+				password: "",
+				verification: ""
+			},
+
+			studentRegisterList: [],
+
+			studentLogin: {
+				email: "",
+				password: ""
+			},
+
+			studentLoginList: []
 		},
+
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
+			handleChangeLogin: e => {
 				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
+				const { studentLogin } = store;
+				studentLogin[e.target.name] = e.target.value;
+				setStore({
+					studentLogin: studentLogin
 				});
+			},
 
-				//reset the global store
-				setStore({ demo: demo });
+			handleChangeRegister: e => {
+				const store = getStore();
+				const { studentRegister } = store;
+				studentRegister[e.target.name] = e.target.value;
+				setStore({ studentRegister: studentRegister });
+			},
+
+			storeLoginInfo: e => {
+				e.preventDefault();
+				const store = getStore();
+				const { studentLogin } = store;
+				setStore({
+					studentLoginList: studentLogin,
+					studentLogin: {
+						email: "",
+						password: ""
+					}
+				});
+			},
+
+			storeRegisterInfo: e => {
+				e.preventDefault();
+				const store = getStore();
+				const { studentRegister } = store;
+				setStore({
+					studentRegisterList: studentRegister,
+					studentRegister: {
+						name: "",
+						lastName: "",
+						email: "",
+						password: "",
+						verification: ""
+					}
+				});
 			}
 		}
 	};
