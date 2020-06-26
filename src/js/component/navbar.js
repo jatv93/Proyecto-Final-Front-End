@@ -9,11 +9,11 @@ export const Navbar = () => {
 				<img className="navbar-brand mb-0 h1" src={logo} />
 			</Link>
 			<div className="ml-auto">
-				<Link to="/registro">
-					<button className="btn btn-warning mr-3">Registro</button>
+				<Link to="/signIn">
+					<button className="btn btn-warning mr-3">Registrarte</button>
 				</Link>
 				<Link to="/login">
-					<button className="btn btn-warning mr-3">Login</button>
+					<button className="btn btn-warning mr-3">Iniciar Sesión</button>
 				</Link>
 			</div>
 		</nav>
