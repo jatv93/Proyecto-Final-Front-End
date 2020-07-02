@@ -11,9 +11,10 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { teachome } from "./views/teachers/teachHome";
-import { teachform } from "./views/teachers/teacherForm";
+import { teachform } from "./views/teachers/teacherQuestionnaire";
 import { studentStrength } from "./views/teachers/strengths";
 import { studentWeakness } from "./views/teachers/weaknesses";
+import { studentProjection } from "./views/teachers/studentProjection";
 
 //create your first component
 export const Layout = () => {
@@ -32,9 +33,10 @@ export const Layout = () => {
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/forgot_password" component={Forgot_Password} />
 						<Route exact path="/teacher" component={teachome} />
-						<Route exact path="/teacher/form" component={teachform} />
-						<Route exact path="/teacher/form/strengths" component={studentStrength} />
-						<Route exact path="/teacher/form/weaknesses" component={studentWeakness} />
+						<Route exact path="/teacher/questionnaire" component={teachform} />
+						<Route exact path="/teacher/questionnaire/strengths" component={studentStrength} />
+						<Route exact path="/teacher/questionnaire/weaknesses" component={studentWeakness} />
+						<Route exact path="/teacher/questionnaire/projection" component={studentProjection} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 					<Footer />

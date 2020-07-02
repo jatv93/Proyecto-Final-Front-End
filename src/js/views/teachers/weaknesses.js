@@ -14,7 +14,7 @@ export const studentWeakness = () => {
 				</div>
 
 				<div className="row">
-					<div className="col-12 col-md-6 offset-md-3">
+					<div className="col-12 col-lg-10 offset-md-1">
 						<form>
 							<div className="form-group">
 								<label>¿Qué puede mejorar el estudiante?</label>
@@ -45,6 +45,16 @@ export const studentWeakness = () => {
 					</div>
 				</div>
 			</div>
+			<footer className="navFooter">
+				<button className="btn btn-outline-danger my-2 my-sm-0" type="submit">
+					Volver
+				</button>
+				<div className="form-inline">
+					<button className="btn btn-outline-success my-2 my-sm-0" type="submit">
+						Next
+					</button>
+				</div>
+			</footer>
 		</Fragment>
 	);
 };

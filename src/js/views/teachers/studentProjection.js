@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-export const studentStrength = () => {
+export const studentProjection = () => {
 	return (
 		<Fragment>
 			<nav className="navbar navbar-light bg-white mb-3 lg-3">
@@ -9,7 +9,7 @@ export const studentStrength = () => {
 			<div className="container">
 				<div className="row pb-5">
 					<div className="col-lg-6 offset-lg-3">
-						<h1 className="text-center">Fortalezas</h1>
+						<h1 className="text-center">Proyección del Estudiante</h1>
 					</div>
 				</div>
 
@@ -17,23 +17,31 @@ export const studentStrength = () => {
 					<div className="col-12 col-lg-10 offset-lg-1">
 						<form>
 							<div className="form-group">
-								<label>¿Qué hace a este estudiante mejor que los otros?</label>
+								<label>¿De qué tendencias recurrentes se puede aprovechar el alumno?</label>
 								<br />
 								<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
 							</div>
 
 							<div className="form-group">
-								<label>¿Qué está haciendo muy bien?</label>
+								<label>
+									¿Alguna habilidad interesante que pueda desarrollarse más para conseguir trabajos
+									impresionantes?{" "}
+								</label>
 								<br />
 								<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
 							</div>
 							<div className="form-group">
-								<label>¿Habilidades más asombrosas?</label>
+								<label>¿Es disciplinado/a?</label>
 								<br />
 								<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
 							</div>
 							<div className="form-group">
-								<label>¿Qué dicen los demás que él/ella hace muy bien?</label>
+								<label>¿Es apasionado/a por programar?</label>
+								<br />
+								<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
+							</div>
+							<div className="form-group">
+								<label>¿Algún impedimento para convertirse en un buen desarrollador?</label>
 								<br />
 								<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
 							</div>
