@@ -1,6 +1,27 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			sideBarContent: {
+				staff: [
+					"Expedientes de Estudiantes",
+					"Perfiles Laborales",
+					"Acuerdo de Inscripción",
+					"Contrato de Financiamiento",
+					"Pagos",
+					"Facturas",
+					"Notas de Credito"
+				],
+				student: [
+					"Perfil",
+					"Perfil laboral",
+					"Acuerdo de Inscripción",
+					"Contrato de Financiamiento",
+					"Pagos",
+					"Facturas",
+					"Notas de Credito"
+				],
+				teacher: ["Mis Cohortes"]
+			},
 			studentRegister: {
 				name: "",
 				lastName: "",

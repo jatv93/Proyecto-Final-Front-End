@@ -2,14 +2,16 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
+import { Home } from "./views/home/home";
 import { RegisterForm } from "./component/forms/registerForm";
-import { Login } from "./views/login";
-import { Forgot_Password } from "./views/forgot_password";
+import { Login } from "./views/home/login";
+import { Forgot_Password } from "./views/home/forgot_password";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import SideNav from "./component/sidenav";
+import Profile from "./views/student/profile";
 
 //create your first component
 export const Layout = () => {
@@ -27,6 +29,7 @@ export const Layout = () => {
 						<Route exact path="/register" component={RegisterForm} />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/forgot_password" component={Forgot_Password} />
+						<Route exact path="/nav" component={Profile} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 					<Footer />
