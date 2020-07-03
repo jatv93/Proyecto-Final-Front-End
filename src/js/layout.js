@@ -10,6 +10,11 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { teachome } from "./views/teachers/teachHome";
+import { teachform } from "./views/teachers/teacherForm";
+import { studentStrength } from "./views/teachers/strengths";
+import { studentWeakness } from "./views/teachers/weaknesses";
+import { Files } from "./views/staff/files";
 import SideNav from "./component/sidenav";
 import Profile from "./views/student/profile";
 
@@ -28,7 +33,12 @@ export const Layout = () => {
 						<Route exact path="/" component={Home} />
 						<Route exact path="/register" component={RegisterForm} />
 						<Route exact path="/login" component={Login} />
+						<Route exact path="/staff/files" component={Files} />
 						<Route exact path="/forgot_password" component={Forgot_Password} />
+						<Route exact path="/teacher" component={teachome} />
+						<Route exact path="/teacher/form" component={teachform} />
+						<Route exact path="/teacher/form/strengths" component={studentStrength} />
+						<Route exact path="/teacher/form/weaknesses" component={studentWeakness} />
 						<Route exact path="/nav" component={Profile} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
