@@ -1,0 +1,63 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.sidenav{
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: white;
+    color: black;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sidenav-body{
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    max-width: 100%;
+    outline: 0;
+    direction: ltr;
+}
+
+#content{
+    width: calc(100% - 300px);
+    padding: 40px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.divider{
+    width:90%;
+    height: 10px;
+    background: #ffc107;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.sidenav-btn{
+    color:white;
+    border-radius: unset !important;
+    margin-bottom: 0.25rem;
+    border-left: 0.35rem solid black;
+    margin-left: 0.10rem;
+    margin-right: 0.10rem;
+}
+
+.sidenav-header{
+    margin-top: 10px;
+}
+
+.sidenav-title{
+    color:white;
+}
