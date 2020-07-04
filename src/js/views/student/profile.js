@@ -7,7 +7,7 @@ const Profile = () => {
 	const { store } = useContext(Context);
 	return (
 		<>
-			<SideNav links={store.sideBarContent.student}></SideNav>
+			<SideNav links={store.sideBarContent.student} />
 		</>
 	);
 };

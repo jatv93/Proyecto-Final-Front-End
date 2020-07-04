@@ -7,11 +7,14 @@ const useForm = (callback, validate) => {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { store, actions } = useContext(Context);
 
-	useEffect(() => {
-		if (Object.keys(errors).length === 0 && isSubmitting) {
-			callback();
-		}
-	}, [errors]);
+	useEffect(
+		() => {
+			if (Object.keys(errors).length === 0 && isSubmitting) {
+				callback();
+			}
+		},
+		[errors]
+	);
 
 	const handleChangeLogin = event => {
 		event.persist();
