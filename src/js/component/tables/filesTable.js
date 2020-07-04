@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../store/appContext";
+import "./filesTable.css";
 
 export const FilesTable = () => {
 	const { store, actions } = useContext(Context);
@@ -11,13 +12,15 @@ export const FilesTable = () => {
 					<thead className="thead-dark">
 						<tr>
 							<th scope="col">#</th>
-							<th scope="col" onClick={e => actions.sortByName(e)}>
-								Nombre
+							<th scope="col">
+								Nombre <i className="fas fa-sort-up" onClick={e => actions.sortByName(e)}></i>
 							</th>
-							<th scope="col" onClick={e => actions.sortByLastName(e)}>
-								Apellido
+
+							<th scope="col">
+								Apellido <i className="fas fa-sort-down" onClick={e => actions.sortByLastName(e)}></i>
 							</th>
 							<th scope="col">Cohorte</th>
+
 							<th scope="col">Modalidad</th>
 							<th scope="col">Teléfono</th>
 							<th scope="col">Correo electrónico</th>

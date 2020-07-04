@@ -17,6 +17,7 @@ import { studentWeakness } from "./views/teachers/weaknesses";
 import { Files } from "./views/staff/files";
 import SideNav from "./component/sidenav";
 import Profile from "./views/student/profile";
+import { StudentProfile } from "./views/staff/studentProfile";
 
 //create your first component
 export const Layout = () => {
@@ -33,8 +34,9 @@ export const Layout = () => {
 						<Route exact path="/" component={Home} />
 						<Route exact path="/register" component={RegisterForm} />
 						<Route exact path="/login" component={Login} />
-						<Route exact path="/staff/files" component={Files} />
 						<Route exact path="/forgot_password" component={Forgot_Password} />
+						<Route exact path="/staff/files" component={Files} />
+						<Route exact path="/staff/files/student" component={StudentProfile} />
 						<Route exact path="/teacher" component={teachome} />
 						<Route exact path="/teacher/form" component={teachform} />
 						<Route exact path="/teacher/form/strengths" component={studentStrength} />
