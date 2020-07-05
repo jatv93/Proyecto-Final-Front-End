@@ -14,7 +14,7 @@ const SideNav = props => {
 							<h3 className="sidenav-title">4Geeks</h3>
 							<p className="sidenav-title">Internal Student Profile</p>
 						</div>
-						<div className="divider"></div>
+						<div className="divider" />
 						<ul className="list-unstyled components">
 							{props.links.map((item, i) => {
 								console.log(item);
