@@ -70,8 +70,11 @@
 		]
 	},
 	"dependencies": {
+		"@phuocng/react-pdf-viewer": "^1.7.0",
 		"bootstrap": "^4.5.0",
 		"jquery": "^3.5.1",
+		"pdf-viewer-reactjs": "^2.0.7",
+		"pdfjs-dist": "^2.4.456",
 		"popper.js": "^1.16.1",
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",
