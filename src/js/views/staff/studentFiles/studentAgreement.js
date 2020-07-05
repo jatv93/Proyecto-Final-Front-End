@@ -1,9 +1,9 @@
 import React, { Fragment, useContext } from "react";
-import SideNav from "../../component/sidenav";
-import { Context } from "../../store/appContext";
-import { PreviewPDF } from "../../component/previewPDF";
+import SideNav from "../../../component/sidenav";
+import { Context } from "../../../store/appContext";
+import { PreviewPDF } from "../../../component/previewPDF";
 
-export const EnrollmentAgreement = () => {
+export const StudentAgreement = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<Fragment>

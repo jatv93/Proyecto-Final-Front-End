@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-export const Invoices = () => {
+export const StudentInvoices = () => {
 	return (
 		<Fragment>
 			<div className="container">

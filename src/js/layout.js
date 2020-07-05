@@ -14,17 +14,18 @@ import { teachome } from "./views/teachers/teachHome";
 import { teachform } from "./views/teachers/teacherForm";
 import { studentStrength } from "./views/teachers/strengths";
 import { studentWeakness } from "./views/teachers/weaknesses";
-import { Files } from "./views/staff/files";
+
 import SideNav from "./component/sidenav";
 import Profile from "./views/student/profile";
-import { StudentProfile } from "./views/staff/studentProfile";
-import { EnrollmentAgreement } from "./views/staff/agreement";
-import { Financing } from "./views/staff/financing";
-import { Payments } from "./views/staff/payments";
-import { Invoices } from "./views/staff/invoices";
-import { JobProfile } from "./views/staff/jobProfile";
-import { TeacherComments } from "./views/staff/teacherComments";
-import { PreviewPDF } from "./component/previewPDF";
+
+import { Files } from "./views/staff/files";
+import { StudentProfile } from "./views/staff/studentFiles/studentProfile";
+import { StudentAgreement } from "./views/staff/studentFiles/studentAgreement";
+import { StudentFinancing } from "./views/staff/studentFiles/studentFinancing";
+import { StudentPayments } from "./views/staff/studentFiles/studentPayments";
+import { StudentInvoices } from "./views/staff/studentFiles/studentInvoices";
+import { StudentJobProfile } from "./views/staff/studentFiles/studentJobProfile";
+import { TeacherComments } from "./views/staff/studentFiles/teacherComments";
 
 //create your first component
 export const Layout = () => {
@@ -44,11 +45,11 @@ export const Layout = () => {
 						<Route exact path="/forgot_password" component={Forgot_Password} />
 						<Route exact path="/staff/files" component={Files} />
 						<Route exact path="/staff/files/:name" component={StudentProfile} />
-						<Route exact path="/staff/files/student/agreement" component={EnrollmentAgreement} />
-						<Route exact path="/staff/files/student/financing" component={Financing} />
-						<Route exact path="/staff/files/student/payments" component={Payments} />
-						<Route exact path="/staff/files/student/invoices" component={Invoices} />
-						<Route exact path="/staff/files/student/job_profile" component={JobProfile} />
+						<Route exact path="/staff/files/student/agreement" component={StudentAgreement} />
+						<Route exact path="/staff/files/student/financing" component={StudentFinancing} />
+						<Route exact path="/staff/files/student/payments" component={StudentPayments} />
+						<Route exact path="/staff/files/student/invoices" component={StudentInvoices} />
+						<Route exact path="/staff/files/student/job_profile" component={StudentJobProfile} />
 						<Route exact path="/staff/files/student/teacher_comments" component={TeacherComments} />
 						<Route exact path="/teacher" component={teachome} />
 						<Route exact path="/teacher/form" component={teachform} />

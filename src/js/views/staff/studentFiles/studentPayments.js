@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 
-export const JobProfile = () => {
+export const StudentPayments = () => {
 	return (
 		<Fragment>
 			<div className="container">
 				<div className="row">
 					<div className="col-lg-6 offset-lg-3">
-						<h1 className="text-center">Perfil Laboral</h1>
+						<h1 className="text-center">Pagos Realizados</h1>
 					</div>
 				</div>
 			</div>
