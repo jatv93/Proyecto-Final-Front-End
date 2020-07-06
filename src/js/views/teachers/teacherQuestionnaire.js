@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 export const teachform = () => {
 	return (
 		<Fragment>
-			<nav className="navbar navbar-light bg-white mb-3">
-				<h2 className="navbar-brand mb-0 h1">Mark Otto</h2>
-			</nav>
+			<div className="row">
+				<h2 className="col-12 col-lg-6 col-md-6 col-sm-6 offset-lg-1 offset-md-1 offset-sm-1">Mark Otto</h2>
+			</div>
 			<div className="row">
 				<div className="col-12">
 					<div className="align-middle text-center mt-5">
@@ -16,7 +16,7 @@ export const teachform = () => {
 			</div>
 
 			<div className="row">
-				<div className="col-8 offset-md-1">
+				<div className="col-8 col-md-8 col-sm-8 offset-lg-2 offset-md-2 offset-sm-2">
 					<Link to="/teacher/questionnaire/strengths">
 						<h3>Fortalezas</h3>
 					</Link>
