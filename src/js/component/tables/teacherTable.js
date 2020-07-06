@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Teachertable = () => {
 	return (
 		<div className="container">
 			<div className="row">
-				<div className="col-12 col-lg-10 col-md-10 offset-md-1">
+				<div className="col-12 col-lg-10 col-md-10 offset-md-1 mt-3">
 					<table className="table">
 						<thead className="thead-dark">
 							<tr>
@@ -20,7 +21,9 @@ export const Teachertable = () => {
 						<tbody>
 							<tr>
 								<th scope="row">1</th>
-								<td>Mark</td>
+								<Link to="/teacher/questionnaire">
+									<td>Mark</td>
+								</Link>
 								<td>Otto</td>
 								<td>C-I</td>
 								<td>PT</td>

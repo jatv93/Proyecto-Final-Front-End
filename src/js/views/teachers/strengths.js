@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 export const studentStrength = () => {
 	return (
@@ -46,13 +47,18 @@ export const studentStrength = () => {
 				</div>
 			</div>
 			<footer className="navFooter">
-				<button className="btn btn-outline-danger my-2 my-sm-0" type="submit">
-					Volver
-				</button>
-				<div className="form-inline">
-					<button className="btn btn-outline-success my-2 my-sm-0" type="submit">
-						Next
+				<Link to="/teacher/questionnaire">
+					<button className="btn btn-outline-danger my-2 my-sm-0" type="submit">
+						Volver
 					</button>
+				</Link>
+
+				<div className="form-inline">
+					<Link to="/teacher/questionnaire/weaknesses">
+						<button className="btn btn-outline-success my-2 my-sm-0" type="submit">
+							Next
+						</button>
+					</Link>
 				</div>
 			</footer>
 		</Fragment>

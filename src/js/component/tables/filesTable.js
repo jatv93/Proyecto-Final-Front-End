@@ -14,11 +14,11 @@ export const FilesTable = () => {
 						<tr className="text-center">
 							<th scope="col">#</th>
 							<th scope="col">
-								Nombre <i className="fas fa-sort-up" onClick={e => actions.sortByName(e)}></i>
+								Nombre <i className="fas fa-sort-up" onClick={e => actions.sortByName(e)} />
 							</th>
 
 							<th scope="col">
-								Apellido <i className="fas fa-sort-down" onClick={e => actions.sortByLastName(e)}></i>
+								Apellido <i className="fas fa-sort-down" onClick={e => actions.sortByLastName(e)} />
 							</th>
 							<th scope="col">Cohorte</th>
 
