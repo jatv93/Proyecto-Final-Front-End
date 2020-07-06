@@ -3,7 +3,7 @@ import React from "react";
 export const PersonalDataForm = () => {
 	return (
 		<div className="row">
-			<div className="col-lg-6 mt-4">
+			<div className="col-lg-4 offset-lg-1 mt-4">
 				<div>
 					<strong>Nombre: </strong>
 					Jennifer
@@ -24,7 +24,7 @@ export const PersonalDataForm = () => {
 					20/10/1993
 				</div>
 			</div>
-			<div className="col-lg-6 mt-4">
+			<div className="col-lg-4 offset-lg-1 mt-4">
 				<div>
 					<strong>Dirección: </strong>
 					Evaristo Lillo 29, Las Condes

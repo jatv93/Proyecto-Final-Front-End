@@ -22,7 +22,7 @@ export const StudentProfile = () => {
 
 				<div className="container">
 					<div className="row">
-						<div className="col-lg-6 mt-5">
+						<div className="col-lg-4 offset-lg-1 mt-5">
 							<Link to="/staff/files/student/agreement">
 								<button className="subtitles btn btn-outline-primary my-2 my-sm-0" type="submit">
 									Acuerdo de Inscripción
@@ -43,7 +43,7 @@ export const StudentProfile = () => {
 								</button>
 							</Link>
 						</div>
-						<div className="col-lg-6 mt-5">
+						<div className="col-lg-4 offset-lg-1 mt-5">
 							<Link to="/staff/files/student/invoices">
 								<button className="subtitles btn btn-outline-primary my-2 my-sm-0" type="submit">
 									Facturas y notas de crédito

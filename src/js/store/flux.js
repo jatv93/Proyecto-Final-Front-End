@@ -70,6 +70,83 @@ const getState = ({ getStore, getActions, setStore }) => {
 					email: "jatv@jatv.com",
 					breathecode_id: "110"
 				}
+			],
+
+			jobProfileTable: [
+				{
+					id: 1,
+					name: "Ramon",
+					lastName: "Perez",
+					cohort: "I",
+					modality: "PT"
+				},
+				{
+					id: 2,
+					name: "Orlando",
+					lastName: "Martinez",
+					cohort: "II",
+					modality: "PT"
+				},
+				{
+					id: 3,
+					name: "Fernando",
+					lastName: "Fernandez",
+					cohort: "II",
+					modality: "PT"
+				}
+			],
+
+			studentPaymentsTable: [
+				{
+					id: 1,
+					date: "03/06/2020",
+					amount: "1.000.000"
+				},
+				{
+					id: 2,
+					date: "09/06/2020",
+					amount: "700.000"
+				},
+				{
+					id: 3,
+					date: "06/07/2020",
+					amount: "300.000"
+				}
+			],
+			studentInvoiceTable: [
+				{
+					id: 1,
+					date: "03/06/2020",
+					amount: "1.000.000"
+				},
+				{
+					id: 2,
+					date: "09/06/2020",
+					amount: "700.000"
+				},
+				{
+					id: 3,
+					date: "06/07/2020",
+					amount: "300.000"
+				}
+			],
+
+			studentCreditNoteTable: [
+				{
+					id: 1,
+					date: "03/06/2020",
+					amount: "1.000.000"
+				},
+				{
+					id: 2,
+					date: "09/06/2020",
+					amount: "700.000"
+				},
+				{
+					id: 3,
+					date: "06/07/2020",
+					amount: "300.000"
+				}
 			]
 		},
 

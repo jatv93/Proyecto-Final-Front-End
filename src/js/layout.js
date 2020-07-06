@@ -26,6 +26,7 @@ import { StudentPayments } from "./views/staff/studentFiles/studentPayments";
 import { StudentInvoices } from "./views/staff/studentFiles/studentInvoices";
 import { StudentJobProfile } from "./views/staff/studentFiles/studentJobProfile";
 import { TeacherComments } from "./views/staff/studentFiles/teacherComments";
+import { JobProfile } from "./views/staff/jobProfile/jobProfile";
 
 //create your first component
 export const Layout = () => {
@@ -51,6 +52,7 @@ export const Layout = () => {
 						<Route exact path="/staff/files/student/invoices" component={StudentInvoices} />
 						<Route exact path="/staff/files/student/job_profile" component={StudentJobProfile} />
 						<Route exact path="/staff/files/student/teacher_comments" component={TeacherComments} />
+						<Route exact path="/staff/jobProfile" component={JobProfile} />
 						<Route exact path="/teacher" component={teachome} />
 						<Route exact path="/teacher/form" component={teachform} />
 						<Route exact path="/teacher/form/strengths" component={studentStrength} />
