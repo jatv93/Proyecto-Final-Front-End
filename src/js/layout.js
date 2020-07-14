@@ -52,7 +52,6 @@ export const Layout = () => {
 							<StudentProfile />
 						</Route>
 						<Route exact path="/staff/files/:breathecode_id/agreement" component={StudentAgreement} />
-
 						<Route exact path="/staff/files/:breathecode_id/financing" component={StudentFinancing} />
 						<Route exact path="/staff/files/:breathecode_id/payments" component={StudentPayments} />
 						<Route exact path="/staff/files/:breathecode_id/invoices" component={StudentInvoices} />

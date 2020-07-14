@@ -1,9 +1,8 @@
 import React, { Fragment, useContext } from "react";
 import { Context } from "../../../store/appContext";
-import SideNav from "../../../component/sidenav";
-import { string } from "prop-types";
 import { PaymentDataForm } from "../../../component/forms/paymentDataForm";
-import { StudentPaymentsTable } from "../../../component/tables/studentPaymentsTable";
+import { Table } from "../../../component/tables/Table";
+import SideNav from "../../../component/sidenav";
 
 export const StudentPayments = () => {
 	const { store, actions } = useContext(Context);
@@ -12,7 +11,7 @@ export const StudentPayments = () => {
 			<SideNav links={store.sideBarContent.staff}>
 				<div className="container">
 					<div className="row">
-						<div className="col-lg-6 offset-lg-3 mt-5">
+						<div className="col-lg-6 offset-lg-3 mt-2">
 							<h1 className="text-center">Pagos Realizados</h1>
 							<h3 className="text-center">Jennifer Toledo</h3>
 						</div>
@@ -20,7 +19,11 @@ export const StudentPayments = () => {
 
 					<PaymentDataForm />
 					<br />
-					<StudentPaymentsTable />
+					<Table
+						searchFields={["date", "amount"]}
+						columns={["id", "payment_id", "date", "amount"]}
+						list={store.studentPaymentsTable}
+					/>
 				</div>
 			</SideNav>
 		</Fragment>
