@@ -1,10 +1,9 @@
-import React, { Fragment, useContext, useState } from "react";
-import { Table } from "../../component/tables/Table";
+import React, { Fragment, useContext } from "react";
 import SideNav from "../../component/sidenav";
 import { Context } from "../../store/appContext";
-import PropTypes from "prop-types";
+import { Table } from "../../component/tables/Table";
 
-export const Files = () => {
+export const Payments = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<Fragment>
@@ -12,7 +11,7 @@ export const Files = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-6 offset-lg-3 mt-5">
-							<h1 className="text-center">Expedientes de Estudiantes</h1>
+							<h1 className="text-center">Pagos</h1>
 						</div>
 					</div>
 					<div className="row">
@@ -20,7 +19,7 @@ export const Files = () => {
 							<Table
 								searchFields={["name", "lastName", "email"]}
 								columns={["name", "lastName", "cohort", "modality", "email", "phone", "breathecode_id"]}
-								list={store.filesDataTable}
+								list={store.paymentsTable}
 							/>
 						</div>
 					</div>

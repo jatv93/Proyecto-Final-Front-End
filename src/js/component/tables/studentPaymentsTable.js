@@ -11,6 +11,7 @@ export const StudentPaymentsTable = () => {
 				<table className="table">
 					<thead className="thead-dark">
 						<tr className="text-center">
+							<th scope="col">#</th>
 							<th scope="col">N° de Pago</th>
 							<th scope="col">Fecha de Emisión</th>
 
@@ -25,6 +26,7 @@ export const StudentPaymentsTable = () => {
 								<>
 									<tr className="text-center" key={index}>
 										<th scope="row">{item.id}</th>
+										<td>{item.payment_id}</td>
 										<td>{item.date}</td>
 										<td>{item.amount}</td>
 

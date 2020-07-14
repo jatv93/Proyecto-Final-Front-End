@@ -11,6 +11,7 @@ export const StudentCreditNoteTable = () => {
 				<table className="table">
 					<thead className="thead-dark">
 						<tr className="text-center">
+							<th scope="col">#</th>
 							<th scope="col">Nota de Crédito</th>
 							<th scope="col">Fecha de Emisión</th>
 
@@ -25,6 +26,7 @@ export const StudentCreditNoteTable = () => {
 								<>
 									<tr className="text-center" key={index}>
 										<th scope="row">{item.id}</th>
+										<td>{item.note_id}</td>
 										<td>{item.date}</td>
 										<td>{item.amount}</td>
 

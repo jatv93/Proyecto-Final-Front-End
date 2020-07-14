@@ -48,7 +48,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					modality: "PT",
 					phone: "975906062",
 					email: "prueba@prueba.com",
-					breathecode_id: "150"
+					breathecode_id: "150",
+					rut: "27.009.732-4",
+					birth_date: "20/10/1993",
+					address: "Evaristo Lillo 29, Las Condes",
+					region: "Region Metropolitana"
 				},
 				{
 					id: 2,
@@ -58,7 +62,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					modality: "PT",
 					phone: "972848039",
 					email: "jatv@jatv.com",
-					breathecode_id: "100"
+					breathecode_id: "100",
+					rut: "26.153.225-8",
+					birth_date: "24/08/1993",
+					address: "Evaristo Lillo 101, Las Condes",
+					region: "Region Metropolitana"
 				},
 				{
 					id: 3,
@@ -68,7 +76,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					modality: "PT",
 					phone: "972848039",
 					email: "jatv@jatv.com",
-					breathecode_id: "110"
+					breathecode_id: "110",
+					rut: "25.665.298-4",
+					birth_date: "26/01/1993",
+					address: "Av Apoquindo 2903, Las Condes",
+					region: "Region Metropolitana"
 				}
 			],
 
@@ -99,16 +111,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			studentPaymentsTable: [
 				{
 					id: 1,
+					payment_id: 350,
 					date: "03/06/2020",
 					amount: "1.000.000"
 				},
 				{
 					id: 2,
+					payment_id: 620,
 					date: "09/06/2020",
 					amount: "700.000"
 				},
 				{
 					id: 3,
+					payment_id: 563,
 					date: "06/07/2020",
 					amount: "300.000"
 				}
@@ -116,16 +131,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			studentInvoiceTable: [
 				{
 					id: 1,
+					invoice_id: 200,
 					date: "03/06/2020",
 					amount: "1.000.000"
 				},
 				{
 					id: 2,
+					invoice_id: 210,
 					date: "09/06/2020",
 					amount: "700.000"
 				},
 				{
 					id: 3,
+					invoice_id: 300,
 					date: "06/07/2020",
 					amount: "300.000"
 				}
@@ -134,20 +152,92 @@ const getState = ({ getStore, getActions, setStore }) => {
 			studentCreditNoteTable: [
 				{
 					id: 1,
+					note_id: 5,
+					date: "03/06/2020",
+					amount: "1.000.000"
+				}
+			],
+
+			agreementsTable: [
+				{
+					id: 1,
+					name: "Jennifer",
+					lastName: "Toledo",
+					cohort: "II",
+					modality: "PT",
+					breathecode_id: 150
+				}
+			],
+
+			financingTable: [
+				{
+					id: 1,
+					name: "Jennifer",
+					lastName: "Toledo",
+					cohort: "II",
+					modality: "PT",
+					breathecode_id: 150
+				}
+			],
+
+			paymentsTable: [
+				{
+					id: 1,
+					name: "Jennifer",
+					lastName: "Toledo",
+					payment_id: 5,
+					cohort: "II",
+					modality: "PT",
+					date: "03/06/2020",
+					amount: "1.000.000"
+				}
+			],
+
+			invoicesTable: [
+				{
+					id: 1,
+					rut: "27.009.732-4",
+					full_name: "Jennifer Toledo",
+					cohort: "II",
+					modality: "PT",
+					invoice_id: 202,
 					date: "03/06/2020",
 					amount: "1.000.000"
 				},
 				{
 					id: 2,
+					rut: "27.009.732-4",
+					full_name: "Jennifer Toledo",
+					cohort: "II",
+					modality: "PT",
+					invoice_id: 300,
 					date: "09/06/2020",
 					amount: "700.000"
 				},
 				{
 					id: 3,
+					rut: "27.009.732-4",
+					full_name: "Jennifer Toledo",
+					cohort: "II",
+					modality: "PT",
+					invoice_id: 450,
 					date: "06/07/2020",
 					amount: "300.000"
 				}
-			]
+			], //esta info viene del SII
+
+			creditNoteTable: [
+				{
+					id: 1,
+					rut: "27.009.732-4",
+					full_name: "Jennifer Toledo",
+					cohort: "II",
+					modality: "PT",
+					note_id: 5,
+					date: "03/06/2020",
+					amount: "1.000.000"
+				}
+			] //esta info viene del SII
 		},
 
 		actions: {
