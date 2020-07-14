@@ -32,7 +32,6 @@ export const Layout = () => {
 						<Route exact path="/nav" component={Profile} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
-					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>
