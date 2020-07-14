@@ -15,8 +15,7 @@ import { teachform } from "./views/teachers/teacherForm";
 import { studentStrength } from "./views/teachers/strengths";
 import { studentWeakness } from "./views/teachers/weaknesses";
 
-import SideNav from "./component/sidenav";
-import Profile from "./views/student/profile";
+import Profile from "./views/student/student_profile/profile";
 
 import { Files } from "./views/staff/files";
 import { StudentProfile } from "./views/staff/studentFiles/studentProfile";
@@ -37,7 +36,6 @@ export const Layout = () => {
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/register" component={RegisterForm} />
@@ -55,7 +53,7 @@ export const Layout = () => {
 						<Route exact path="/teacher/form" component={teachform} />
 						<Route exact path="/teacher/form/strengths" component={studentStrength} />
 						<Route exact path="/teacher/form/weaknesses" component={studentWeakness} />
-						<Route exact path="/nav" component={Profile} />
+						<Route exact path="/student/profile" component={Profile} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 				</ScrollToTop>

@@ -3,24 +3,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			sideBarContent: {
 				staff: [
-					"Expedientes de Estudiantes",
-					"Perfiles Laborales",
-					"Acuerdo de Inscripción",
-					"Contrato de Financiamiento",
-					"Pagos",
-					"Facturas",
-					"Notas de Credito"
+					{ title: "Student Files", link: "/staff/files" },
+					{ title: "Job Profile", link: "/staff/files/student/job_profile" },
+					{ title: "Student Agreement", link: "/staff/files/student/agreement" },
+					{ title: "Financing Agreement", link: "/staff/files/student/financing" },
+					{ title: "Payment", link: "/staff/files/student/payments" },
+					{ title: "Invoices", link: "/staff/files/student/invoices" },
+					{ title: "Credit Notes", link: "/staff/files/student/credit_notes" }
 				],
 				student: [
-					"Perfil",
-					"Perfil laboral",
-					"Acuerdo de Inscripción",
-					"Contrato de Financiamiento",
-					"Pagos",
-					"Facturas",
-					"Notas de Credito"
+					{ title: "Profile", link: "/student/profile" },
+					{ title: "Job Profile", link: "/student/job_profile" },
+					{ title: "Student Agreement", link: "/student/agreement" },
+					{ title: "Financing Agreement", link: "/student/financing" },
+					{ title: "Payment", link: "/student/payment" },
+					{ title: "Invoices", link: "/student/invoices" },
+					{ title: "Credit Notes", link: "/student/credit_notes" }
 				],
-				teacher: ["Mis Cohortes"]
+				teacher: [{ title: "My Cohorts", link: "/teacher/cohorts" }]
 			},
 			studentRegister: {
 				name: "",
