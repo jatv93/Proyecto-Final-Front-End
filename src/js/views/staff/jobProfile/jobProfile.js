@@ -1,10 +1,9 @@
 import React, { Fragment, useContext } from "react";
 import SideNav from "../../../component/sidenav";
 import { Context } from "../../../store/appContext";
-import { StudentInvoiceTable } from "../../../component/tables/studentInvoiceTable";
-import { StudentCreditNoteTable } from "../../../component/tables/studentCreditNoteTable";
+import { Table } from "../../../component/tables/Table";
 
-export const StudentInvoices = () => {
+export const JobProfile = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<Fragment>
@@ -12,18 +11,18 @@ export const StudentInvoices = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-6 offset-lg-3 mt-5">
-							<h1 className="text-center">Facturas</h1>
+							<h1 className="text-center">Perfiles Laborales</h1>
 						</div>
 					</div>
-
-					<StudentInvoiceTable />
-					<br />
 					<div className="row">
-						<div className="col-lg-6 offset-lg-3">
-							<h1 className="text-center">Notas de Crédito</h1>
+						<div className="col-lg-12 mt-2 mb-4">
+							<Table
+								searchFields={["name", "lastName"]}
+								columns={["name", "lastName", "cohort", "modality"]}
+								list={store.jobProfileTable}
+							/>
 						</div>
 					</div>
-					<StudentCreditNoteTable />
 				</div>
 			</SideNav>
 		</Fragment>
