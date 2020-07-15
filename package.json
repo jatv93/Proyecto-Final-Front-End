@@ -70,6 +70,9 @@
 		]
 	},
 	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^1.2.29",
+		"@fortawesome/free-solid-svg-icons": "^5.13.1",
+		"@fortawesome/react-fontawesome": "^0.1.11",
 		"@phuocng/react-pdf-viewer": "^1.7.0",
 		"bootstrap": "^4.5.0",
 		"jquery": "^3.5.1",

@@ -1,0 +1,10 @@
+.profile-li{
+    width: fit-content;
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-top: 5px;
+    
+}
+.profile-span{
+    border-bottom: #ffc107 2px solid;
+}

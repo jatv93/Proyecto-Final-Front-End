@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, UncontrolledCollapse, Card, CardBody } from "reactstrap";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import "./sidenav.css";
 
 const SideNav = props => {
@@ -20,9 +21,9 @@ const SideNav = props => {
 								console.log(item);
 								return (
 									<li key={i}>
-										<Button id="toggler" color="warning" size="lg" block className="sidenav-btn">
-											{item}
-										</Button>
+										<Link className="sidenav-btn btn btn-warning btn-lg" to={item.link}>
+											{item.title}
+										</Link>
 									</li>
 								);
 							})}

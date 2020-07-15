@@ -52,6 +52,7 @@
     border-left: 0.35rem solid black;
     margin-left: 0.10rem;
     margin-right: 0.10rem;
+    width: 100%;
 }
 
 .sidenav-header{
