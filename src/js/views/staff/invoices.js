@@ -20,6 +20,7 @@ export const Invoices = () => {
 								searchFields={["rut", "full_name"]}
 								columns={["rut", "full_name", "cohort", "modality", "note_id", "date", "amount"]}
 								list={store.invoicesTable}
+								scope={"/invoices/:invoice_id"}
 							/>
 						</div>
 					</div>

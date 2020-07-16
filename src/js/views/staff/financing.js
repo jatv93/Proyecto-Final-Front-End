@@ -21,6 +21,7 @@ export const Financing = () => {
 								searchFields={["name", "lastName"]}
 								columns={["name", "lastName", "cohort", "modality", "breathecode_id"]}
 								list={store.financingTable}
+								scope={"/financing"}
 							/>
 						</div>
 					</div>

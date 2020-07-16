@@ -20,6 +20,7 @@ export const CreditNotes = () => {
 								searchFields={["rut", "full_name"]}
 								columns={["rut", "full_name", "cohort", "modality", "note_id", "date", "amount"]}
 								list={store.creditNoteTable}
+								scope={"/credit_notes/:credit_note_id"}
 							/>
 						</div>
 					</div>
