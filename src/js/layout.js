@@ -64,6 +64,11 @@ export const Layout = () => {
 							path="/staff/files/:breathecode_id/invoices/:credit_note_id"
 							component={CreditNotePDF}
 						/>
+						<Route
+							exact
+							path="/staff/files/:breathecode_id/credit_notes/:credit_note_id"
+							component={CreditNotePDF}
+						/>
 						<Route exact path="/staff/files/:breathecode_id/job_profile" component={StudentJobProfile} />
 						<Route exact path="/staff/files/:breathecode_id/teacher_comments" component={TeacherComments} />
 						<Route exact path="/staff/job_profile" component={JobProfile} />
