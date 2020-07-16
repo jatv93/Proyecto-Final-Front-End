@@ -23,6 +23,7 @@ export const StudentPayments = () => {
 						searchFields={["date", "amount"]}
 						columns={["id", "payment_id", "date", "amount"]}
 						list={store.studentPaymentsTable}
+						scope={"/payments/:payment_id"}
 					/>
 				</div>
 			</SideNav>

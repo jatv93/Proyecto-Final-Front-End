@@ -4,7 +4,7 @@ import { SearchBar } from "../searchBar";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-export const Table = ({ list, searchFields, columns }) => {
+export const Table = ({ list, searchFields, columns, scope }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [stortingColumn, setSortingColumn] = useState(null);
 
@@ -44,7 +44,7 @@ export const Table = ({ list, searchFields, columns }) => {
 											{columns.map(c => (
 												<th key={c}>{item[c]}</th>
 											))}
-											<Link to={"/staff/files/" + item.breathecode_id}>
+											<Link to={"/staff/files/" + item.breathecode_id + scope}>
 												<td>ver</td>
 											</Link>
 										</tr>
@@ -61,9 +61,11 @@ export const Table = ({ list, searchFields, columns }) => {
 Table.propTypes = {
 	list: PropTypes.any,
 	searchFields: PropTypes.any,
-	columns: PropTypes.array
+	columns: PropTypes.array,
+	scope: PropTypes.any
 };
 Table.defaultProps = {
 	searchFields: false,
-	columns: []
+	columns: [],
+	scope: ""
 };

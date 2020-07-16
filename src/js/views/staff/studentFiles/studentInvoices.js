@@ -19,6 +19,7 @@ export const StudentInvoices = () => {
 						searchFields={["date", "amount"]}
 						columns={["id", "invoice_id", "date", "amount"]}
 						list={store.studentInvoiceTable}
+						scope={"/invoices/:invoice_id"}
 					/>
 					<br />
 					<div className="row">
@@ -30,6 +31,7 @@ export const StudentInvoices = () => {
 						searchFields={["date", "amount"]}
 						columns={["id", "note_id", "date", "amount"]}
 						list={store.studentCreditNoteTable}
+						scope={"/invoices/:credit_note_id"}
 					/>
 				</div>
 			</SideNav>

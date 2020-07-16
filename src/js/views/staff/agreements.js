@@ -21,6 +21,7 @@ export const Agreements = () => {
 								searchFields={["name", "lastName"]}
 								columns={["name", "lastName", "cohort", "modality", "breathecode_id"]}
 								list={store.agreementsTable}
+								scope={"/agreement"}
 							/>
 						</div>
 					</div>

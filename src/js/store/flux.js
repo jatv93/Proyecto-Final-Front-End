@@ -4,12 +4,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			sideBarContent: {
 				staff: [
 					{ title: "Student Files", link: "/staff/files" },
-					{ title: "Job Profile", link: "/staff/files/student/job_profile" },
-					{ title: "Student Agreement", link: "/staff/files/student/agreement" },
-					{ title: "Financing Agreement", link: "/staff/files/student/financing" },
-					{ title: "Payment", link: "/staff/files/student/payments" },
-					{ title: "Invoices", link: "/staff/files/student/invoices" },
-					{ title: "Credit Notes", link: "/staff/files/student/credit_notes" }
+					{ title: "Job Profile", link: "/staff/job_profile" },
+					{ title: "Student Agreement", link: "/staff/agreements" },
+					{ title: "Financing Agreement", link: "/staff/financing" },
+					{ title: "Payment", link: "/staff/payments" },
+					{ title: "Invoices", link: "/staff/invoices" },
+					{ title: "Credit Notes", link: "/staff/credit_notes" }
 				],
 				student: [
 					{ title: "Profile", link: "/student/profile" },
@@ -113,19 +113,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 					id: 1,
 					payment_id: 350,
 					date: "03/06/2020",
-					amount: "1.000.000"
+					amount: "1.000.000",
+					breathecode_id: 150
 				},
 				{
 					id: 2,
 					payment_id: 620,
 					date: "09/06/2020",
-					amount: "700.000"
+					amount: "700.000",
+					breathecode_id: 150
 				},
 				{
 					id: 3,
 					payment_id: 563,
 					date: "06/07/2020",
-					amount: "300.000"
+					amount: "300.000",
+					breathecode_id: 150
 				}
 			],
 			studentInvoiceTable: [
@@ -133,19 +136,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 					id: 1,
 					invoice_id: 200,
 					date: "03/06/2020",
-					amount: "1.000.000"
+					amount: "1.000.000",
+					breathecode_id: 150
 				},
 				{
 					id: 2,
 					invoice_id: 210,
 					date: "09/06/2020",
-					amount: "700.000"
+					amount: "700.000",
+					breathecode_id: 150
 				},
 				{
 					id: 3,
 					invoice_id: 300,
 					date: "06/07/2020",
-					amount: "300.000"
+					amount: "300.000",
+					breathecode_id: 150
 				}
 			],
 
@@ -154,7 +160,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					id: 1,
 					note_id: 5,
 					date: "03/06/2020",
-					amount: "1.000.000"
+					amount: "1.000.000",
+					breathecode_id: 150
 				}
 			],
 
@@ -189,7 +196,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					cohort: "II",
 					modality: "PT",
 					date: "03/06/2020",
-					amount: "1.000.000"
+					amount: "1.000.000",
+					breathecode_id: 150
 				}
 			],
 
@@ -202,7 +210,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					modality: "PT",
 					invoice_id: 202,
 					date: "03/06/2020",
-					amount: "1.000.000"
+					amount: "1.000.000",
+					breathecode_id: 150
 				},
 				{
 					id: 2,
@@ -212,7 +221,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					modality: "PT",
 					invoice_id: 300,
 					date: "09/06/2020",
-					amount: "700.000"
+					amount: "700.000",
+					breathecode_id: 150
 				},
 				{
 					id: 3,
@@ -222,7 +232,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					modality: "PT",
 					invoice_id: 450,
 					date: "06/07/2020",
-					amount: "300.000"
+					amount: "300.000",
+					breathecode_id: 150
 				}
 			], //esta info viene del SII
 
@@ -235,7 +246,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					modality: "PT",
 					note_id: 5,
 					date: "03/06/2020",
-					amount: "1.000.000"
+					amount: "1.000.000",
+					breathecode_id: 150
 				}
 			] //esta info viene del SII
 		},
