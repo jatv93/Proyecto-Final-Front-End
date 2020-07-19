@@ -19,27 +19,20 @@ export const studentProjection = () => {
 					<div className="row">
 						<div className="col-12 col-lg-10 offset-lg-1">
 							<form>
-								<div className="form-group">
-									<label>¿Qué puede mejorar el estudiante?</label>
-									<br />
-									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
-								</div>
-
-								<div className="form-group">
-									<label>¿De qué formas no es eficiente?</label>
-									<br />
-									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
-								</div>
-								<div className="form-group">
-									<label>¿Qué no está haciendo bien?</label>
-									<br />
-									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
-								</div>
-								<div className="form-group">
-									<label>¿Qué es lo que definitivamente no va a hacer muy bien?</label>
-									<br />
-									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
-								</div>
+								{store.projectionQuestions.map((item, index) => {
+									return (
+										<div className="form-group" key={index}>
+											<label>{item.question}</label>
+											<br />
+											<textarea
+												className="form-control"
+												id="exampleFormControlTextarea1"
+												rows="3"
+												required
+											/>
+										</div>
+									);
+								})}
 
 								<button type="submit" className="submit btn btn-primary">
 									Enviar

@@ -334,6 +334,155 @@ const getState = ({ getStore, getActions, setStore }) => {
 					answer:
 						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
 				}
+			],
+
+			strengthQuestions: [
+				{
+					question_id: 1,
+					question: "¿Qué hace a este estudiante mejor que los otros?"
+				},
+				{
+					question_id: 2,
+					question: "¿Qué está haciendo muy bien?"
+				},
+				{
+					question_id: 3,
+					question: "¿Habilidades más asombrosas?"
+				},
+				{
+					question_id: 4,
+					question: "¿Qué dicen los demás que él/ella hace muy bien?"
+				}
+			],
+
+			strengthAnswers: [
+				{
+					answer_id: 1,
+					question_id: 1,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 2,
+					question_id: 2,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 3,
+					question_id: 3,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 4,
+					question_id: 4,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				}
+			],
+
+			weaknessQuestions: [
+				{
+					question_id: 1,
+					question: "¿Qué puede mejorar el estudiante?"
+				},
+				{
+					question_id: 2,
+					question: "¿De qué formas no es eficiente?"
+				},
+				{
+					question_id: 3,
+					question: "¿Qué no está haciendo bien?"
+				},
+				{
+					question_id: 4,
+					question: "¿Qué es lo que definitivamente no va a hacer muy bien?"
+				}
+			],
+
+			weaknessAnswers: [
+				{
+					answer_id: 1,
+					question_id: 1,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 2,
+					question_id: 2,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 3,
+					question_id: 3,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 4,
+					question_id: 4,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				}
+			],
+
+			projectionQuestions: [
+				{
+					question_id: 1,
+					question: "¿De qué tendencias recurrentes se puede aprovechar el alumno?"
+				},
+				{
+					question_id: 2,
+					question:
+						"¿Alguna habilidad interesante que pueda desarrollarse más para conseguir trabajos impresionantes? "
+				},
+				{
+					question_id: 3,
+					question: "¿Es disciplinado/a?"
+				},
+				{
+					question_id: 4,
+					question: "¿Es apasionado/a por programar?"
+				},
+				{
+					question_id: 5,
+					question: "¿Algún impedimento para convertirse en un desarrollador real?"
+				}
+			],
+
+			projectionAnswers: [
+				{
+					answer_id: 1,
+					question_id: 1,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 2,
+					question_id: 2,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 3,
+					question_id: 3,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 4,
+					question_id: 4,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 5,
+					question_id: 5,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				}
 			]
 		},
 

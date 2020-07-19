@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 //include your index.scss file into the bundle
 import "../styles/index.scss";
-import "../styles/files.css";
+import "../styles/files.scss";
 
 //import your own components
 import Layout from "./layout";

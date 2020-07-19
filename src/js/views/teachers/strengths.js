@@ -19,27 +19,20 @@ export const studentStrength = () => {
 					<div className="row">
 						<div className="col-12 col-lg-10 offset-lg-1">
 							<form>
-								<div className="form-group">
-									<label>¿Qué hace a este estudiante mejor que los otros?</label>
-									<br />
-									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
-								</div>
-
-								<div className="form-group">
-									<label>¿Qué está haciendo muy bien?</label>
-									<br />
-									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
-								</div>
-								<div className="form-group">
-									<label>¿Habilidades más asombrosas?</label>
-									<br />
-									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
-								</div>
-								<div className="form-group">
-									<label>¿Qué dicen los demás que él/ella hace muy bien?</label>
-									<br />
-									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
-								</div>
+								{store.strengthQuestions.map((item, index) => {
+									return (
+										<div className="form-group" key={index}>
+											<label>{item.question}</label>
+											<br />
+											<textarea
+												className="form-control"
+												id="exampleFormControlTextarea1"
+												rows="3"
+												required
+											/>
+										</div>
+									);
+								})}
 
 								<button type="submit" className="submit btn btn-primary">
 									Enviar
