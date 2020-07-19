@@ -1,5 +1,4 @@
 import React, { Fragment, useContext } from "react";
-import "../../../styles/files.css";
 import SideNav from "../../component/sidenav";
 import { Context } from "../../store/appContext";
 import { Table } from "../../component/tables/Table";

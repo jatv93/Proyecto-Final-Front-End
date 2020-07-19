@@ -1,54 +1,71 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { Context } from "../../store/appContext";
+import { SearchBar } from "../searchBar";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export const Teachertable = () => {
+export const TeacherTable = ({ list, searchFields, columns, scope }) => {
+	const [searchTerm, setSearchTerm] = useState("");
+	const [stortingColumn, setSortingColumn] = useState(null);
+
 	return (
-		<div className="container">
-			<div className="row">
-				<div className="col-12 col-lg-10 col-md-10 offset-md-1">
-					<table className="table">
-						<thead className="thead-dark">
-							<tr>
-								<th scope="col">#</th>
-								<th scope="col">First</th>
-								<th scope="col">Last</th>
-								<th scope="col">Cohorte</th>
-								<th scope="col">Modalidad</th>
-								<th scope="col">Fecha de Ingreso</th>
-								<th scope="col">Correo</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row">1</th>
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>C-I</td>
-								<td>PT</td>
-								<td>20-03-2019</td>
-								<td>mark.otto@gmail.com</td>
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>C-I</td>
-								<td>PT</td>
-								<td>20-03-2019</td>
-								<td>jacob.Thornton@gmail.com</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>Larry</td>
-								<td>the Bird</td>
-								<td>C-II</td>
-								<td>FT</td>
-								<td>15-04-2019</td>
-								<td>Larry.bird@gmail.com</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+		<div className="row">
+			<div className="col-lg-12">
+				<SearchBar onChange={value => setSearchTerm(value)} />
+				<br />
+				<br />
+				<table className="table">
+					<thead className="thead-dark">
+						<tr className="text-center">
+							{columns.map(c => (
+								<th key={c} scope="col" onClick={() => setSortingColumn(c)}>
+									{c}
+								</th>
+							))}
+							<th scope="col"> </th>
+						</tr>
+					</thead>
+					<tbody>
+						{list
+							.filter(item => {
+								for (let i = 0; i < searchFields.length; i++)
+									if (item[searchFields[i]].toLowerCase().includes(searchTerm.toLowerCase()))
+										return true;
+
+								return false;
+							})
+							.sort((itemA, itemB) => {
+								return itemA[stortingColumn] > itemB[stortingColumn] ? 1 : -1;
+							})
+							.map((item, index) => {
+								return (
+									<>
+										<tr className="text-center" key={index}>
+											{columns.map(c => (
+												<th key={c}>{item[c]}</th>
+											))}
+											<Link to={"/teacher/" + item.breathecode_id + scope}>
+												<td>ver</td>
+											</Link>
+										</tr>
+									</>
+								);
+							})}
+					</tbody>
+				</table>
 			</div>
 		</div>
 	);
+};
+
+TeacherTable.propTypes = {
+	list: PropTypes.any,
+	searchFields: PropTypes.any,
+	columns: PropTypes.array,
+	scope: PropTypes.any
+};
+TeacherTable.defaultProps = {
+	searchFields: false,
+	columns: [],
+	scope: ""
 };

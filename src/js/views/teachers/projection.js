@@ -1,8 +1,8 @@
 import React, { Fragment, useContext } from "react";
-import SideNav from "../../component/sidenav";
 import { Context } from "../../store/appContext";
+import SideNav from "../../component/sidenav";
 
-export const studentStrength = () => {
+export const studentProjection = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<Fragment>
@@ -10,7 +10,7 @@ export const studentStrength = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-6 offset-lg-3">
-							<h1 className="text-center">Fortalezas</h1>
+							<h1 className="text-center">Proyección del Estudiante</h1>
 							<h3 className="text-center">Mark Otto</h3>
 						</div>
 					</div>
@@ -19,7 +19,7 @@ export const studentStrength = () => {
 					<div className="row">
 						<div className="col-12 col-lg-10 offset-lg-1">
 							<form>
-								{store.strengthQuestions.map((item, index) => {
+								{store.projectionQuestions.map((item, index) => {
 									return (
 										<div className="form-group" key={index}>
 											<label>{item.question}</label>

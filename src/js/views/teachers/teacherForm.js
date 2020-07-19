@@ -1,26 +1,39 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
+import { Context } from "../../store/appContext";
+import SideNav from "../../component/sidenav";
+import { Link } from "react-router-dom";
 
 export const teachform = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<Fragment>
-			<nav className="navbar navbar-light bg-white mb-3">
-				<h2 className="navbar-brand mb-0 h1">Mark Otto</h2>
-			</nav>
-			<div className="row">
-				<div className="col-12">
-					<div className="align-middle text-center mt-5">
-						<h1>Cuestionario</h1>
+			<SideNav links={store.sideBarContent.teacher}>
+				<div className="row">
+					<div className="col-lg-12">
+						<div className="align-middle text-center mt-2">
+							<h1>Cuestionario</h1>
+							<h3>Mark Otto</h3>
+						</div>
 					</div>
 				</div>
-			</div>
+				<br />
 
-			<div className="row">
-				<div className="col-8 offset-md-1">
-					<h3>Fortalezas</h3>
-					<h3>Debilidades</h3>
-					<h3>Proyeccion de Estudiante</h3>
+				<div className="row">
+					<div className="col-8 offset-md-1">
+						<Link to={"/teacher/:breathecode_id/form/strengths"}>
+							<h3>Fortalezas</h3>
+						</Link>
+						<br />
+						<Link to={"/teacher/:breathecode_id/form/weaknesses"}>
+							<h3>Debilidades</h3>
+						</Link>
+						<br />
+						<Link to={"/teacher/:breathecode_id/form/projection"}>
+							<h3>Proyección del Estudiante</h3>
+						</Link>
+					</div>
 				</div>
-			</div>
+			</SideNav>
 		</Fragment>
 	);
 };

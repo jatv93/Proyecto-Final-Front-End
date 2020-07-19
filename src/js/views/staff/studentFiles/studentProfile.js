@@ -1,6 +1,5 @@
 import React, { Fragment, useContext } from "react";
 import PersonalDataForm from "../../../component/forms/personalDataForm";
-import "../../../../styles/files.css";
 import SideNav from "../../../component/sidenav";
 import { Context } from "../../../store/appContext";
 
