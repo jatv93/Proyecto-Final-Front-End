@@ -13,6 +13,45 @@ export const TeacherComments = () => {
 							<h1 className="text-center">Comentarios del Profesor/Ayudante</h1>
 						</div>
 					</div>
+					<div className="row">
+						<div className="col-lg-12">
+							<h3>Fortalezas</h3>
+							<ul>
+								<li>Pregunta</li>
+							</ul>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante,
+								laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque
+								efficitur aliquam sodales. Vestibulum eget sagittis magna.
+							</p>
+						</div>
+					</div>
+					<div className="row">
+						<div className="col-lg-12">
+							<h3>Debilidades</h3>
+							<ul>
+								<li>Pregunta</li>
+							</ul>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante,
+								laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque
+								efficitur aliquam sodales. Vestibulum eget sagittis magna.
+							</p>
+						</div>
+					</div>
+					<div className="row">
+						<div className="col-lg-12">
+							<h3>Proyección del estudiante</h3>
+							<ul>
+								<li>Pregunta</li>
+							</ul>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante,
+								laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque
+								efficitur aliquam sodales. Vestibulum eget sagittis magna.
+							</p>
+						</div>
+					</div>
 				</div>
 			</SideNav>
 		</Fragment>

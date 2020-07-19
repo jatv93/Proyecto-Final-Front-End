@@ -1,8 +1,8 @@
 import React, { Fragment, useContext } from "react";
-import SideNav from "../../component/sidenav";
 import { Context } from "../../store/appContext";
+import SideNav from "../../component/sidenav";
 
-export const studentStrength = () => {
+export const studentProjection = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<Fragment>
@@ -10,7 +10,7 @@ export const studentStrength = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-6 offset-lg-3">
-							<h1 className="text-center">Fortalezas</h1>
+							<h1 className="text-center">Proyección del Estudiante</h1>
 							<h3 className="text-center">Mark Otto</h3>
 						</div>
 					</div>
@@ -20,23 +20,23 @@ export const studentStrength = () => {
 						<div className="col-12 col-lg-10 offset-lg-1">
 							<form>
 								<div className="form-group">
-									<label>¿Qué hace a este estudiante mejor que los otros?</label>
+									<label>¿Qué puede mejorar el estudiante?</label>
 									<br />
 									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
 								</div>
 
 								<div className="form-group">
-									<label>¿Qué está haciendo muy bien?</label>
+									<label>¿De qué formas no es eficiente?</label>
 									<br />
 									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
 								</div>
 								<div className="form-group">
-									<label>¿Habilidades más asombrosas?</label>
+									<label>¿Qué no está haciendo bien?</label>
 									<br />
 									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
 								</div>
 								<div className="form-group">
-									<label>¿Qué dicen los demás que él/ella hace muy bien?</label>
+									<label>¿Qué es lo que definitivamente no va a hacer muy bien?</label>
 									<br />
 									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
 								</div>

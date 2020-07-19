@@ -13,6 +13,27 @@ export const StudentJobProfile = () => {
 							<h1 className="text-center">Perfil Laboral</h1>
 						</div>
 					</div>
+					<div className="row">
+						<div className="col-lg-12">
+							<br />
+							{store.jobProfileStudentQuestions.map((item, index) => {
+								const answer = store.jobProfileStudentAnswers.find(
+									answer => answer.question_id == item.question_id
+								);
+								item.answer = answer ? answer.answer : null;
+								return (
+									<>
+										<ul key={index}>
+											<li>
+												<h5>{item.question}</h5>
+											</li>
+										</ul>
+										<p>{item.answer}</p>
+									</>
+								);
+							})}
+						</div>
+					</div>
 				</div>
 			</SideNav>
 		</Fragment>

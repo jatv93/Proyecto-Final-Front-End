@@ -20,7 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					{ title: "Invoices", link: "/student/invoices" },
 					{ title: "Credit Notes", link: "/student/credit_notes" }
 				],
-				teacher: [{ title: "My Cohorts", link: "/teacher/cohorts" }]
+				teacher: [{ title: "My Cohorts", link: "/teacher" }]
 			},
 			studentRegister: {
 				name: "",
@@ -52,7 +52,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					rut: "27.009.732-4",
 					birth_date: "20/10/1993",
 					address: "Evaristo Lillo 29, Las Condes",
-					region: "Region Metropolitana"
+					region: "Region Metropolitana",
+					admission_date: "15/01/2019"
 				},
 				{
 					id: 2,
@@ -66,7 +67,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					rut: "26.153.225-8",
 					birth_date: "24/08/1993",
 					address: "Evaristo Lillo 101, Las Condes",
-					region: "Region Metropolitana"
+					region: "Region Metropolitana",
+					admission_date: "18/05/2019"
 				},
 				{
 					id: 3,
@@ -80,7 +82,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					rut: "25.665.298-4",
 					birth_date: "26/01/1993",
 					address: "Av Apoquindo 2903, Las Condes",
-					region: "Region Metropolitana"
+					region: "Region Metropolitana",
+					admission_date: "10/01/2020"
 				}
 			],
 
@@ -90,21 +93,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					name: "Ramon",
 					lastName: "Perez",
 					cohort: "I",
-					modality: "PT"
+					modality: "PT",
+					breathecode_id: 150
 				},
 				{
 					id: 2,
 					name: "Orlando",
 					lastName: "Martinez",
 					cohort: "II",
-					modality: "PT"
+					modality: "PT",
+					breathecode_id: 100
 				},
 				{
 					id: 3,
 					name: "Fernando",
 					lastName: "Fernandez",
 					cohort: "II",
-					modality: "PT"
+					modality: "PT",
+					breathecode_id: 110
 				}
 			],
 
@@ -249,7 +255,86 @@ const getState = ({ getStore, getActions, setStore }) => {
 					amount: "1.000.000",
 					breathecode_id: 150
 				}
-			] //esta info viene del SII
+			], //esta info viene del SII
+
+			jobProfileStudentQuestions: [
+				{
+					question_id: 1,
+					question: "¿Estarías dispuesto/a a aceptar un cargo trainee, prácticas o pasantías?"
+				},
+				{
+					question_id: 2,
+					question:
+						"¿De ser afirmativo, ¿cuáles son tus condiciones? Por ejemplo, ¿aceptarías el cargo sin remuneración??"
+				},
+				{
+					question_id: 3,
+					question:
+						"¿Cuál área del desarrollo de software te interesa/inclinas o se te hace más fácil (front o back)?"
+				},
+				{
+					question_id: 4,
+					question:
+						"Tomando en cuenta que los cargos trainee o pasantías son un nivel más sencillo que los cargos Junior, ¿te gustaría postularte como practicante Full-Stack o prefieres que sea netamente sobre el área de tu inclinación?"
+				},
+				{
+					question_id: 5,
+					question: "¿Dominas el inglés? ¿Te consideras una persona bilingüe?"
+				},
+				{
+					question_id: 6,
+					question: "¿Tienes experiencia previa en programación?"
+				},
+				{
+					question_id: 7,
+					question: "¿Anteriormente has trabajado en programación, tecnología o afín?"
+				}
+			],
+
+			jobProfileStudentAnswers: [
+				{
+					answer_id: 1,
+					question_id: 1,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 2,
+					question_id: 2,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 3,
+					question_id: 3,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 4,
+					question_id: 4,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 5,
+					question_id: 5,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 6,
+					question_id: 6,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				},
+				{
+					answer_id: 7,
+					question_id: 7,
+					answer:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
+				}
+			]
 		},
 
 		actions: {

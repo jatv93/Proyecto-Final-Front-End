@@ -20,6 +20,7 @@ export const JobProfile = () => {
 								searchFields={["name", "lastName"]}
 								columns={["name", "lastName", "cohort", "modality"]}
 								list={store.jobProfileTable}
+								scope={"/job_profile"}
 							/>
 						</div>
 					</div>

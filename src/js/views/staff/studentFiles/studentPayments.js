@@ -5,7 +5,7 @@ import { Table } from "../../../component/tables/Table";
 import SideNav from "../../../component/sidenav";
 
 export const StudentPayments = () => {
-	const { store, actions } = useContext(Context);
+	const { store } = useContext(Context);
 	return (
 		<Fragment>
 			<SideNav links={store.sideBarContent.staff}>

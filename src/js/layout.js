@@ -9,7 +9,7 @@ import { Forgot_Password } from "./views/home/forgot_password";
 import injectContext from "./store/appContext";
 
 import { Footer } from "./component/footer";
-import { teachome } from "./views/teachers/teachHome";
+import { teachome } from "./views/teachers/home";
 import { teachform } from "./views/teachers/teacherForm";
 import { studentStrength } from "./views/teachers/strengths";
 import { studentWeakness } from "./views/teachers/weaknesses";
@@ -33,6 +33,7 @@ import { Payments } from "./views/staff/payments";
 import { InvoicePDF } from "./views/staff/PDF_Views/invoicePDF";
 import { CreditNotePDF } from "./views/staff/PDF_Views/creditNotePDF";
 import { PaymentPDF } from "./views/staff/PDF_Views/paymentPDF";
+import { studentProjection } from "./views/teachers/projection";
 
 //create your first component
 export const Layout = () => {
@@ -78,9 +79,10 @@ export const Layout = () => {
 						<Route exact path="/staff/invoices" component={Invoices} />
 						<Route exact path="/staff/credit_notes" component={CreditNotes} />
 						<Route exact path="/teacher" component={teachome} />
-						<Route exact path="/teacher/form" component={teachform} />
-						<Route exact path="/teacher/form/strengths" component={studentStrength} />
-						<Route exact path="/teacher/form/weaknesses" component={studentWeakness} />
+						<Route exact path="/teacher/:breathecode_id/form" component={teachform} />
+						<Route exact path="/teacher/:breathecode_id/form/strengths" component={studentStrength} />
+						<Route exact path="/teacher/:breathecode_id/form/weaknesses" component={studentWeakness} />
+						<Route exact path="/teacher/:breathecode_id/form/projection" component={studentProjection} />
 						<Route exact path="/student/profile" component={Profile} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
