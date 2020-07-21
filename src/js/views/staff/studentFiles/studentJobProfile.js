@@ -4,6 +4,7 @@ import SideNav from "../../../component/sidenav";
 
 export const StudentJobProfile = () => {
 	const { store, actions } = useContext(Context);
+
 	return (
 		<Fragment>
 			<SideNav links={store.sideBarContent.staff}>
