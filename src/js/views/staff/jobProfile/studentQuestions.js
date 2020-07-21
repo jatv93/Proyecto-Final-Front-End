@@ -11,24 +11,29 @@ export const StudentQuestions = () => {
 	const { store, actions } = useContext(Context);
 	const [modalShow, setModalShow] = React.useState(false);
 
-	function AddQuestionModal(props) {
-		return (
-			<Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-				<Modal.Header closeButton>
-					<Modal.Title id="contained-modal-title-vcenter">Añadir Nueva Pregunta</Modal.Title>
-				</Modal.Header>
-				<Modal.Body>
-					<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" required />
-				</Modal.Body>
-				<Modal.Footer>
-					<Button onClick={props.onHide}>Guardar</Button>
-				</Modal.Footer>
-			</Modal>
-		);
-	}
-
 	return (
 		<Fragment>
+			<Modal show={modalShow} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+				<Modal.Header closeButton onClick={() => setModalShow(false)}>
+					<Modal.Title id="contained-modal-title-vcenter">Añadir Nueva Pregunta</Modal.Title>
+				</Modal.Header>
+				<form onSubmit={e => actions.submitQuestion(e)}>
+					<Modal.Body>
+						<textarea
+							className="form-control"
+							id="exampleFormControlTextarea1"
+							rows="3"
+							required
+							onChange={e => actions.addQuestion(e.target.value)}
+						/>
+					</Modal.Body>
+					<Modal.Footer>
+						<Button type="submit" onClick={() => setModalShow(false)}>
+							Guardar
+						</Button>
+					</Modal.Footer>
+				</form>
+			</Modal>
 			<SideNav links={store.sideBarContent.staff}>
 				<div className="container">
 					<div className="row">
@@ -45,7 +50,13 @@ export const StudentQuestions = () => {
 										<li>
 											{item.question}
 											<FontAwesomeIcon icon={faEdit} className="ml-2 mr-2" />
-											<FontAwesomeIcon icon={faTrash} className="mr-2" />
+
+											<FontAwesomeIcon
+												icon={faTrash}
+												className="mr-2"
+												onClick={() => actions.deleteQuestion(index)}
+											/>
+
 											<input
 												className="form-check-input-inline"
 												type="checkbox"
@@ -65,8 +76,6 @@ export const StudentQuestions = () => {
 								<FontAwesomeIcon icon={faPlus} className="mr-2" />
 								Añadir Pregunta
 							</Button>
-
-							<AddQuestionModal show={modalShow} onHide={() => setModalShow(false)} />
 						</div>
 					</div>
 				</div>
