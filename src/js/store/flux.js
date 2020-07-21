@@ -530,30 +530,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 						verification: ""
 					}
 				});
-			},
-
-			sortByName: () => {
-				const store = getStore();
-				const { filesDataTable } = store;
-				const sorted = [...filesDataTable].sort((a, b) => {
-					const x = a.name.toUpperCase();
-					const y = b.name.toUpperCase();
-					return x == y ? 0 : x > y ? 1 : -1;
-				});
-				setStore({ filesDataTable: sorted });
-				console.log(sorted);
-			},
-
-			sortByLastName: () => {
-				const store = getStore();
-				const { filesDataTable } = store;
-				const sorted = [...filesDataTable].sort((a, b) => {
-					const x = a.lastName.toUpperCase();
-					const y = b.lastName.toUpperCase();
-					return x == y ? 1 : x > y ? -1 : 0;
-				});
-				setStore({ filesDataTable: sorted });
 			}
+
+			/*addQuestion: e => {
+				const store = getStore();
+				const { contact } = store;
+				contact[e.target.name] = e.target.value;
+				setStore({ contact: contact });
+				e.preventDefault();
+			},*/
 		}
 	};
 };
