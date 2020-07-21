@@ -483,7 +483,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					answer:
 						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
 				}
-			]
+			],
+
+			studentQuestion: ""
 		},
 
 		actions: {
@@ -530,15 +532,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 						verification: ""
 					}
 				});
-			}
+			},
 
-			/*addQuestion: e => {
-				const store = getStore();
-				const { contact } = store;
-				contact[e.target.name] = e.target.value;
-				setStore({ contact: contact });
+			addQuestion: value => {
+				setStore({ studentQuestion: value });
+			},
+
+			submitQuestion: e => {
 				e.preventDefault();
-			},*/
+				const store = getStore();
+				const { jobProfileStudentQuestions } = store;
+				const { studentQuestion } = store;
+				const question = jobProfileStudentQuestions.concat({
+					question_id: jobProfileStudentQuestions[jobProfileStudentQuestions.length - 1].question_id + 1,
+					question: studentQuestion
+				});
+				setStore({ jobProfileStudentQuestions: question });
+			},
+
+			deleteQuestion: index => {
+				const store = getStore();
+				store.jobProfileStudentQuestions.splice(index, 1);
+				setStore({ jobProfileStudentQuestions: store.jobProfileStudentQuestions });
+			}
 		}
 	};
 };
