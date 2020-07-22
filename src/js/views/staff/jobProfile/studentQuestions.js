@@ -17,14 +17,14 @@ export const StudentQuestions = () => {
 				<Modal.Header closeButton onClick={() => setModalShow(false)}>
 					<Modal.Title id="contained-modal-title-vcenter">Añadir Nueva Pregunta</Modal.Title>
 				</Modal.Header>
-				<form onSubmit={e => actions.submitQuestion(e)}>
+				<form onSubmit={e => actions.submitStudentQuestion(e)}>
 					<Modal.Body>
 						<textarea
 							className="form-control"
 							id="exampleFormControlTextarea1"
 							rows="3"
 							required
-							onChange={e => actions.addQuestion(e.target.value)}
+							onChange={e => actions.addStudentQuestion(e.target.value)}
 						/>
 					</Modal.Body>
 					<Modal.Footer>
@@ -54,7 +54,7 @@ export const StudentQuestions = () => {
 											<FontAwesomeIcon
 												icon={faTrash}
 												className="mr-2"
-												onClick={() => actions.deleteQuestion(index)}
+												onClick={() => actions.deleteStudentQuestion(index)}
 											/>
 
 											<input

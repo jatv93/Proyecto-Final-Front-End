@@ -485,7 +485,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 
-			studentQuestion: ""
+			studentQuestion: "",
+
+			teacherStrengthQuestion: "",
+
+			teacherWeaknessQuestion: "",
+
+			teacherProjectionQuestion: ""
 		},
 
 		actions: {
@@ -534,11 +540,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 			},
 
-			addQuestion: value => {
+			addStudentQuestion: value => {
 				setStore({ studentQuestion: value });
 			},
 
-			submitQuestion: e => {
+			submitStudentQuestion: e => {
 				e.preventDefault();
 				const store = getStore();
 				const { jobProfileStudentQuestions } = store;
@@ -550,10 +556,76 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ jobProfileStudentQuestions: question });
 			},
 
-			deleteQuestion: index => {
+			deleteStudentQuestion: index => {
 				const store = getStore();
 				store.jobProfileStudentQuestions.splice(index, 1);
 				setStore({ jobProfileStudentQuestions: store.jobProfileStudentQuestions });
+			},
+
+			addTeacherStrengthQuestion: value => {
+				setStore({ teacherStrengthQuestion: value });
+			},
+
+			submitTeacherStrengthQuestion: e => {
+				e.preventDefault();
+				const store = getStore();
+				const { strengthQuestions } = store;
+				const { teacherStrengthQuestion } = store;
+				const question = strengthQuestions.concat({
+					question_id: strengthQuestions[strengthQuestions.length - 1].question_id + 1,
+					question: teacherStrengthQuestion
+				});
+				setStore({ strengthQuestions: question });
+			},
+
+			deleteTeacherStrengthQuestion: index => {
+				const store = getStore();
+				store.strengthQuestions.splice(index, 1);
+				setStore({ strengthQuestions: store.strengthQuestions });
+			},
+
+			addTeacherWeaknessQuestion: value => {
+				setStore({ teacherWeaknessQuestion: value });
+			},
+
+			submitTeacherWeaknessQuestion: e => {
+				e.preventDefault();
+				const store = getStore();
+				const { weaknessQuestions } = store;
+				const { teacherWeaknessQuestion } = store;
+				const question = weaknessQuestions.concat({
+					question_id: weaknessQuestions[weaknessQuestions.length - 1].question_id + 1,
+					question: teacherWeaknessQuestion
+				});
+				setStore({ weaknessQuestions: question });
+			},
+
+			deleteTeacherWeaknessQuestion: index => {
+				const store = getStore();
+				store.weaknessQuestions.splice(index, 1);
+				setStore({ weaknessQuestions: store.weaknessQuestions });
+			},
+
+			addTeacherProjectionQuestion: value => {
+				setStore({ teacherProjectionQuestion: value });
+			},
+
+			submitTeacherProjectionQuestion: e => {
+				e.preventDefault();
+				const store = getStore();
+				const { projectionQuestions } = store;
+				const { teacherProjectionQuestion } = store;
+				const question = projectionQuestions.concat({
+					question_id: projectionQuestions[projectionQuestions.length - 1].question_id + 1,
+					question: teacherProjectionQuestion
+				});
+				setStore({ projectionQuestions: question });
+			},
+
+			deleteTeacherProjectionQuestion: index => {
+				const store = getStore();
+				store.projectionQuestions.splice(index, 1);
+				setStore({ projectionQuestions: store.projectionQuestions });
 			}
 		}
 	};
