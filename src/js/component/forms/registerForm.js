@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../../store/appContext";
-import validate from "./loginFormValidationRules";
+import validateRegister from "./FormValidationRules";
 import useForm from "./useForm";
-import PropTypes from "prop-types";
 
-export const RegisterForm = props => {
+export const RegisterForm = () => {
 	const { store, actions } = useContext(Context);
-	const { values, errors, handleChangeRegister, handleSubmitRegister, setValues } = useForm(register, validate);
+	const { values, errors, handleChangeRegister, handleSubmitRegister, setValues } = useForm(
+		register,
+		validateRegister
+	);
+	const [msg, setMsg] = useState(null);
 
 	async function register() {
 		console.log("No errors, submit callback called!");
@@ -24,11 +27,17 @@ export const RegisterForm = props => {
 		if (!data.msg) {
 			actions.storeRegisterInfo();
 			setValues("");
+			setMsg(
+				<div className="alert alert-success" role="alert">
+					Registro realizado exitosamente!
+				</div>
+			);
 		}
 	}
 
 	return (
 		<form onSubmit={handleSubmitRegister} noValidate>
+			{!!msg && msg}
 			<div className="form-group">
 				<label>Nombre</label>
 				<br />
@@ -103,8 +112,4 @@ export const RegisterForm = props => {
 			</button>
 		</form>
 	);
-};
-
-RegisterForm.propTypes = {
-	history: PropTypes.object
 };

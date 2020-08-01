@@ -1,10 +1,9 @@
 import React from "react";
 import { RegisterForm } from "../../component/forms/registerForm";
 import { Navbar } from "../../component/navbar";
-import PropTypes from "prop-types";
 import { Footer } from "../../component/footer";
 
-export const Register = props => (
+export const Register = () => (
 	<>
 		<Navbar />
 		<div className="container">
@@ -15,14 +14,10 @@ export const Register = props => (
 			</div>
 			<div className="row">
 				<div className="col-12 col-lg-6 offset-lg-3 mt-3">
-					<RegisterForm history={props.history} />
+					<RegisterForm />
 				</div>
 			</div>
 		</div>
 		<Footer />
 	</>
 );
-
-Register.propTypes = {
-	history: PropTypes.object
-};

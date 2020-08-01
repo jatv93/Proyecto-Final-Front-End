@@ -1,4 +1,4 @@
-export default function validate(values) {
+export default function validateRegister(values) {
 	let errors = {};
 	if (!values.email) {
 		errors.email = "El correo electrónico es obligatorio";
@@ -14,6 +14,9 @@ export default function validate(values) {
 		errors.verification = "La contraseña es obligatoria";
 	} else if (values.verification.length < 6) {
 		errors.verification = "La contraseña debe tener 6 o más caracteres";
+	}
+	if (values.password != values.verification) {
+		errors.verification = "La contraseña no coincide";
 	}
 	if (!values.name) {
 		errors.name = "El nombre es obligatorio";

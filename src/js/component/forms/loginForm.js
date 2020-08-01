@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { validateLogin } from "./loginFormValidationRules";
+import { validateLogin } from "./FormValidationRules";
 import PropTypes from "prop-types";
 import { Context } from "../../store/appContext";
 import useForm from "./useForm";
@@ -8,6 +8,7 @@ import useForm from "./useForm";
 export const LoginForm = props => {
 	const { store, actions } = useContext(Context);
 	const { values, errors, handleChangeLogin, handleSubmitLogin, setValues } = useForm(login, validateLogin);
+	const [msg, setMsg] = useState(null);
 
 	async function login() {
 		console.log("No errors, submit callback called!");
@@ -22,12 +23,20 @@ export const LoginForm = props => {
 		if (!data.msg) {
 			actions.storeLoginInfo();
 			setValues("");
+			setMsg(null);
 			props.history.push("/student/profile");
+		} else {
+			setMsg(
+				<div className="alert alert-danger" role="alert">
+					{data.msg}
+				</div>
+			);
 		}
 	}
 
 	return (
 		<form onSubmit={handleSubmitLogin} noValidate>
+			{!!msg && msg}
 			<div className="form-group">
 				<label>Correo Electrónico</label>
 				<br />
