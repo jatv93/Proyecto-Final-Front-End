@@ -1,24 +1,43 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../../store/appContext";
-import validate from "./loginFormValidationRules";
+import validateRegister from "./FormValidationRules";
 import useForm from "./useForm";
 
 export const RegisterForm = () => {
 	const { store, actions } = useContext(Context);
-	const { values, errors, handleChangeRegister, handleSubmitRegister, setValues } = useForm(register, validate);
+	const { values, errors, handleChangeRegister, handleSubmitRegister, setValues } = useForm(
+		register,
+		validateRegister
+	);
+	const [msg, setMsg] = useState(null);
 
 	async function register() {
-		console.log("No errors, submit callback called!"); //realizar el fetch aquí
-		const resp = await fetch("");
+		console.log("No errors, submit callback called!");
+		const resp = await fetch(
+			"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_register",
+			{
+				method: "POST",
+				body: JSON.stringify(store.studentRegister),
+				headers: {
+					"Content-type": "application/json"
+				}
+			}
+		);
 		const data = await resp.json();
 		if (!data.msg) {
-			actions.storeRegisterInfo(event); // validar con el backend aquí
+			actions.storeRegisterInfo();
 			setValues("");
+			setMsg(
+				<div className="alert alert-success" role="alert">
+					Registro realizado exitosamente!
+				</div>
+			);
 		}
 	}
 
 	return (
 		<form onSubmit={handleSubmitRegister} noValidate>
+			{!!msg && msg}
 			<div className="form-group">
 				<label>Nombre</label>
 				<br />

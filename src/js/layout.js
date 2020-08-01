@@ -35,6 +35,7 @@ import { CreditNotePDF } from "./views/staff/PDF_Views/creditNotePDF";
 import { PaymentPDF } from "./views/staff/PDF_Views/paymentPDF";
 import { studentProjection } from "./views/teachers/projection";
 import { StudentQuestions } from "./views/staff/jobProfile/studentQuestions";
+import { TeacherQuestions } from "./views/staff/jobProfile/teacherQuestions";
 
 //create your first component
 export const Layout = () => {
@@ -75,6 +76,7 @@ export const Layout = () => {
 						<Route exact path="/staff/files/:breathecode_id/teacher_comments" component={TeacherComments} />
 						<Route exact path="/staff/job_profile" component={JobProfile} />
 						<Route exact path="/staff/job_profile/student_questions" component={StudentQuestions} />
+						<Route exact path="/staff/job_profile/teacher_questions" component={TeacherQuestions} />
 						<Route exact path="/staff/agreements" component={Agreements} />
 						<Route exact path="/staff/financing" component={Financing} />
 						<Route exact path="/staff/payments" component={Payments} />

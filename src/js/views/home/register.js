@@ -1,6 +1,7 @@
 import React from "react";
 import { RegisterForm } from "../../component/forms/registerForm";
 import { Navbar } from "../../component/navbar";
+import { Footer } from "../../component/footer";
 
 export const Register = () => (
 	<>
@@ -17,5 +18,6 @@ export const Register = () => (
 				</div>
 			</div>
 		</div>
+		<Footer />
 	</>
 );
