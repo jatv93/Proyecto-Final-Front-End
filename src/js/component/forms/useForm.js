@@ -37,11 +37,38 @@ const useForm = (callback, validate) => {
 		setIsSubmitting(true);
 	};
 
+	const handleChangeStaffRegister = event => {
+		event.persist();
+		setValues(values => ({ ...values, [event.target.name]: event.target.value }));
+		actions.handleChangeStaffRegister(event);
+	};
+
+	const handleSubmitStaffRegister = event => {
+		if (event) event.preventDefault();
+		setErrors(validate(values));
+		setIsSubmitting(true);
+	};
+
+	const handleChangeTeacherRegister = event => {
+		event.persist();
+		setValues(values => ({ ...values, [event.target.name]: event.target.value }));
+		actions.handleChangeTeacherRegister(event);
+	};
+
+	const handleSubmitTeacherRegister = event => {
+		if (event) event.preventDefault();
+		setErrors(validate(values));
+		setIsSubmitting(true);
+	};
 	return {
 		handleChangeLogin,
 		handleChangeRegister,
 		handleSubmitLogin,
 		handleSubmitRegister,
+		handleChangeStaffRegister,
+		handleSubmitStaffRegister,
+		handleChangeTeacherRegister,
+		handleSubmitTeacherRegister,
 		values,
 		errors,
 		setValues
