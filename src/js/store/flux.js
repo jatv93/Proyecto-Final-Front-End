@@ -30,10 +30,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 				verification: ""
 			},
 
+			allStudentUsers: [],
+
 			studentLogin: {
 				email: "",
 				password: ""
 			},
+
+			staffUsers: {
+				name: "",
+				lastName: "",
+				email: "",
+				password: "",
+				verification: ""
+			},
+
+			allStaffUsers: [],
+
+			teacherUsers: {
+				name: "",
+				lastName: "",
+				email: "",
+				password: "",
+				verification: ""
+			},
+
+			allTeacherUsers: [],
 
 			filesDataTable: [
 				{
@@ -507,6 +529,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ studentRegister: studentRegister });
 			},
 
+			handleChangeStaffRegister: e => {
+				const store = getStore();
+				const { staffUsers } = store;
+				staffUsers[e.target.name] = e.target.value;
+				setStore({ staffUsers: staffUsers });
+			},
+
+			handleChangeTeacherRegister: e => {
+				const store = getStore();
+				const { teacherUsers } = store;
+				teacherUsers[e.target.name] = e.target.value;
+				setStore({ teacherUsers: teacherUsers });
+			},
+
 			storeLoginInfo: () => {
 				setStore({
 					studentLogin: {
@@ -519,6 +555,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 			storeRegisterInfo: () => {
 				setStore({
 					studentRegister: {
+						name: "",
+						lastName: "",
+						email: "",
+						password: "",
+						verification: ""
+					}
+				});
+			},
+
+			storeStaffInfo: () => {
+				setStore({
+					staffUsers: {
+						name: "",
+						lastName: "",
+						email: "",
+						password: "",
+						verification: ""
+					}
+				});
+			},
+
+			storeTeacherInfo: () => {
+				setStore({
+					teacherUsers: {
 						name: "",
 						lastName: "",
 						email: "",
@@ -614,6 +674,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				store.projectionQuestions.splice(index, 1);
 				setStore({ projectionQuestions: store.projectionQuestions });
+			},
+			getStaffUsers: () => {
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/staff_users")
+					.then(response => response.json())
+					.then(data =>
+						setStore({
+							allStaffUsers: data
+						})
+					);
+			},
+
+			getTeacherUsers: () => {
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_users")
+					.then(response => response.json())
+					.then(data =>
+						setStore({
+							allTeacherUsers: data
+						})
+					);
+			},
+
+			getStudentUsers: () => {
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_users")
+					.then(response => response.json())
+					.then(data =>
+						setStore({
+							allStudentUsers: data
+						})
+					);
 			}
 		}
 	};

@@ -3,9 +3,9 @@ import { Context } from "../../store/appContext";
 import validateRegister from "./FormValidationRules";
 import useForm from "./useForm";
 
-export const RegisterForm = () => {
+export const CreateStaffUserForm = () => {
 	const { store, actions } = useContext(Context);
-	const { values, errors, handleChangeRegister, handleSubmitRegister, setValues } = useForm(
+	const { values, errors, handleChangeStaffRegister, handleSubmitStaffRegister, setValues } = useForm(
 		register,
 		validateRegister
 	);
@@ -13,27 +13,33 @@ export const RegisterForm = () => {
 
 	async function register() {
 		console.log("No errors, submit callback called!");
-		const resp = await fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_users", {
+		const resp = await fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/staff_users", {
 			method: "POST",
-			body: JSON.stringify(store.studentRegister),
+			body: JSON.stringify(store.staffUsers),
 			headers: {
 				"Content-type": "application/json"
 			}
 		});
 		const data = await resp.json();
 		if (!data.msg) {
-			actions.storeRegisterInfo();
+			actions.storeStaffInfo();
 			setValues("");
 			setMsg(
 				<div className="alert alert-success" role="alert">
 					Registro realizado exitosamente!
 				</div>
 			);
+		} else {
+			setMsg(
+				<div className="alert alert-danger" role="alert">
+					{data.msg}
+				</div>
+			);
 		}
 	}
 
 	return (
-		<form onSubmit={handleSubmitRegister} noValidate>
+		<form onSubmit={handleSubmitStaffRegister} noValidate>
 			{!!msg && msg}
 			<div className="form-group">
 				<label>Nombre</label>
@@ -43,7 +49,7 @@ export const RegisterForm = () => {
 					className={`form-control input ${errors.name && "border-danger"}`}
 					name="name"
 					autoComplete="off"
-					onChange={handleChangeRegister}
+					onChange={handleChangeStaffRegister}
 					value={values.name || ""}
 					required
 				/>
@@ -57,7 +63,7 @@ export const RegisterForm = () => {
 					className={`form-control input ${errors.lastName && "border-danger"}`}
 					name="lastName"
 					autoComplete="off"
-					onChange={handleChangeRegister}
+					onChange={handleChangeStaffRegister}
 					value={values.lastName || ""}
 					required
 				/>
@@ -71,7 +77,7 @@ export const RegisterForm = () => {
 					type="email"
 					name="email"
 					autoComplete="off"
-					onChange={handleChangeRegister}
+					onChange={handleChangeStaffRegister}
 					value={values.email || ""}
 					required
 				/>
@@ -84,7 +90,7 @@ export const RegisterForm = () => {
 					className={`form-control input ${errors.password && "border-danger"}`}
 					type="password"
 					name="password"
-					onChange={handleChangeRegister}
+					onChange={handleChangeStaffRegister}
 					value={values.password || ""}
 					required
 				/>
@@ -97,7 +103,7 @@ export const RegisterForm = () => {
 					className={`form-control input ${errors.verification && "border-danger"}`}
 					type="password"
 					name="verification"
-					onChange={handleChangeRegister}
+					onChange={handleChangeStaffRegister}
 					value={values.verification || ""}
 					required
 				/>
