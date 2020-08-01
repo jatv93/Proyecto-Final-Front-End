@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import validate from "./loginFormValidationRules";
-import useForm from "./useForm";
+import { validateLogin } from "./loginFormValidationRules";
 import PropTypes from "prop-types";
 import { Context } from "../../store/appContext";
+import useForm from "./useForm";
 
 export const LoginForm = props => {
 	const { store, actions } = useContext(Context);
-	const { values, errors, handleChangeLogin, handleSubmitLogin, setValues } = useForm(login, validate);
+	const { values, errors, handleChangeLogin, handleSubmitLogin, setValues } = useForm(login, validateLogin);
 
 	async function login() {
-		console.log("No errors, submit callback called!"); //realizar el fetch aquí
+		console.log("No errors, submit callback called!");
 		const resp = await fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/login", {
 			method: "POST",
 			body: JSON.stringify(store.studentLogin),
@@ -19,11 +19,10 @@ export const LoginForm = props => {
 			}
 		});
 		const data = await resp.json();
-		console.log(data);
-		props.history.push("/student/profile");
 		if (!data.msg) {
-			actions.storeLoginInfo(); // validar con el backend aquí
+			actions.storeLoginInfo();
 			setValues("");
+			props.history.push("/student/profile");
 		}
 	}
 

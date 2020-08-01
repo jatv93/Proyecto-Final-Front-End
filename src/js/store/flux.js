@@ -508,8 +508,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			storeLoginInfo: () => {
-				const store = getStore();
-				const { studentLogin } = store;
 				setStore({
 					studentLogin: {
 						email: "",
@@ -519,7 +517,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			storeRegisterInfo: () => {
-				const { studentRegister } = store;
 				setStore({
 					studentRegister: {
 						name: "",
