@@ -2,17 +2,27 @@ import React, { useContext } from "react";
 import { Context } from "../../store/appContext";
 import validate from "./loginFormValidationRules";
 import useForm from "./useForm";
+import PropTypes from "prop-types";
 
-export const RegisterForm = () => {
+export const RegisterForm = props => {
 	const { store, actions } = useContext(Context);
 	const { values, errors, handleChangeRegister, handleSubmitRegister, setValues } = useForm(register, validate);
 
 	async function register() {
-		console.log("No errors, submit callback called!"); //realizar el fetch aquí
-		const resp = await fetch("");
+		console.log("No errors, submit callback called!");
+		const resp = await fetch(
+			"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_register",
+			{
+				method: "POST",
+				body: JSON.stringify(store.studentRegister),
+				headers: {
+					"Content-type": "application/json"
+				}
+			}
+		);
 		const data = await resp.json();
 		if (!data.msg) {
-			actions.storeRegisterInfo(event); // validar con el backend aquí
+			actions.storeRegisterInfo();
 			setValues("");
 		}
 	}
@@ -93,4 +103,8 @@ export const RegisterForm = () => {
 			</button>
 		</form>
 	);
+};
+
+RegisterForm.propTypes = {
+	history: PropTypes.object
 };

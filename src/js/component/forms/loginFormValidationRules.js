@@ -18,7 +18,6 @@ export default function validate(values) {
 	if (!values.name) {
 		errors.name = "El nombre es obligatorio";
 	}
-
 	if (!values.lastName) {
 		errors.lastName = "El apellido es obligatorio";
 	}

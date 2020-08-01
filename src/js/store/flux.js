@@ -30,14 +30,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				verification: ""
 			},
 
-			studentRegisterList: [],
-
 			studentLogin: {
 				email: "",
 				password: ""
 			},
-
-			studentLoginList: [],
 
 			filesDataTable: [
 				{
@@ -511,12 +507,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ studentRegister: studentRegister });
 			},
 
-			storeLoginInfo: e => {
-				e.preventDefault();
+			storeLoginInfo: () => {
 				const store = getStore();
 				const { studentLogin } = store;
 				setStore({
-					studentLoginList: studentLogin,
 					studentLogin: {
 						email: "",
 						password: ""
@@ -524,12 +518,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 			},
 
-			storeRegisterInfo: e => {
-				e.preventDefault();
-				const store = getStore();
+			storeRegisterInfo: () => {
 				const { studentRegister } = store;
 				setStore({
-					studentRegisterList: studentRegister,
 					studentRegister: {
 						name: "",
 						lastName: "",
