@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { Context } from "../../store/appContext";
 
-export const UsersTable = ({ list, searchFields, columns }) => {
+export const UsersTable = ({ list, searchFields, columns, options }) => {
+	const { store, actions } = useContext(Context);
 	const [searchTerm, setSearchTerm] = useState("");
 	const [stortingColumn, setSortingColumn] = useState(null);
 
@@ -46,8 +48,11 @@ export const UsersTable = ({ list, searchFields, columns }) => {
 												<th key={c}>{item[c]}</th>
 											))}
 											<FontAwesomeIcon icon={faEdit} className="mt-2 mr-2" />
-
-											<FontAwesomeIcon icon={faTrash} className="ml-2" />
+											<FontAwesomeIcon
+												icon={faTrash}
+												className="ml-2"
+												onClick={() => options(item.id)}
+											/>
 										</tr>
 									</>
 								);
@@ -63,7 +68,8 @@ UsersTable.propTypes = {
 	list: PropTypes.any,
 	searchFields: PropTypes.any,
 	columns: PropTypes.array,
-	scope: PropTypes.any
+	scope: PropTypes.any,
+	options: PropTypes.func
 };
 UsersTable.defaultProps = {
 	searchFields: false,

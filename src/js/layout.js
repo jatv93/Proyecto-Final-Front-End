@@ -33,12 +33,13 @@ import { Payments } from "./views/staff/payments";
 import { InvoicePDF } from "./views/staff/PDF_Views/invoicePDF";
 import { CreditNotePDF } from "./views/staff/PDF_Views/creditNotePDF";
 import { PaymentPDF } from "./views/staff/PDF_Views/paymentPDF";
-import { CreateStaffUsers } from "./views/staff/createStaffUsers";
+import { CreateStaffUsers } from "./views/staff/users/createStaffUsers";
+import { CreateTeacherUsers } from "./views/staff/users/createTeacherUsers";
+import { StudentUsers } from "./views/staff/users/studentUsers";
 
 import { studentProjection } from "./views/teachers/projection";
 import { StudentQuestions } from "./views/staff/jobProfile/studentQuestions";
 import { TeacherQuestions } from "./views/staff/jobProfile/teacherQuestions";
-import { CreateTeacherUsers } from "./views/staff/createTeacherUsers";
 
 //create your first component
 export const Layout = () => {
@@ -87,6 +88,7 @@ export const Layout = () => {
 						<Route exact path="/staff/credit_notes" component={CreditNotes} />
 						<Route exact path="/staff/create_staff_users" component={CreateStaffUsers} />
 						<Route exact path="/staff/create_teacher_users" component={CreateTeacherUsers} />
+						<Route exact path="/staff/student_users" component={StudentUsers} />
 
 						<Route exact path="/teacher" component={teachome} />
 						<Route exact path="/teacher/:breathecode_id/form" component={teachform} />

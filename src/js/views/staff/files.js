@@ -19,7 +19,7 @@ export const Files = () => {
 						<div className="col-lg-12 mt-2 mb-4">
 							<Table
 								searchFields={["name", "lastName", "email"]}
-								columns={["name", "lastName", "cohort", "modality", "email", "phone", "breathecode_id"]}
+								columns={["name", "lastName", "cohort", "email", "phone", "breathecode_id"]}
 								list={store.filesDataTable}
 							/>
 						</div>

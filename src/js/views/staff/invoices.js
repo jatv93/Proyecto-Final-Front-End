@@ -18,7 +18,7 @@ export const Invoices = () => {
 						<div className="col-lg-12 mt-2 mb-4">
 							<Table
 								searchFields={["rut", "full_name"]}
-								columns={["rut", "full_name", "cohort", "modality", "note_id", "date", "amount"]}
+								columns={["rut", "full_name", "cohort", "modality", "invoice_id", "date", "amount"]}
 								list={store.invoicesTable}
 								scope={"/invoices/:invoice_id"}
 							/>

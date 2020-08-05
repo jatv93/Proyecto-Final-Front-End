@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import { Context } from "../../store/appContext";
-import SideNav from "../../component/sidenav";
-import { UsersTable } from "../../component/tables/usersTable";
+import { Context } from "../../../store/appContext";
+import SideNav from "../../../component/sidenav";
+import { UsersTable } from "../../../component/tables/usersTable";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
-import { CreateStaffUserForm } from "../../component/forms/createStaffUserForm";
+import { CreateStaffUserForm } from "../../../component/forms/createStaffUserForm";
 
 export const CreateStaffUsers = () => {
 	const { store, actions } = useContext(Context);
@@ -30,7 +30,7 @@ export const CreateStaffUsers = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-8 offset-lg-2">
-							<h1 className="text-center">Creación de Usuarios</h1>
+							<h1 className="text-center">Listado de Usuarios</h1>
 							<h3 className="text-center">Staff</h3>
 						</div>
 					</div>
@@ -40,6 +40,7 @@ export const CreateStaffUsers = () => {
 								searchFields={["name", "lastName", "email"]}
 								columns={["name", "lastName", "email"]}
 								list={store.allStaffUsers}
+								options={actions.deleteStaffUser}
 							/>
 						</div>
 					</div>

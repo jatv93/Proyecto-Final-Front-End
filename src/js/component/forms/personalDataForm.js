@@ -51,11 +51,6 @@ const PersonalDataForm = props => {
 					</div>
 					<br />
 					<div>
-						<strong>Región: </strong>
-						{studentFile.region}
-					</div>
-					<br />
-					<div>
 						<strong>Teléfono: </strong>
 						{studentFile.phone}
 					</div>
@@ -63,6 +58,11 @@ const PersonalDataForm = props => {
 					<div>
 						<strong>Correo Electrónico: </strong>
 						{studentFile.email}
+					</div>
+					<br />
+					<div>
+						<strong>Fecha de Inscripción: </strong>
+						{studentFile.admission_date}
 					</div>
 				</div>
 			</div>

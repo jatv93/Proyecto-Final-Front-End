@@ -57,53 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			allTeacherUsers: [],
 
-			filesDataTable: [
-				{
-					id: 1,
-					name: "Ramon",
-					lastName: "Perez",
-					cohort: "I",
-					modality: "PT",
-					phone: "975906062",
-					email: "prueba@prueba.com",
-					breathecode_id: "150",
-					rut: "27.009.732-4",
-					birth_date: "20/10/1993",
-					address: "Evaristo Lillo 29, Las Condes",
-					region: "Region Metropolitana",
-					admission_date: "15/01/2019"
-				},
-				{
-					id: 2,
-					name: "Orlando",
-					lastName: "Martinez",
-					cohort: "II",
-					modality: "PT",
-					phone: "972848039",
-					email: "jatv@jatv.com",
-					breathecode_id: "100",
-					rut: "26.153.225-8",
-					birth_date: "24/08/1993",
-					address: "Evaristo Lillo 101, Las Condes",
-					region: "Region Metropolitana",
-					admission_date: "18/05/2019"
-				},
-				{
-					id: 3,
-					name: "Fernando",
-					lastName: "Fernandez",
-					cohort: "II",
-					modality: "PT",
-					phone: "972848039",
-					email: "jatv@jatv.com",
-					breathecode_id: "110",
-					rut: "25.665.298-4",
-					birth_date: "26/01/1993",
-					address: "Av Apoquindo 2903, Las Condes",
-					region: "Region Metropolitana",
-					admission_date: "10/01/2020"
-				}
-			],
+			filesDataTable: [],
 
 			jobProfileTable: [
 				{
@@ -678,11 +632,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getStaffUsers: () => {
 				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/staff_users")
 					.then(response => response.json())
-					.then(data =>
+					.then(data => {
 						setStore({
 							allStaffUsers: data
-						})
-					);
+						});
+					});
 			},
 
 			getTeacherUsers: () => {
@@ -701,6 +655,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data =>
 						setStore({
 							allStudentUsers: data
+						})
+					);
+			},
+
+			deleteStaffUser: id => {
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/staff_users/" + `${id}`, {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => response.json())
+					.then(data => getActions().getStaffUsers());
+			},
+
+			getfilesDataTable: () => {
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/profiles")
+					.then(response => response.json())
+					.then(data =>
+						setStore({
+							filesDataTable: data
 						})
 					);
 			}
