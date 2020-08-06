@@ -29,7 +29,7 @@ export const StudentFinancing = props => {
 						</div>
 					</div>
 
-					<PreviewPDF />
+					<PreviewPDF url={"https://arxiv.org/pdf/quant-ph/0410100.pdf"} />
 				</div>
 			</SideNav>
 		</Fragment>

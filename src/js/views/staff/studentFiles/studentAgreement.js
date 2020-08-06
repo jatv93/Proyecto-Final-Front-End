@@ -10,8 +10,8 @@ export const StudentAgreement = props => {
 
 	useEffect(() => {
 		setStudentFile(
-			store.filesDataTable.filter(item => {
-				return item.breathecode_id === props.match.params.breathecode_id;
+			store.agreementsTable.filter(item => {
+				return item.breathecode_id === parseInt(props.match.params.breathecode_id);
 			})[0]
 		);
 	}, []);
@@ -29,7 +29,7 @@ export const StudentAgreement = props => {
 						</div>
 					</div>
 
-					<PreviewPDF />
+					<PreviewPDF url={studentFile == null ? "loading..." : studentFile.urlPDF} />
 				</div>
 			</SideNav>
 		</Fragment>

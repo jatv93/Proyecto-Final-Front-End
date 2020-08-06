@@ -11,10 +11,11 @@ const PersonalDataForm = props => {
 	useEffect(() => {
 		setStudentFile(
 			store.filesDataTable.filter(item => {
-				return item.breathecode_id === props.match.params.breathecode_id;
+				return item.breathecode_id === parseInt(props.match.params.breathecode_id);
 			})[0]
 		);
 	}, []);
+
 	return (
 		<>
 			<div className="row title">

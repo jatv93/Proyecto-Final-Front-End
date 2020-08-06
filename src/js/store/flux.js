@@ -143,16 +143,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 
-			agreementsTable: [
-				{
-					id: 1,
-					name: "Jennifer",
-					lastName: "Toledo",
-					cohort: "II",
-					modality: "PT",
-					breathecode_id: 150
-				}
-			],
+			agreementsTable: [],
 
 			financingTable: [
 				{
@@ -676,6 +667,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data =>
 						setStore({
 							filesDataTable: data
+						})
+					);
+			},
+
+			getAgreementsTable: () => {
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/enrrollment_agreements")
+					.then(response => response.json())
+					.then(data =>
+						setStore({
+							agreementsTable: data
 						})
 					);
 			}
