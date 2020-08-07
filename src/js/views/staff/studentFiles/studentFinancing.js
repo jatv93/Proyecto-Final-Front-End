@@ -11,7 +11,7 @@ export const StudentFinancing = props => {
 	useEffect(() => {
 		setStudentFile(
 			store.filesDataTable.filter(item => {
-				return item.breathecode_id === props.match.params.breathecode_id;
+				return item.breathecode_id === parseInt(props.match.params.breathecode_id);
 			})[0]
 		);
 	}, []);
@@ -29,7 +29,7 @@ export const StudentFinancing = props => {
 						</div>
 					</div>
 
-					<PreviewPDF url={"https://arxiv.org/pdf/quant-ph/0410100.pdf"} />
+					<PreviewPDF url={studentFile == null ? "loading..." : studentFile.financing.urlPDF} />
 				</div>
 			</SideNav>
 		</Fragment>

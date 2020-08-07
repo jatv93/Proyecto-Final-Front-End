@@ -18,8 +18,8 @@ export const Financing = () => {
 						<div className="col-lg-12 mt-2 mb-4">
 							<Table
 								searchFields={["name", "lastName"]}
-								columns={["name", "lastName", "cohort", "modality", "breathecode_id"]}
-								list={store.financingTable}
+								columns={["name", "lastName", "cohort", "breathecode_id"]}
+								list={store.filesDataTable}
 								scope={"/financing"}
 							/>
 						</div>
