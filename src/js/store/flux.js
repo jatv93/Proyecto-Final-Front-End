@@ -143,7 +143,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 
-			agreementsTable: [],
+			agreement: {},
 
 			financingTable: [],
 
@@ -662,17 +662,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					);
 			},
 
-			getAgreementsTable: () => {
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/enrrollment_agreements")
+			getAgreementsTable: id => {
+				fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/enrrollment_agreements/" +
+						`${id}`
+				)
 					.then(response => response.json())
 					.then(data =>
 						setStore({
-							agreementsTable: data
+							agreement: data
 						})
 					);
 			},
 
-			getAgreementsTable: () => {
+			getFinancingTable: () => {
 				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/financing_agreements")
 					.then(response => response.json())
 					.then(data =>

@@ -6,14 +6,9 @@ import PropTypes from "prop-types";
 
 export const StudentAgreement = props => {
 	const { store, actions } = useContext(Context);
-	const [studentFile, setStudentFile] = useState(null);
 
 	useEffect(() => {
-		setStudentFile(
-			store.agreementsTable.filter(item => {
-				return item.breathecode_id === parseInt(props.match.params.breathecode_id);
-			})[0]
-		);
+		actions.getAgreementsTable(props.match.params.breathecode_id);
 	}, []);
 
 	return (
@@ -23,13 +18,10 @@ export const StudentAgreement = props => {
 					<div className="row">
 						<div className="col-lg-6 offset-lg-3 mt-4">
 							<h1 className="text-center">Acuerdo de Inscripción</h1>
-							<h3 className="text-center">
-								{!!studentFile ? studentFile.name + " " + studentFile.lastName : ""}
-							</h3>
 						</div>
 					</div>
 
-					<PreviewPDF url={studentFile == null ? "loading..." : studentFile.urlPDF} />
+					<PreviewPDF url={store.agreement.urlPDF == null ? "loading..." : store.agreement.urlPDF} />
 				</div>
 			</SideNav>
 		</Fragment>
