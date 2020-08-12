@@ -11,7 +11,7 @@ export const Files = () => {
 			<SideNav links={store.sideBarContent.staff}>
 				<div className="container">
 					<div className="row">
-						<div className="col-lg-6 offset-lg-3 mt-5">
+						<div className="col-lg-6 offset-lg-3 mt-3">
 							<h1 className="text-center">Expedientes de Estudiantes</h1>
 						</div>
 					</div>

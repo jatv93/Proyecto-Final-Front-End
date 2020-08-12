@@ -10,7 +10,7 @@ export const CreditNotes = () => {
 			<SideNav links={store.sideBarContent.staff}>
 				<div className="container">
 					<div className="row">
-						<div className="col-lg-6 offset-lg-3 mt-5">
+						<div className="col-lg-6 offset-lg-3 mt-3">
 							<h1 className="text-center">Notas de Crédito</h1>
 						</div>
 					</div>

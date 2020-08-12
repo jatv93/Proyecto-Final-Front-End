@@ -19,6 +19,12 @@ const useForm = (callback, validate) => {
 		actions.handleChangeLogin(event);
 	};
 
+	const handleChangeStaffLogin = event => {
+		event.persist();
+		setValues(values => ({ ...values, [event.target.name]: event.target.value }));
+		actions.handleChangeStaffLogin(event);
+	};
+
 	const handleSubmitLogin = event => {
 		if (event) event.preventDefault();
 		setErrors(validate(values));
@@ -64,6 +70,7 @@ const useForm = (callback, validate) => {
 		handleChangeLogin,
 		handleChangeRegister,
 		handleSubmitLogin,
+		handleChangeStaffLogin,
 		handleSubmitRegister,
 		handleChangeStaffRegister,
 		handleSubmitStaffRegister,

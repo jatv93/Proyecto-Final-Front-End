@@ -45,6 +45,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				verification: ""
 			},
 
+			staffLogin: {
+				email: "",
+				password: ""
+			},
+
 			allStaffUsers: [],
 
 			teacherUsers: {
@@ -290,8 +295,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 
-			strengthQuestions: [
-				{
+			teacherQuestions: [
+				/*{
 					question_id: 1,
 					question: "¿Qué hace a este estudiante mejor que los otros?"
 				},
@@ -306,10 +311,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					question_id: 4,
 					question: "¿Qué dicen los demás que él/ella hace muy bien?"
-				}
+				}*/
 			],
 
-			strengthAnswers: [
+			teacherAnswers: [
 				{
 					answer_id: 1,
 					question_id: 1,
@@ -336,116 +341,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 
-			weaknessQuestions: [
-				{
-					question_id: 1,
-					question: "¿Qué puede mejorar el estudiante?"
-				},
-				{
-					question_id: 2,
-					question: "¿De qué formas no es eficiente?"
-				},
-				{
-					question_id: 3,
-					question: "¿Qué no está haciendo bien?"
-				},
-				{
-					question_id: 4,
-					question: "¿Qué es lo que definitivamente no va a hacer muy bien?"
-				}
-			],
+			teacherQuestionnaries: [],
 
-			weaknessAnswers: [
-				{
-					answer_id: 1,
-					question_id: 1,
-					answer:
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
-				},
-				{
-					answer_id: 2,
-					question_id: 2,
-					answer:
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
-				},
-				{
-					answer_id: 3,
-					question_id: 3,
-					answer:
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
-				},
-				{
-					answer_id: 4,
-					question_id: 4,
-					answer:
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
-				}
-			],
-
-			projectionQuestions: [
-				{
-					question_id: 1,
-					question: "¿De qué tendencias recurrentes se puede aprovechar el alumno?"
-				},
-				{
-					question_id: 2,
-					question:
-						"¿Alguna habilidad interesante que pueda desarrollarse más para conseguir trabajos impresionantes? "
-				},
-				{
-					question_id: 3,
-					question: "¿Es disciplinado/a?"
-				},
-				{
-					question_id: 4,
-					question: "¿Es apasionado/a por programar?"
-				},
-				{
-					question_id: 5,
-					question: "¿Algún impedimento para convertirse en un desarrollador real?"
-				}
-			],
-
-			projectionAnswers: [
-				{
-					answer_id: 1,
-					question_id: 1,
-					answer:
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
-				},
-				{
-					answer_id: 2,
-					question_id: 2,
-					answer:
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
-				},
-				{
-					answer_id: 3,
-					question_id: 3,
-					answer:
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
-				},
-				{
-					answer_id: 4,
-					question_id: 4,
-					answer:
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
-				},
-				{
-					answer_id: 5,
-					question_id: 5,
-					answer:
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
-				}
-			],
+			studentQuestionnaries: [],
 
 			studentQuestion: "",
 
-			teacherStrengthQuestion: "",
+			newTeacherQuestion: "",
 
-			teacherWeaknessQuestion: "",
+			newTeacherQuestionnarie: {
+				name: "",
+				questionnarie_details: ""
+			},
 
-			teacherProjectionQuestion: ""
+			newStudentQuestionnarie: ""
 		},
 
 		actions: {
@@ -455,6 +364,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				studentLogin[e.target.name] = e.target.value;
 				setStore({
 					studentLogin: studentLogin
+				});
+			},
+
+			handleChangeStaffLogin: e => {
+				const store = getStore();
+				const { staffLogin } = store;
+				stafftLogin[e.target.name] = e.target.value;
+				setStore({
+					staffLogin: staffLogin
 				});
 			},
 
@@ -482,6 +400,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			storeLoginInfo: () => {
 				setStore({
 					studentLogin: {
+						email: "",
+						password: ""
+					}
+				});
+			},
+
+			storeStaffLoginInfo: () => {
+				setStore({
+					staffLogin: {
 						email: "",
 						password: ""
 					}
@@ -546,71 +473,162 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ jobProfileStudentQuestions: store.jobProfileStudentQuestions });
 			},
 
-			addTeacherStrengthQuestion: value => {
-				setStore({ teacherStrengthQuestion: value });
+			addTeacherQuestion: value => {
+				setStore({ newTeacherQuestion: value });
 			},
 
-			submitTeacherStrengthQuestion: e => {
+			submitTeacherQuestion: async (e, questionnarie_id) => {
 				e.preventDefault();
 				const store = getStore();
-				const { strengthQuestions } = store;
-				const { teacherStrengthQuestion } = store;
-				const question = strengthQuestions.concat({
-					question_id: strengthQuestions[strengthQuestions.length - 1].question_id + 1,
-					question: teacherStrengthQuestion
-				});
-				setStore({ strengthQuestions: question });
+				const { newTeacherQuestion } = store;
+				const question = newTeacherQuestion;
+
+				const options = {
+					method: "POST",
+					body: JSON.stringify({ question: question, questionnarie_id: questionnarie_id }),
+					headers: {
+						"Content-type": "application/json"
+					}
+				};
+
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questions",
+					options
+				);
+				const data = await resp.json();
+				if (data.success) {
+					setStore({ teacherQuestions: data });
+				}
 			},
 
-			deleteTeacherStrengthQuestion: index => {
+			deleteTeacherQuestion: async id => {
 				const store = getStore();
-				store.strengthQuestions.splice(index, 1);
-				setStore({ strengthQuestions: store.strengthQuestions });
+				store.teacherQuestions.splice(id, 1);
+				setStore({ teacherQuestions: store.teacherQuestions });
+
+				const options = {
+					method: "DELETE",
+					headers: {
+						"Content-type": "application/json"
+					}
+				};
+
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questions/" + `${id}`,
+					options
+				);
+				const data = await resp.json();
+				if (data.success) {
+					setStore({ teacherQuestions: data });
+				}
 			},
 
-			addTeacherWeaknessQuestion: value => {
-				setStore({ teacherWeaknessQuestion: value });
+			addTeacherQuestionnarie: (value, name) => {
+				const store = getStore();
+				const { newTeacherQuestionnarie } = store;
+				newTeacherQuestionnarie[name] = value;
+				setStore({ newTeacherQuestionnarie: newTeacherQuestionnarie });
 			},
 
-			submitTeacherWeaknessQuestion: e => {
+			submitTeacherQuestionnarie: async e => {
 				e.preventDefault();
 				const store = getStore();
-				const { weaknessQuestions } = store;
-				const { teacherWeaknessQuestion } = store;
-				const question = weaknessQuestions.concat({
-					question_id: weaknessQuestions[weaknessQuestions.length - 1].question_id + 1,
-					question: teacherWeaknessQuestion
-				});
-				setStore({ weaknessQuestions: question });
+				const { newTeacherQuestionnarie } = store;
+				const details = newTeacherQuestionnarie;
+
+				const options = {
+					method: "POST",
+					body: JSON.stringify(details),
+					headers: {
+						"Content-type": "application/json"
+					}
+				};
+
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questionnaries",
+					options
+				);
+				const data = await resp.json();
+				if (data.success) {
+					setStore({ teacherQuestionnarie: data });
+				}
 			},
 
-			deleteTeacherWeaknessQuestion: index => {
+			deleteTeacherQuestionnarie: async id => {
 				const store = getStore();
-				store.weaknessQuestions.splice(index, 1);
-				setStore({ weaknessQuestions: store.weaknessQuestions });
+				store.teacherQuestionnaries.splice(id, 1);
+				setStore({ teacherQuestionnaries: store.teacherQuestionnaries });
+
+				const options = {
+					method: "DELETE",
+					headers: {
+						"Content-type": "application/json"
+					}
+				};
+
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questionnaries/" +
+						`${id}`,
+					options
+				);
+				const data = await resp.json();
+				if (data.success) {
+					setStore({ teacherQuestionnaries: data });
+				}
 			},
 
-			addTeacherProjectionQuestion: value => {
-				setStore({ teacherProjectionQuestion: value });
+			addStudentQuestionnarie: value => {
+				setStore({ newStudentQuestionnarie: value });
 			},
 
-			submitTeacherProjectionQuestion: e => {
+			submitStudentQuestionnarie: async e => {
 				e.preventDefault();
 				const store = getStore();
-				const { projectionQuestions } = store;
-				const { teacherProjectionQuestion } = store;
-				const question = projectionQuestions.concat({
-					question_id: projectionQuestions[projectionQuestions.length - 1].question_id + 1,
-					question: teacherProjectionQuestion
-				});
-				setStore({ projectionQuestions: question });
+				const { studentQuestionnaries } = store;
+				const { newStudentQuestionnarie } = store;
+				const details = newStudentQuestionnarie;
+
+				const options = {
+					method: "POST",
+					body: JSON.stringify({ questionnarie_details: details }),
+					headers: {
+						"Content-type": "application/json"
+					}
+				};
+
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questionnaries",
+					options
+				);
+				const data = await resp.json();
+				if (data.success) {
+					setStore({ studentQuestionnaries: data });
+				}
 			},
 
-			deleteTeacherProjectionQuestion: index => {
+			deleteStudentQuestionnarie: async id => {
 				const store = getStore();
-				store.projectionQuestions.splice(index, 1);
-				setStore({ projectionQuestions: store.projectionQuestions });
+				store.studentQuestionnaries.splice(id, 1);
+				setStore({ studentQuestionnaries: store.studentQuestionnaries });
+
+				const options = {
+					method: "DELETE",
+					headers: {
+						"Content-type": "application/json"
+					}
+				};
+
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questionnaries/" +
+						`${id}`,
+					options
+				);
+				const data = await resp.json();
+				if (data.success) {
+					setStore({ studentQuestionnaries: data });
+				}
 			},
+
 			getStaffUsers: () => {
 				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/staff_users")
 					.then(response => response.json())
@@ -681,6 +699,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data =>
 						setStore({
 							financingTable: data
+						})
+					);
+			},
+
+			getTeacherQuestions: () => {
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questions")
+					.then(response => response.json())
+					.then(data =>
+						setStore({
+							teacherQuestions: data
+						})
+					);
+			},
+
+			getTeacherQuestionnaries: () => {
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questionnaries")
+					.then(response => response.json())
+					.then(data =>
+						setStore({
+							teacherQuestionnaries: data
+						})
+					);
+			},
+
+			getStudentQuestionnaries: () => {
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questionnaries")
+					.then(response => response.json())
+					.then(data =>
+						setStore({
+							studentQuestionnaries: data
 						})
 					);
 			}

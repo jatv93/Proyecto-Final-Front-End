@@ -12,7 +12,7 @@ export const StudentQuestions = () => {
 	const [modalShow, setModalShow] = React.useState(false);
 
 	return (
-		<Fragment>
+		<>
 			<Modal show={modalShow} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
 				<Modal.Header closeButton onClick={() => setModalShow(false)}>
 					<Modal.Title id="contained-modal-title-vcenter">Añadir Nueva Pregunta</Modal.Title>
@@ -68,19 +68,18 @@ export const StudentQuestions = () => {
 								);
 							})}
 							<br />
-						</div>
-					</div>
-					<div className="row">
-						<div className="col-lg-6 offset-lg-3 text-center">
-							<Button variant="btn btn-outline-primary" onClick={() => setModalShow(true)}>
-								<FontAwesomeIcon icon={faPlus} className="mr-2" />
-								Añadir Pregunta
-							</Button>
+
+							<div className="col-lg-6 offset-lg-3 text-center">
+								<Button variant="btn btn-outline-primary" onClick={() => setModalShow(true)}>
+									<FontAwesomeIcon icon={faPlus} className="mr-2" />
+									Añadir Pregunta
+								</Button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</SideNav>
-		</Fragment>
+		</>
 	);
 };
 

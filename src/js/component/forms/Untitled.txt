@@ -1,13 +1,13 @@
 import React, { Fragment, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash, faPlus, faBolt } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 import { Context } from "../../store/appContext";
-import "../../../styles/teacherComments.scss";
+import "../../../styles/teacherQuestions.scss";
 
-export const StrengthQuestions = () => {
+export const TeacherQuestions = ({ list, add, submit, del, question }) => {
 	const { store, actions } = useContext(Context);
 	const [modalShow, setModalShow] = React.useState(false);
 
@@ -17,14 +17,14 @@ export const StrengthQuestions = () => {
 				<Modal.Header closeButton onClick={() => setModalShow(false)}>
 					<Modal.Title id="contained-modal-title-vcenter">Añadir Nueva Pregunta</Modal.Title>
 				</Modal.Header>
-				<form onSubmit={e => actions.submitTeacherStrengthQuestion(e)}>
+				<form onSubmit={e => actions.submit(e)}>
 					<Modal.Body>
 						<textarea
 							className="form-control"
 							id="exampleFormControlTextarea1"
 							rows="3"
 							required
-							onChange={e => actions.addTeacherStrengthQuestion(e.target.value)}
+							onChange={e => actions.add(e.target.value)}
 						/>
 					</Modal.Body>
 					<Modal.Footer>
@@ -36,9 +36,15 @@ export const StrengthQuestions = () => {
 			</Modal>
 
 			<div className="row">
-				<div className="col-lg-9 offset-lg-1 mt-3">
-					<h4>Fortalezas</h4>
-					{store.strengthQuestions.map((item, index) => {
+				<div className="col-lg-9 offset-lg-2 mt-3 teacher-questions">
+					{list.map((item, index) => {
+						return (
+							<h4 className="text-center" key={index}>
+								{item.name}
+							</h4>
+						);
+					})}
+					{question.map((item, index) => {
 						return (
 							<ul key={index}>
 								<li>
@@ -48,7 +54,7 @@ export const StrengthQuestions = () => {
 									<FontAwesomeIcon
 										icon={faTrash}
 										className="mr-2"
-										onClick={() => actions.deleteTeacherStrengthQuestion(index)}
+										onClick={() => actions.del(index)}
 									/>
 
 									<input
@@ -61,21 +67,25 @@ export const StrengthQuestions = () => {
 							</ul>
 						);
 					})}
+
 					<br />
-				</div>
-			</div>
-			<div className="row">
-				<div className="col-lg-6 offset-lg-3 text-center">
-					<Button variant="btn btn-outline-primary" onClick={() => setModalShow(true)}>
-						<FontAwesomeIcon icon={faPlus} className="mr-2" />
-						Añadir Pregunta
-					</Button>
+					<div className="col-lg-6 offset-lg-3 text-center">
+						<Button variant="btn btn-outline-primary" onClick={() => setModalShow(true)}>
+							<FontAwesomeIcon icon={faPlus} className="mr-2" />
+							Añadir Pregunta
+						</Button>
+					</div>
 				</div>
 			</div>
 		</Fragment>
 	);
 };
 
-StrengthQuestions.propTypes = {
-	onHide: PropTypes.any
+TeacherQuestions.propTypes = {
+	onHide: PropTypes.any,
+	list: PropTypes.string,
+	add: PropTypes.func,
+	submit: PropTypes.func,
+	del: PropTypes.func,
+	question: PropTypes.any
 };
