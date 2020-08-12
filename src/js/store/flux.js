@@ -32,22 +32,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			allStudentUsers: [],
 
-			studentLogin: {
-				email: "",
-				password: ""
-			},
-
 			staffUsers: {
 				name: "",
 				lastName: "",
 				email: "",
 				password: "",
 				verification: ""
-			},
-
-			staffLogin: {
-				email: "",
-				password: ""
 			},
 
 			allStaffUsers: [],
@@ -62,6 +52,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			allTeacherUsers: [],
 
+			userLogin: {
+				email: "",
+				password: ""
+			},
+            
+            currentUser: null,
+            error: null,
+            isAuth: false,
+            
 			filesDataTable: [],
 
 			jobProfileTable: [
@@ -360,19 +359,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			handleChangeLogin: e => {
 				const store = getStore();
-				const { studentLogin } = store;
-				studentLogin[e.target.name] = e.target.value;
+				const { userLogin } = store;
+				userLogin[e.target.name] = e.target.value;
 				setStore({
-					studentLogin: studentLogin
-				});
-			},
-
-			handleChangeStaffLogin: e => {
-				const store = getStore();
-				const { staffLogin } = store;
-				stafftLogin[e.target.name] = e.target.value;
-				setStore({
-					staffLogin: staffLogin
+					userLogin: userLogin
 				});
 			},
 
@@ -399,16 +389,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			storeLoginInfo: () => {
 				setStore({
-					studentLogin: {
-						email: "",
-						password: ""
-					}
-				});
-			},
-
-			storeStaffLoginInfo: () => {
-				setStore({
-					staffLogin: {
+					userLogin: {
 						email: "",
 						password: ""
 					}
