@@ -32,13 +32,18 @@ const injectContext = PassedComponent => {
 			 *
 			 **/
 
+			state.actions.isAuthenticated();
 			state.actions.getStaffUsers();
 			state.actions.getTeacherUsers();
 			state.actions.getStudentUsers();
 			state.actions.getfilesDataTable();
 			state.actions.getAgreementsTable();
 			state.actions.getFinancingTable();
+			state.actions.getPaymentTable();
+			state.actions.getInvoiceTable();
+			state.actions.getCreditNoteTable();
 			state.actions.getTeacherQuestions();
+			state.actions.getStudentQuestions();
 			state.actions.getTeacherQuestionnaries();
 			state.actions.getStudentQuestionnaries();
 		}, []);

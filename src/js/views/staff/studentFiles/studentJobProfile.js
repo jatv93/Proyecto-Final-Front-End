@@ -17,8 +17,8 @@ export const StudentJobProfile = () => {
 					<div className="row">
 						<div className="col-lg-12">
 							<br />
-							{store.jobProfileStudentQuestions.map((item, index) => {
-								const answer = store.jobProfileStudentAnswers.find(
+							{store.studentQuestions.map((item, index) => {
+								const answer = store.studentAnswers.find(
 									answer => answer.question_id == item.question_id
 								);
 								item.answer = answer ? answer.answer : null;

@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-bootstrap/Modal";
@@ -10,6 +10,8 @@ import "../../../styles/teacherComments.scss";
 export const QuestionnarieForm = ({ list, title, add, submit, del }) => {
 	const { store, actions } = useContext(Context);
 	const [modalShow, setModalShow] = React.useState(false);
+
+	console.log(list);
 
 	return (
 		<Fragment>
@@ -45,28 +47,29 @@ export const QuestionnarieForm = ({ list, title, add, submit, del }) => {
 			<div className="row">
 				<div className="col-lg-9 offset-lg-1 mt-3">
 					<h4 className="text-center">{title}</h4>
-					{list.map((item, index) => {
-						return (
-							<ul key={index}>
-								<li>
-									<h5>
-										<strong>{item.name}</strong>
-									</h5>
-									<FontAwesomeIcon icon={faEdit} className="ml-2 mr-2" />
+					{list &&
+						list.map((item, index) => {
+							return (
+								<ul key={index}>
+									<li>
+										<h5>
+											<strong>{item.name}</strong>
+										</h5>
+										<FontAwesomeIcon icon={faEdit} className="ml-2 mr-2" />
 
-									<FontAwesomeIcon icon={faTrash} className="mr-2" onClick={() => del(index)} />
+										<FontAwesomeIcon icon={faTrash} className="mr-2" onClick={() => del(item.id)} />
 
-									<input
-										className="form-check-input-inline"
-										type="checkbox"
-										id="inlineCheckbox1"
-										value="option1"
-									/>
-								</li>
-								<p>{item.questionnarie_details}</p>
-							</ul>
-						);
-					})}
+										<input
+											className="form-check-input-inline"
+											type="checkbox"
+											id="inlineCheckbox1"
+											value="option1"
+										/>
+									</li>
+									<p>{item.questionnarie_details}</p>
+								</ul>
+							);
+						})}
 					<br />
 				</div>
 			</div>

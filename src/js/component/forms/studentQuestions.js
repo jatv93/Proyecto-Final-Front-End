@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { Context } from "../../store/appContext";
 import "../../../styles/teacherQuestions.scss";
 
-export const TeacherQuestions = () => {
+export const StudentQuestions = () => {
 	const { store, actions } = useContext(Context);
 	const [modalShow, setModalShow] = React.useState(false);
 	const [questionnarie_id, setQuestionnarie_id] = useState(0);
@@ -18,14 +18,14 @@ export const TeacherQuestions = () => {
 				<Modal.Header closeButton onClick={() => setModalShow(false)}>
 					<Modal.Title id="contained-modal-title-vcenter">Añadir Nueva Pregunta</Modal.Title>
 				</Modal.Header>
-				<form onSubmit={e => actions.submitTeacherQuestion(e, questionnarie_id)}>
+				<form onSubmit={e => actions.submitStudentQuestion(e, questionnarie_id)}>
 					<Modal.Body>
 						<textarea
 							className="form-control"
 							id="exampleFormControlTextarea1"
 							rows="3"
 							required
-							onChange={e => actions.addTeacherQuestion(e.target.value)}
+							onChange={e => actions.addStudentQuestion(e.target.value)}
 						/>
 					</Modal.Body>
 					<Modal.Footer>
@@ -37,15 +37,15 @@ export const TeacherQuestions = () => {
 			</Modal>
 
 			<div className="row">
-				{store.teacherQuestionnaries &&
-					store.teacherQuestionnaries.map((questionnarie, index) => {
+				{store.studentQuestionnaries &&
+					store.studentQuestionnaries.map((questionnarie, index) => {
 						return (
 							<>
-								<div className="col-lg-9 offset-lg-2 mt-3 teacher-questions" key={index}>
-									<h4 className="text-center">{questionnarie.name}</h4>
+								<div className="col-lg-12 mt-3" key={index}>
+									<h4 className="text-center mb-3">{questionnarie.name}</h4>
 
-									{store.teacherQuestions &&
-										store.teacherQuestions.map((item, index) => {
+									{store.studentQuestions &&
+										store.studentQuestions.map((item, index) => {
 											return (
 												<ul key={index}>
 													<li>
@@ -90,6 +90,6 @@ export const TeacherQuestions = () => {
 	);
 };
 
-TeacherQuestions.propTypes = {
+StudentQuestions.propTypes = {
 	onHide: PropTypes.any
 };

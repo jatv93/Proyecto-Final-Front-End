@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { Context } from "../../store/appContext";
 import useForm from "./useForm";
 import "../../../styles/teacherQuestions.scss";
+import { useEffect } from "react";
 
 export const LoginForm = props => {
 	const { store, actions } = useContext(Context);
@@ -23,8 +24,11 @@ export const LoginForm = props => {
 			}
 		});
 		const data = await resp.json();
+		console.log(data);
 		if (!data.msg) {
 			actions.storeLoginInfo();
+			store.currentUser = data;
+			store.isAuth = true;
 			setValues("");
 			setMsg(null);
 			props.history.push(url);
@@ -35,6 +39,9 @@ export const LoginForm = props => {
 				</div>
 			);
 		}
+
+		sessionStorage.setItem("data", data.data.access_token);
+		sessionStorage.setItem("store.isAuth", true);
 	}
 
 	return (

@@ -56,11 +56,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				email: "",
 				password: ""
 			},
-            
-            currentUser: null,
-            error: null,
-            isAuth: false,
-            
+
+			currentUser: null,
+			isAuth: false,
+
 			filesDataTable: [],
 
 			jobProfileTable: [
@@ -90,166 +89,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 
-			studentPaymentsTable: [
-				{
-					id: 1,
-					payment_id: 350,
-					date: "03/06/2020",
-					amount: "1.000.000",
-					breathecode_id: 150
-				},
-				{
-					id: 2,
-					payment_id: 620,
-					date: "09/06/2020",
-					amount: "700.000",
-					breathecode_id: 150
-				},
-				{
-					id: 3,
-					payment_id: 563,
-					date: "06/07/2020",
-					amount: "300.000",
-					breathecode_id: 150
-				}
-			],
-			studentInvoiceTable: [
-				{
-					id: 1,
-					invoice_id: 200,
-					date: "03/06/2020",
-					amount: "1.000.000",
-					breathecode_id: 150
-				},
-				{
-					id: 2,
-					invoice_id: 210,
-					date: "09/06/2020",
-					amount: "700.000",
-					breathecode_id: 150
-				},
-				{
-					id: 3,
-					invoice_id: 300,
-					date: "06/07/2020",
-					amount: "300.000",
-					breathecode_id: 150
-				}
-			],
+			studentPaymentsTable: [],
+			studentInvoiceTable: [],
 
-			studentCreditNoteTable: [
-				{
-					id: 1,
-					note_id: 5,
-					date: "03/06/2020",
-					amount: "1.000.000",
-					breathecode_id: 150
-				}
-			],
+			studentCreditNoteTable: [],
 
 			agreement: {},
 
 			financingTable: [],
 
-			paymentsTable: [
-				{
-					id: 1,
-					name: "Jennifer",
-					lastName: "Toledo",
-					payment_id: 5,
-					cohort: "II",
-					modality: "PT",
-					date: "03/06/2020",
-					amount: "1.000.000",
-					breathecode_id: 150
-				}
-			],
+			paymentsTable: [],
 
-			invoicesTable: [
-				{
-					id: 1,
-					rut: "27.009.732-4",
-					full_name: "Jennifer Toledo",
-					cohort: "II",
-					modality: "PT",
-					invoice_id: 202,
-					date: "03/06/2020",
-					amount: "1.000.000",
-					breathecode_id: 150
-				},
-				{
-					id: 2,
-					rut: "27.009.732-4",
-					full_name: "Jennifer Toledo",
-					cohort: "II",
-					modality: "PT",
-					invoice_id: 300,
-					date: "09/06/2020",
-					amount: "700.000",
-					breathecode_id: 150
-				},
-				{
-					id: 3,
-					rut: "27.009.732-4",
-					full_name: "Jennifer Toledo",
-					cohort: "II",
-					modality: "PT",
-					invoice_id: 450,
-					date: "06/07/2020",
-					amount: "300.000",
-					breathecode_id: 150
-				}
-			], //esta info viene del SII
+			invoicesTable: [], //esta info viene del SII
 
-			creditNoteTable: [
-				{
-					id: 1,
-					rut: "27.009.732-4",
-					full_name: "Jennifer Toledo",
-					cohort: "II",
-					modality: "PT",
-					note_id: 5,
-					date: "03/06/2020",
-					amount: "1.000.000",
-					breathecode_id: 150
-				}
-			], //esta info viene del SII
+			creditNoteTable: [], //esta info viene del SII
 
-			jobProfileStudentQuestions: [
-				{
-					question_id: 1,
-					question: "¿Estarías dispuesto/a a aceptar un cargo trainee, prácticas o pasantías?"
-				},
-				{
-					question_id: 2,
-					question:
-						"¿De ser afirmativo, ¿cuáles son tus condiciones? Por ejemplo, ¿aceptarías el cargo sin remuneración??"
-				},
-				{
-					question_id: 3,
-					question:
-						"¿Cuál área del desarrollo de software te interesa/inclinas o se te hace más fácil (front o back)?"
-				},
-				{
-					question_id: 4,
-					question:
-						"Tomando en cuenta que los cargos trainee o pasantías son un nivel más sencillo que los cargos Junior, ¿te gustaría postularte como practicante Full-Stack o prefieres que sea netamente sobre el área de tu inclinación?"
-				},
-				{
-					question_id: 5,
-					question: "¿Dominas el inglés? ¿Te consideras una persona bilingüe?"
-				},
-				{
-					question_id: 6,
-					question: "¿Tienes experiencia previa en programación?"
-				},
-				{
-					question_id: 7,
-					question: "¿Anteriormente has trabajado en programación, tecnología o afín?"
-				}
-			],
+			studentQuestions: [],
 
-			jobProfileStudentAnswers: [
+			studentAnswers: [
 				{
 					answer_id: 1,
 					question_id: 1,
@@ -294,24 +151,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 
-			teacherQuestions: [
-				/*{
-					question_id: 1,
-					question: "¿Qué hace a este estudiante mejor que los otros?"
-				},
-				{
-					question_id: 2,
-					question: "¿Qué está haciendo muy bien?"
-				},
-				{
-					question_id: 3,
-					question: "¿Habilidades más asombrosas?"
-				},
-				{
-					question_id: 4,
-					question: "¿Qué dicen los demás que él/ella hace muy bien?"
-				}*/
-			],
+			teacherQuestions: [],
 
 			teacherAnswers: [
 				{
@@ -344,7 +184,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			studentQuestionnaries: [],
 
-			studentQuestion: "",
+			newStudentQuestion: "",
 
 			newTeacherQuestion: "",
 
@@ -353,7 +193,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				questionnarie_details: ""
 			},
 
-			newStudentQuestionnarie: ""
+			newStudentQuestionnarie: {
+				name: "",
+				questionnarie_details: ""
+			}
 		},
 
 		actions: {
@@ -432,26 +275,69 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 			},
 
-			addStudentQuestion: value => {
-				setStore({ studentQuestion: value });
+			isAuthenticated: () => {
+				if (sessionStorage.getItem("isAuth")) {
+					setStore({
+						currentUser: JSON.parse(sessionStorage.getItem("currentUser")),
+						isAuth: JSON.parse(sessionStorage.getItem("isAuth"))
+					});
+				}
 			},
 
-			submitStudentQuestion: e => {
+			addStudentQuestion: value => {
+				setStore({ newStudentQuestion: value });
+			},
+
+			submitStudentQuestion: async (e, questionnarie_id) => {
 				e.preventDefault();
 				const store = getStore();
-				const { jobProfileStudentQuestions } = store;
-				const { studentQuestion } = store;
-				const question = jobProfileStudentQuestions.concat({
-					question_id: jobProfileStudentQuestions[jobProfileStudentQuestions.length - 1].question_id + 1,
-					question: studentQuestion
-				});
-				setStore({ jobProfileStudentQuestions: question });
+				const { newStudentQuestion } = store;
+				const question = newStudentQuestion;
+
+				let token = sessionStorage.getItem("data");
+
+				const options = {
+					method: "POST",
+					body: JSON.stringify({ question: question, questionnarie_id: questionnarie_id }),
+					headers: {
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
+					}
+				};
+
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questions",
+					options
+				);
+				const data = await resp.json();
+				if (data.success) {
+					setStore({ studentQuestions: data });
+				}
 			},
 
-			deleteStudentQuestion: index => {
+			deleteStudentQuestion: async id => {
 				const store = getStore();
-				store.jobProfileStudentQuestions.splice(index, 1);
-				setStore({ jobProfileStudentQuestions: store.jobProfileStudentQuestions });
+				store.studentQuestions.splice(id, 1);
+				setStore({ studentQuestions: store.studentQuestions });
+
+				let token = sessionStorage.getItem("data");
+
+				const options = {
+					method: "DELETE",
+					headers: {
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
+					}
+				};
+
+				const resp = await fetch(
+					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questions/${id}`,
+					options
+				);
+				const data = await resp.json();
+				if (data.success) {
+					setStore({ studentQuestions: data });
+				}
 			},
 
 			addTeacherQuestion: value => {
@@ -464,11 +350,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const { newTeacherQuestion } = store;
 				const question = newTeacherQuestion;
 
+				let token = sessionStorage.getItem("data");
+
 				const options = {
 					method: "POST",
 					body: JSON.stringify({ question: question, questionnarie_id: questionnarie_id }),
 					headers: {
-						"Content-type": "application/json"
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
 					}
 				};
 
@@ -487,15 +376,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				store.teacherQuestions.splice(id, 1);
 				setStore({ teacherQuestions: store.teacherQuestions });
 
+				let token = sessionStorage.getItem("data");
+
 				const options = {
 					method: "DELETE",
 					headers: {
-						"Content-type": "application/json"
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
 					}
 				};
 
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questions/" + `${id}`,
+					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questions/${id}`,
 					options
 				);
 				const data = await resp.json();
@@ -517,11 +409,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const { newTeacherQuestionnarie } = store;
 				const details = newTeacherQuestionnarie;
 
+				let token = sessionStorage.getItem("data");
+
 				const options = {
 					method: "POST",
 					body: JSON.stringify(details),
 					headers: {
-						"Content-type": "application/json"
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
 					}
 				};
 
@@ -536,44 +431,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			deleteTeacherQuestionnarie: async id => {
+				console.log(id);
 				const store = getStore();
 				store.teacherQuestionnaries.splice(id, 1);
 				setStore({ teacherQuestionnaries: store.teacherQuestionnaries });
 
+				let token = sessionStorage.getItem("data");
+
 				const options = {
 					method: "DELETE",
 					headers: {
-						"Content-type": "application/json"
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
 					}
 				};
 
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questionnaries/" +
-						`${id}`,
+					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questionnaries/${id}`,
 					options
 				);
 				const data = await resp.json();
-				if (data.success) {
-					setStore({ teacherQuestionnaries: data });
-				}
 			},
 
-			addStudentQuestionnarie: value => {
-				setStore({ newStudentQuestionnarie: value });
+			addStudentQuestionnarie: (value, name) => {
+				const store = getStore();
+				const { newStudentQuestionnarie } = store;
+				newStudentQuestionnarie[name] = value;
+				setStore({ newStudentQuestionnarie: newStudentQuestionnarie });
 			},
 
 			submitStudentQuestionnarie: async e => {
 				e.preventDefault();
 				const store = getStore();
-				const { studentQuestionnaries } = store;
 				const { newStudentQuestionnarie } = store;
 				const details = newStudentQuestionnarie;
 
+				let token = sessionStorage.getItem("data");
+
 				const options = {
 					method: "POST",
-					body: JSON.stringify({ questionnarie_details: details }),
+					body: JSON.stringify(details),
 					headers: {
-						"Content-type": "application/json"
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
 					}
 				};
 
@@ -588,20 +488,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			deleteStudentQuestionnarie: async id => {
+				console.log(id);
 				const store = getStore();
 				store.studentQuestionnaries.splice(id, 1);
 				setStore({ studentQuestionnaries: store.studentQuestionnaries });
 
+				let token = sessionStorage.getItem("data");
+
 				const options = {
 					method: "DELETE",
 					headers: {
-						"Content-type": "application/json"
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
 					}
 				};
 
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questionnaries/" +
-						`${id}`,
+					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questionnaries/${id}`,
 					options
 				);
 				const data = await resp.json();
@@ -684,8 +587,44 @@ const getState = ({ getStore, getActions, setStore }) => {
 					);
 			},
 
+			getPaymentTable: () => {
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/payments")
+					.then(response => response.json())
+					.then(data =>
+						setStore({
+							paymentsTable: data
+						})
+					);
+			},
+
+			getInvoiceTable: () => {
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/invoices")
+					.then(response => response.json())
+					.then(data =>
+						setStore({
+							invoicesTable: data
+						})
+					);
+			},
+
+			getCreditNoteTable: () => {
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/credit_notes")
+					.then(response => response.json())
+					.then(data =>
+						setStore({
+							creditNoteTable: data
+						})
+					);
+			},
+
 			getTeacherQuestions: () => {
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questions")
+				let token = sessionStorage.getItem("data");
+				const options = {
+					headers: {
+						Authorization: `Bearer ${token}`
+					}
+				};
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questions", options)
 					.then(response => response.json())
 					.then(data =>
 						setStore({
@@ -695,7 +634,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getTeacherQuestionnaries: () => {
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questionnaries")
+				let token = sessionStorage.getItem("data");
+				const options = {
+					headers: {
+						Authorization: `Bearer ${token}`
+					}
+				};
+				fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questionnaries",
+					options
+				)
 					.then(response => response.json())
 					.then(data =>
 						setStore({
@@ -705,11 +653,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getStudentQuestionnaries: () => {
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questionnaries")
+				let token = sessionStorage.getItem("data");
+				const options = {
+					headers: {
+						Authorization: `Bearer ${token}`
+					}
+				};
+
+				fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questionnaries",
+					options
+				)
 					.then(response => response.json())
 					.then(data =>
 						setStore({
 							studentQuestionnaries: data
+						})
+					);
+			},
+
+			getStudentQuestions: () => {
+				let token = sessionStorage.getItem("data");
+				const options = {
+					headers: {
+						Authorization: `Bearer ${token}`
+					}
+				};
+				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questions", options)
+					.then(response => response.json())
+					.then(data =>
+						setStore({
+							studentQuestions: data
 						})
 					);
 			}

@@ -38,7 +38,7 @@ import { CreateTeacherUsers } from "./views/staff/users/createTeacherUsers";
 import { StudentUsers } from "./views/staff/users/studentUsers";
 
 import { studentProjection } from "./views/teachers/projection";
-import { StudentQuestions } from "./views/staff/jobProfile/studentQuestions";
+import { StudentQuestionnaries } from "./views/staff/jobProfile/studentQuestionnarie";
 import { TeacherQuestionnaries } from "./views/staff/jobProfile/teacherQuestionnaries";
 import { Questionnaries } from "./views/staff/jobProfile/questionnaries";
 
@@ -81,7 +81,11 @@ export const Layout = () => {
 						<Route exact path="/staff/files/:breathecode_id/teacher_comments" component={TeacherComments} />
 						<Route exact path="/staff/job_profile" component={JobProfile} />
 						<Route exact path="/staff/job_profile/questionnaries" component={Questionnaries} />
-						<Route exact path="/staff/job_profile/student_questions" component={StudentQuestions} />
+						<Route
+							exact
+							path="/staff/job_profile/student_questionnarie"
+							component={StudentQuestionnaries}
+						/>
 						<Route
 							exact
 							path="/staff/job_profile/teacher_questionnarie"
