@@ -11,7 +11,7 @@ export const Files = () => {
 			<SideNav links={store.sideBarContent.staff}>
 				<div className="container">
 					<div className="row">
-						<div className="col-lg-6 offset-lg-3 mt-5">
+						<div className="col-lg-6 offset-lg-3 mt-3">
 							<h1 className="text-center">Expedientes de Estudiantes</h1>
 						</div>
 					</div>
@@ -19,7 +19,7 @@ export const Files = () => {
 						<div className="col-lg-12 mt-2 mb-4">
 							<Table
 								searchFields={["name", "lastName", "email"]}
-								columns={["name", "lastName", "cohort", "modality", "email", "phone", "breathecode_id"]}
+								columns={["name", "lastName", "cohort", "email", "phone", "breathecode_id"]}
 								list={store.filesDataTable}
 							/>
 						</div>

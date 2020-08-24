@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import "./sidenav.css";
 
 const SideNav = props => {
-	console.log(props);
 	return (
 		<>
 			<div className="wrapper">
@@ -18,7 +17,6 @@ const SideNav = props => {
 						<div className="divider" />
 						<ul className="list-unstyled components">
 							{props.links.map((item, i) => {
-								console.log(item);
 								return (
 									<li key={i}>
 										<Link className="sidenav-btn btn btn-warning btn-lg" to={item.link}>

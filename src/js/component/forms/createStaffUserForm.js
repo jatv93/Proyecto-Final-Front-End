@@ -29,6 +29,7 @@ export const CreateStaffUserForm = () => {
 					Registro realizado exitosamente!
 				</div>
 			);
+			actions.getStaffUsers();
 		} else {
 			setMsg(
 				<div className="alert alert-danger" role="alert">

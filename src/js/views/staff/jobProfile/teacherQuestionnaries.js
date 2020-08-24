@@ -1,12 +1,9 @@
 import React, { Fragment, useContext } from "react";
 import { Context } from "../../../store/appContext";
 import SideNav from "../../../component/sidenav";
-import PropTypes from "prop-types";
-import { StrengthQuestions } from "../../../component/forms/strengthQuestions";
-import { WeaknessQuestions } from "../../../component/forms/weaknessQuestions";
-import { ProjectionQuestions } from "../../../component/forms/projectionQuestions";
+import { TeacherQuestions } from "../../../component/forms/teacherQuestions";
 
-export const TeacherQuestions = () => {
+export const TeacherQuestionnaries = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
@@ -19,15 +16,13 @@ export const TeacherQuestions = () => {
 							<h3 className="text-center">Perfil Laboral</h3>
 						</div>
 					</div>
-					<StrengthQuestions />
-					<WeaknessQuestions />
-					<ProjectionQuestions />
+					<div className="row">
+						<div className="col-lg-6">
+							<TeacherQuestions />
+						</div>
+					</div>
 				</div>
 			</SideNav>
 		</Fragment>
 	);
-};
-
-TeacherQuestions.propTypes = {
-	onHide: PropTypes.any
 };

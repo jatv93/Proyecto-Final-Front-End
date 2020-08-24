@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
-import { Context } from "../../store/appContext";
-import SideNav from "../../component/sidenav";
-import { UsersTable } from "../../component/tables/usersTable";
+import { Context } from "../../../store/appContext";
+import SideNav from "../../../component/sidenav";
+import { UsersTable } from "../../../component/tables/usersTable";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
-import { CreateTeacherUserForm } from "../../component/forms/createTeacherUserForm";
+import { CreateTeacherUserForm } from "../../../component/forms/createTeacherUserForm";
 
-export const CreateTeacherUsers = () => {
+export const CreateTeacherUsers = props => {
 	const { store, actions } = useContext(Context);
 	const [modalShow, setModalShow] = React.useState(false);
 
@@ -30,7 +30,7 @@ export const CreateTeacherUsers = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-8 offset-lg-2">
-							<h1 className="text-center">Creación de Usuarios</h1>
+							<h1 className="text-center">Listado de Usuarios</h1>
 							<h3 className="text-center">Teacher</h3>
 						</div>
 					</div>
@@ -40,6 +40,7 @@ export const CreateTeacherUsers = () => {
 								searchFields={["name", "lastName", "email"]}
 								columns={["name", "lastName", "email"]}
 								list={store.allTeacherUsers}
+								options={() => actions.deleteTeacherUser(id)}
 							/>
 						</div>
 					</div>
@@ -58,5 +59,6 @@ export const CreateTeacherUsers = () => {
 };
 
 CreateTeacherUsers.propTypes = {
-	onHide: PropTypes.any
+	onHide: PropTypes.any,
+	id: PropTypes.string
 };

@@ -35,7 +35,11 @@ export const Table = ({ list, searchFields, columns, scope }) => {
 								return false;
 							})
 							.sort((itemA, itemB) => {
-								return itemA[stortingColumn] > itemB[stortingColumn] ? 1 : -1;
+								return itemA[stortingColumn] > itemB[stortingColumn]
+									? 1
+									: itemA[stortingColumn] < itemB[stortingColumn]
+									? -1
+									: 0;
 							})
 							.map((item, index) => {
 								return (
