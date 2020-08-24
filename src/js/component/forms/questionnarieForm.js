@@ -11,8 +11,6 @@ export const QuestionnarieForm = ({ list, title, add, submit, del }) => {
 	const { store, actions } = useContext(Context);
 	const [modalShow, setModalShow] = React.useState(false);
 
-	console.log(list);
-
 	return (
 		<Fragment>
 			<Modal show={modalShow} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
