@@ -310,9 +310,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					options
 				);
 				const data = await resp.json();
-				if (data.success) {
-					setStore({ studentQuestions: data });
-				}
+				getActions().getStudentQuestions();
 			},
 
 			deleteStudentQuestion: async id => {
@@ -335,9 +333,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					options
 				);
 				const data = await resp.json();
-				if (data.success) {
-					setStore({ studentQuestions: data });
-				}
+				getActions().getStudentQuestions();
 			},
 
 			addTeacherQuestion: value => {
@@ -366,9 +362,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					options
 				);
 				const data = await resp.json();
-				if (data.success) {
-					setStore({ teacherQuestions: data });
-				}
+				getActions().getTeacherQuestions();
 			},
 
 			deleteTeacherQuestion: async id => {
@@ -391,9 +385,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					options
 				);
 				const data = await resp.json();
-				if (data.success) {
-					setStore({ teacherQuestions: data });
-				}
+				getActions().getTeacherQuestions();
 			},
 
 			addTeacherQuestionnarie: (value, name) => {
@@ -425,9 +417,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					options
 				);
 				const data = await resp.json();
-				if (data.success) {
-					setStore({ teacherQuestionnarie: data });
-				}
+				getActions().getTeacherQuestionnaries();
 			},
 
 			deleteTeacherQuestionnarie: async id => {
@@ -482,9 +472,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					options
 				);
 				const data = await resp.json();
-				if (data.success) {
-					setStore({ studentQuestionnaries: data });
-				}
+				getActions().getStudentQuestionnaries();
 			},
 
 			deleteStudentQuestionnarie: async id => {
@@ -636,26 +624,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					);
 			},
 
-			getTeacherQuestionnaries: () => {
+			getTeacherQuestionnaries: async () => {
 				let token = sessionStorage.getItem("data");
 				const options = {
 					headers: {
 						Authorization: `Bearer ${token}`
 					}
 				};
-				fetch(
+				const resp = await fetch(
 					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questionnaries",
 					options
-				)
-					.then(response => response.json())
-					.then(data =>
-						setStore({
-							teacherQuestionnaries: data
-						})
-					);
+				);
+
+				const data = await resp.json();
+				setStore({ teacherQuestionnaries: data });
 			},
 
-			getStudentQuestionnaries: () => {
+			getStudentQuestionnaries: async () => {
 				let token = sessionStorage.getItem("data");
 				const options = {
 					headers: {
@@ -663,16 +648,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				};
 
-				fetch(
+				const resp = await fetch(
 					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questionnaries",
 					options
-				)
-					.then(response => response.json())
-					.then(data =>
-						setStore({
-							studentQuestionnaries: data
-						})
-					);
+				);
+
+				const data = await resp.json();
+				setStore({ studentQuestionnaries: data });
 			},
 
 			getStudentQuestions: () => {

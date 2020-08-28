@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 import { Context } from "../../store/appContext";
 import "../../../styles/teacherQuestions.scss";
+import { useEffect } from "react";
 
 export const TeacherQuestions = () => {
 	const { store, actions } = useContext(Context);
@@ -45,29 +46,35 @@ export const TeacherQuestions = () => {
 									<h4 className="text-center">{questionnarie.name}</h4>
 
 									{store.teacherQuestions &&
-										store.teacherQuestions.map((item, index) => {
-											return (
-												<ul key={index}>
-													<li>
-														{item.question}
-														<FontAwesomeIcon icon={faEdit} className="ml-2 mr-2" />
+										store.teacherQuestions
+											.filter(item => {
+												if (questionnarie.id === item.questionnarie_id) {
+													return item;
+												}
+											})
+											.map((item, index) => {
+												return (
+													<ul key={index}>
+														<li>
+															{item.question}
+															<FontAwesomeIcon icon={faEdit} className="ml-2 mr-2" />
 
-														<FontAwesomeIcon
-															icon={faTrash}
-															className="mr-2"
-															onClick={() => actions.deleteTeacherQuestion(id)}
-														/>
+															<FontAwesomeIcon
+																icon={faTrash}
+																className="mr-2"
+																onClick={() => actions.deleteTeacherQuestion(id)}
+															/>
 
-														<input
-															className="form-check-input-inline"
-															type="checkbox"
-															id="inlineCheckbox1"
-															value="option1"
-														/>
-													</li>
-												</ul>
-											);
-										})}
+															<input
+																className="form-check-input-inline"
+																type="checkbox"
+																id="inlineCheckbox1"
+																value="option1"
+															/>
+														</li>
+													</ul>
+												);
+											})}
 
 									<br />
 									<div className="col-lg-6 offset-lg-3 text-center">

@@ -19,7 +19,7 @@ export const teachome = () => {
 						<div className="col-lg-12 mt-2 mb-4">
 							<TeacherTable
 								searchFields={["name", "lastName", "email"]}
-								columns={["name", "lastName", "cohort", "modality", "email", "admission_date"]}
+								columns={["name", "lastName", "cohort", "email", "admission_date"]}
 								list={store.filesDataTable}
 								scope={"/form"}
 							/>

@@ -19,7 +19,7 @@ export const studentStrength = () => {
 					<div className="row">
 						<div className="col-12 col-lg-10 offset-lg-1">
 							<form>
-								{store.strengthQuestions.map((item, index) => {
+								{store.teacherQuestionnaries.map((item, index) => {
 									return (
 										<div className="form-group" key={index}>
 											<label>{item.question}</label>

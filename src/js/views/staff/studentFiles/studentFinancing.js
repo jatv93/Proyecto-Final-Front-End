@@ -6,9 +6,12 @@ import PropTypes from "prop-types";
 
 export const StudentFinancing = props => {
 	const { store, actions } = useContext(Context);
+	const { filesDataTable } = store;
 
 	useEffect(() => {
-		actions.getFinancingTable();
+		actions.getFinancingTable(filesDataTable[0].rut);
+		console.log(props.match.params.breathecode_id);
+		console.log(filesDataTable[0].rut);
 	}, []);
 
 	return (
