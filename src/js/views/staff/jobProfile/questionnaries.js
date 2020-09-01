@@ -20,7 +20,7 @@ export const Questionnaries = () => {
 					<div className="row">
 						<div className="col-lg-6">
 							<QuestionnarieForm
-								list={store.teacherQuestionnaries}
+								list={store.teacherQuestionnaries && store.teacherQuestionnaries}
 								title={"Cuestionarios de Profesores"}
 								add={actions.addTeacherQuestionnarie}
 								submit={actions.submitTeacherQuestionnarie}
