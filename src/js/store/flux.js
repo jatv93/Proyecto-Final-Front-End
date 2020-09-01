@@ -421,7 +421,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			deleteTeacherQuestionnarie: async id => {
-				console.log(id);
 				const store = getStore();
 				store.teacherQuestionnaries.splice(id, 1);
 				setStore({ teacherQuestionnaries: store.teacherQuestionnaries });
@@ -501,127 +500,127 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			getStaffUsers: () => {
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/staff_users")
-					.then(response => response.json())
-					.then(data => {
-						setStore({
-							allStaffUsers: data
-						});
-					});
+			getStaffUsers: async () => {
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/staff_users"
+				);
+				const data = await resp.json();
+				setStore({
+					allStaffUsers: data
+				});
 			},
 
-			getTeacherUsers: () => {
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_users")
-					.then(response => response.json())
-					.then(data =>
-						setStore({
-							allTeacherUsers: data
-						})
-					);
+			getTeacherUsers: async () => {
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_users"
+				);
+				const data = await resp.json();
+				setStore({
+					allTeacherUsers: data
+				});
 			},
 
-			getStudentUsers: () => {
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_users")
-					.then(response => response.json())
-					.then(data =>
-						setStore({
-							allStudentUsers: data
-						})
-					);
+			getStudentUsers: async () => {
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_users"
+				);
+				const data = await resp.json();
+				setStore({
+					allStudentUsers: data
+				});
 			},
 
-			deleteStaffUser: id => {
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/staff_users/" + `${id}`, {
-					method: "DELETE",
-					headers: {
-						"Content-Type": "application/json"
+			deleteStaffUser: async id => {
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/staff_users/" + `${id}`,
+					{
+						method: "DELETE",
+						headers: {
+							"Content-Type": "application/json"
+						}
 					}
-				})
-					.then(response => response.json())
-					.then(data => getActions().getStaffUsers());
+				);
+				const data = await resp.json();
+				getActions().getStaffUsers();
 			},
 
-			getfilesDataTable: () => {
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/profiles")
-					.then(response => response.json())
-					.then(data =>
-						setStore({
-							filesDataTable: data
-						})
-					);
+			getfilesDataTable: async () => {
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/profiles"
+				);
+				const data = await resp.json();
+				setStore({
+					filesDataTable: data
+				});
 			},
 
-			getAgreementsTable: id => {
-				fetch(
+			getAgreementsTable: async id => {
+				const resp = await fetch(
 					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/enrrollment_agreements/" +
 						`${id}`
-				)
-					.then(response => response.json())
-					.then(data =>
-						setStore({
-							agreement: data
-						})
-					);
+				);
+				const data = await resp.json();
+				setStore({
+					agreement: data
+				});
 			},
 
-			getFinancingTable: id => {
-				fetch(
+			getFinancingTable: async id => {
+				const resp = await fetch(
 					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/financing_agreements/" +
 						`${id}`
-				)
-					.then(response => response.json())
-					.then(data =>
-						setStore({
-							financing: data
-						})
-					);
+				);
+				const data = await resp.json();
+				setStore({
+					financing: data
+				});
 			},
 
-			getPaymentTable: () => {
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/payments")
-					.then(response => response.json())
-					.then(data =>
-						setStore({
-							paymentsTable: data
-						})
-					);
+			getPaymentTable: async () => {
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/payments"
+				);
+				const data = await resp.json();
+				setStore({
+					paymentsTable: data
+				});
 			},
 
-			getInvoiceTable: () => {
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/invoices")
-					.then(response => response.json())
-					.then(data =>
-						setStore({
-							invoicesTable: data
-						})
-					);
+			getInvoiceTable: async () => {
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/invoices"
+				);
+				const data = await resp.json();
+				setStore({
+					invoicesTable: data
+				});
 			},
 
-			getCreditNoteTable: () => {
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/credit_notes")
-					.then(response => response.json())
-					.then(data =>
-						setStore({
-							creditNoteTable: data
-						})
-					);
+			getCreditNoteTable: async () => {
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/credit_notes"
+				);
+				const data = await resp.json();
+				setStore({
+					creditNoteTable: data
+				});
 			},
 
-			getTeacherQuestions: () => {
+			getTeacherQuestions: async () => {
 				let token = sessionStorage.getItem("data");
 				const options = {
 					headers: {
 						Authorization: `Bearer ${token}`
 					}
 				};
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questions", options)
-					.then(response => response.json())
-					.then(data =>
-						setStore({
-							teacherQuestions: data
-						})
-					);
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questions",
+					options
+				);
+				const data = await resp.json();
+				setStore({
+					teacherQuestions: data
+				});
 			},
 
 			getTeacherQuestionnaries: async () => {
@@ -657,20 +656,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ studentQuestionnaries: data });
 			},
 
-			getStudentQuestions: () => {
+			getStudentQuestions: async () => {
 				let token = sessionStorage.getItem("data");
 				const options = {
 					headers: {
 						Authorization: `Bearer ${token}`
 					}
 				};
-				fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questions", options)
-					.then(response => response.json())
-					.then(data =>
-						setStore({
-							studentQuestions: data
-						})
-					);
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questions",
+					options
+				);
+				const data = await resp.json();
+				setStore({
+					studentQuestions: data
+				});
 			}
 		}
 	};
