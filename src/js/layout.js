@@ -11,8 +11,7 @@ import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
 import { teachome } from "./views/teachers/home";
 import { teachform } from "./views/teachers/teacherForm";
-import { studentStrength } from "./views/teachers/strengths";
-import { studentWeakness } from "./views/teachers/weaknesses";
+import { teacherAnswers } from "./views/teachers/questions";
 
 import Profile from "./views/student/student_profile/profile";
 
@@ -37,7 +36,6 @@ import { CreateStaffUsers } from "./views/staff/users/createStaffUsers";
 import { CreateTeacherUsers } from "./views/staff/users/createTeacherUsers";
 import { StudentUsers } from "./views/staff/users/studentUsers";
 
-import { studentProjection } from "./views/teachers/projection";
 import { StudentQuestionnaries } from "./views/staff/jobProfile/studentQuestionnarie";
 import { TeacherQuestionnaries } from "./views/staff/jobProfile/teacherQuestionnaries";
 import { Questionnaries } from "./views/staff/jobProfile/questionnaries";
@@ -102,9 +100,8 @@ export const Layout = () => {
 
 						<Route exact path="/teacher" component={teachome} />
 						<Route exact path="/teacher/:breathecode_id/form" component={teachform} />
-						<Route exact path="/teacher/:breathecode_id/form/strengths" component={studentStrength} />
-						<Route exact path="/teacher/:breathecode_id/form/weaknesses" component={studentWeakness} />
-						<Route exact path="/teacher/:breathecode_id/form/projection" component={studentProjection} />
+						<Route exact path="/teacher/:breathecode_id/form/:question" component={teacherAnswers} />
+
 						<Route exact path="/student/profile" component={Profile} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
