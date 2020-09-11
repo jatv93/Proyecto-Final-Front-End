@@ -16,11 +16,8 @@ export const TeacherQuestionnaries = () => {
 							<h3 className="text-center">Perfil Laboral</h3>
 						</div>
 					</div>
-					<div className="row">
-						<div className="col-lg-6">
-							<TeacherQuestions />
-						</div>
-					</div>
+
+					<TeacherQuestions />
 				</div>
 			</SideNav>
 		</Fragment>

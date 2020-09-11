@@ -315,7 +315,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deleteStudentQuestion: async id => {
 				const store = getStore();
-				store.studentQuestions.splice(id, 1);
+				store.studentQuestions.splice(id - 1, 1);
 				setStore({ studentQuestions: store.studentQuestions });
 
 				let token = sessionStorage.getItem("data");
@@ -367,7 +367,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deleteTeacherQuestion: async id => {
 				const store = getStore();
-				store.teacherQuestions.splice(id, 1);
+				store.teacherQuestions.splice(id - 1, 1);
 				setStore({ teacherQuestions: store.teacherQuestions });
 
 				let token = sessionStorage.getItem("data");
@@ -422,7 +422,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deleteTeacherQuestionnarie: async id => {
 				const store = getStore();
-				store.teacherQuestionnaries.splice(id, 1);
+				store.teacherQuestionnaries.splice(id - 1, 1);
 				setStore({ teacherQuestionnaries: store.teacherQuestionnaries });
 
 				let token = sessionStorage.getItem("data");
@@ -477,7 +477,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			deleteStudentQuestionnarie: async id => {
 				console.log(id);
 				const store = getStore();
-				store.studentQuestionnaries.splice(id, 1);
+				store.studentQuestionnaries.splice(id - 1, 1);
 				setStore({ studentQuestionnaries: store.studentQuestionnaries });
 
 				let token = sessionStorage.getItem("data");

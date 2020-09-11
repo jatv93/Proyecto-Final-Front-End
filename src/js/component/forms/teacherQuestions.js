@@ -42,7 +42,7 @@ export const TeacherQuestions = () => {
 					store.teacherQuestionnaries.map((questionnarie, index) => {
 						return (
 							<>
-								<div className="col-lg-9 offset-lg-2 mt-3 teacher-questions" key={index}>
+								<div className="col-lg-5 mt-3 teacher-questions" key={index}>
 									<h4 className="text-center">{questionnarie.name}</h4>
 
 									{store.teacherQuestions &&
@@ -62,7 +62,7 @@ export const TeacherQuestions = () => {
 															<FontAwesomeIcon
 																icon={faTrash}
 																className="mr-2"
-																onClick={() => actions.deleteTeacherQuestion(id)}
+																onClick={() => actions.deleteTeacherQuestion(item.id)}
 															/>
 
 															<input
