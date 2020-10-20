@@ -98,9 +98,9 @@ export const Layout = () => {
 						<Route exact path="/staff/create_teacher_users" component={CreateTeacherUsers} />
 						<Route exact path="/staff/student_users" component={StudentUsers} />
 
-						<Route exact path="/teacher" component={teachome} />
-						<Route exact path="/teacher/:breathecode_id/form" component={teachform} />
 						<Route exact path="/teacher/:breathecode_id/form/:question" component={teacherAnswers} />
+						<Route exact path="/teacher/:breathecode_id/form" component={teachform} />
+						<Route exact path="/teacher" component={teachome} />
 
 						<Route exact path="/student/profile" component={Profile} />
 						<Route render={() => <h1>Not found!</h1>} />
