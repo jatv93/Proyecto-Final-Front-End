@@ -153,32 +153,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			teacherQuestions: [],
 
-			teacherAnswers: [
-				{
-					answer_id: 1,
-					question_id: 1,
-					answer:
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
-				},
-				{
-					answer_id: 2,
-					question_id: 2,
-					answer:
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
-				},
-				{
-					answer_id: 3,
-					question_id: 3,
-					answer:
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
-				},
-				{
-					answer_id: 4,
-					question_id: 4,
-					answer:
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero ante, laciniaac nibh id, dapibus convallis massa. Cras sit amet dolor magna. Pellentesque efficitur aliquam sodales. Vestibulum eget sagittis magna."
-				}
-			],
+			teacherAnswers: [],
 
 			teacherQuestionnaries: [],
 
@@ -670,6 +645,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const data = await resp.json();
 				setStore({
 					studentQuestions: data
+				});
+			},
+			getTeacherAnswers: async () => {
+				let token = sessionStorage.getItem("data");
+				const options = {
+					headers: {
+						Authorization: `Bearer ${token}`
+					}
+				};
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_answers",
+					options
+				);
+				const data = await resp.json();
+				setStore({
+					teacherAnswers: data
 				});
 			}
 		}

@@ -18,10 +18,10 @@ export const teacherAnswers = props => {
 		setQuestion(
 			...store.teacherQuestionnaries.filter(item => {
 				return item.name === props.match.params.question;
-			})
+			}),
+			[]
 		);
-	}, []);
-
+	});
 	return (
 		<Fragment>
 			<SideNav links={store.sideBarContent.teacher}>

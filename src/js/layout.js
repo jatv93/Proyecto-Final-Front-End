@@ -55,16 +55,16 @@ export const Layout = () => {
 						<Route exact path="/register" component={Register} />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/forgot_password" component={Forgot_Password} />
-						<Route exact path="/staff/files" component={Files} />
 						<Route exact path="/staff/files/:breathecode_id">
 							<StudentProfile />
 						</Route>
+						<Route exact path="/staff/files" component={Files} />
 						<Route exact path="/staff/files/:breathecode_id/agreement" component={StudentAgreement} />
 						<Route exact path="/staff/files/:breathecode_id/financing" component={StudentFinancing} />
-						<Route exact path="/staff/files/:breathecode_id/payments" component={StudentPayments} />
 						<Route exact path="/staff/files/:breathecode_id/payments/:payment_id" component={PaymentPDF} />
-						<Route exact path="/staff/files/:breathecode_id/invoices" component={StudentInvoices} />
+						<Route exact path="/staff/files/:breathecode_id/payments" component={StudentPayments} />
 						<Route exact path="/staff/files/:breathecode_id/invoices/:invoice_id" component={InvoicePDF} />
+						<Route exact path="/staff/files/:breathecode_id/invoices" component={StudentInvoices} />
 						<Route
 							exact
 							path="/staff/files/:breathecode_id/invoices/:credit_note_id"
