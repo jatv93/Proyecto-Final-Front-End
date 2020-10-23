@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 
 export const teachome = () => {
 	const { store, actions } = useContext(Context);
+
 	return (
 		<Fragment>
 			<SideNav links={store.sideBarContent.teacher}>
