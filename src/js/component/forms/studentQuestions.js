@@ -18,7 +18,7 @@ export const StudentQuestions = () => {
 				<Modal.Header closeButton onClick={() => setModalShow(false)}>
 					<Modal.Title id="contained-modal-title-vcenter">Añadir Nueva Pregunta</Modal.Title>
 				</Modal.Header>
-				<form onSubmit={e => actions.submitStudentQuestion(e, questionnarie_id)}>
+				<form onSubmit={e => actions.submitStudentQuestion(e, questionnarie_id)} className="was-validated">
 					<Modal.Body>
 						<textarea
 							className="form-control"
@@ -27,11 +27,12 @@ export const StudentQuestions = () => {
 							required
 							onChange={e => actions.addStudentQuestion(e.target.value)}
 						/>
+						<div className="valid-feedback">Válido</div>
+						<div className="invalid-feedback">Por favor complete este campo.</div>
 					</Modal.Body>
 					<Modal.Footer>
-						<Button type="submit" onClick={() => setModalShow(false)}>
-							Guardar
-						</Button>
+						<Button onClick={() => setModalShow(false)}>Cerrar</Button>
+						<Button type="submit">Guardar</Button>
 					</Modal.Footer>
 				</form>
 			</Modal>
@@ -41,33 +42,39 @@ export const StudentQuestions = () => {
 					store.studentQuestionnaries.map((questionnarie, index) => {
 						return (
 							<>
-								<div className="col-lg-12 mt-3" key={index}>
-									<h4 className="text-center mb-3">{questionnarie.name}</h4>
+								<div className="col-lg-5 mt-3" key={index}>
+									<h4 className="text-center">{questionnarie.name}</h4>
 
 									{store.studentQuestions &&
-										store.studentQuestions.map((item, index) => {
-											return (
-												<ul key={index}>
-													<li>
-														{item.question}
-														<FontAwesomeIcon icon={faEdit} className="ml-2 mr-2" />
+										store.studentQuestions
+											.filter(item => {
+												if (questionnarie.id === item.questionnarie_id) {
+													return item;
+												}
+											})
+											.map((item, index) => {
+												return (
+													<ul key={index}>
+														<li>
+															{item.question}
+															<FontAwesomeIcon icon={faEdit} className="ml-2 mr-2" />
 
-														<FontAwesomeIcon
-															icon={faTrash}
-															className="mr-2"
-															onClick={() => actions.deleteTeacherQuestion(id)}
-														/>
+															<FontAwesomeIcon
+																icon={faTrash}
+																className="mr-2"
+																onClick={() => actions.deleteStudentQuestion(item.id)}
+															/>
 
-														<input
-															className="form-check-input-inline"
-															type="checkbox"
-															id="inlineCheckbox1"
-															value="option1"
-														/>
-													</li>
-												</ul>
-											);
-										})}
+															<input
+																className="form-check-input-inline"
+																type="checkbox"
+																id="inlineCheckbox1"
+																value="option1"
+															/>
+														</li>
+													</ul>
+												);
+											})}
 
 									<br />
 									<div className="col-lg-6 offset-lg-3 text-center">

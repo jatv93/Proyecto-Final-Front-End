@@ -25,6 +25,8 @@ export const Questionnaries = () => {
 								add={actions.addTeacherQuestionnarie}
 								submit={actions.submitTeacherQuestionnarie}
 								del={actions.deleteTeacherQuestionnarie}
+								edit={actions.editTeacherQuestionnarie}
+								update={actions.updateTeacherQuestionnarie}
 							/>
 						</div>
 						<div className="col-lg-6">
@@ -34,6 +36,8 @@ export const Questionnaries = () => {
 								add={actions.addStudentQuestionnarie}
 								submit={actions.submitStudentQuestionnarie}
 								del={actions.deleteStudentQuestionnarie}
+								edit={actions.editStudentQuestionnarie}
+								update={actions.updateStudentQuestionnarie}
 							/>
 						</div>
 					</div>
