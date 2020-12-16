@@ -37,30 +37,34 @@ export const teacherAnswers = props => {
 
 							<div className="row">
 								<div className="col-lg-8 offset-lg-2 mt-3">
-									{store.teacherQuestions &&
-										store.teacherQuestions
-											.filter(item => {
-												if (question.id === item.questionnarie_id) {
-													return item;
-												}
-											})
-											.map((item, index) => {
-												return (
-													<div className="form-group" key={index}>
-														<label>{item.question}</label>
-														<br />
-														<textarea
-															className="form-control"
-															id="exampleFormControlTextarea1"
-															rows="3"
-															required
-														/>
-													</div>
-												);
-											})}
-									<button type="submit" className="submit btn btn-primary">
-										Enviar
-									</button>
+									<form onSubmit={e => actions.submitTeacherAnswer(e)}>
+										{store.teacherQuestions &&
+											store.teacherQuestions
+												.filter(item => {
+													if (question.id === item.questionnarie_id) {
+														return item;
+													}
+												})
+												.map((item, index) => {
+													return (
+														<div className="form-group" key={index}>
+															<label>{item.question}</label>
+															<br />
+
+															<textarea
+																className="form-control"
+																id="exampleFormControlTextarea1"
+																rows="3"
+																required
+																onChange={e => actions.addTeacherAnswer(e.target.value)}
+															/>
+														</div>
+													);
+												})}
+										<button type="submit" className="submit btn btn-primary">
+											Enviar
+										</button>
+									</form>
 									<br />
 								</div>
 							</div>

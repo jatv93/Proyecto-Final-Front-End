@@ -19,7 +19,7 @@ export const TeacherQuestions = () => {
 				<Modal.Header closeButton onClick={() => setModalShow(false)}>
 					<Modal.Title id="contained-modal-title-vcenter">Añadir Nueva Pregunta</Modal.Title>
 				</Modal.Header>
-				<form onSubmit={e => actions.submitTeacherQuestion(e, questionnarie_id)}>
+				<form onSubmit={e => actions.submitTeacherQuestion(e, questionnarie_id)} className="was-validated">
 					<Modal.Body>
 						<textarea
 							className="form-control"
@@ -28,11 +28,12 @@ export const TeacherQuestions = () => {
 							required
 							onChange={e => actions.addTeacherQuestion(e.target.value)}
 						/>
+						<div className="valid-feedback">Válido</div>
+						<div className="invalid-feedback">Por favor complete este campo.</div>
 					</Modal.Body>
 					<Modal.Footer>
-						<Button type="submit" onClick={() => setModalShow(false)}>
-							Guardar
-						</Button>
+						<Button onClick={() => setModalShow(false)}>Cerrar</Button>
+						<Button type="submit">Guardar</Button>
 					</Modal.Footer>
 				</form>
 			</Modal>

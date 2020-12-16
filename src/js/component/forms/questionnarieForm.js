@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-bootstrap/Modal";
@@ -7,9 +7,11 @@ import PropTypes from "prop-types";
 import { Context } from "../../store/appContext";
 import "../../../styles/teacherComments.scss";
 
-export const QuestionnarieForm = ({ list, title, add, submit, del }) => {
+export const QuestionnarieForm = ({ list, title, add, submit, del, edit, update }) => {
 	const { store, actions } = useContext(Context);
 	const [modalShow, setModalShow] = React.useState(false);
+	const [modalShow1, setModalShow1] = React.useState(false);
+	const [questionnarie_id, setQuestionnarie_id] = useState(0);
 
 	return (
 		<Fragment>
@@ -17,27 +19,71 @@ export const QuestionnarieForm = ({ list, title, add, submit, del }) => {
 				<Modal.Header closeButton onClick={() => setModalShow(false)}>
 					<Modal.Title id="contained-modal-title-vcenter">Añadir Nuevo Cuestionario</Modal.Title>
 				</Modal.Header>
-				<form onSubmit={e => submit(e)}>
+				<form onSubmit={e => submit(e)} className="was-validated">
 					<Modal.Body>
-						<input
-							className="form-control mb-2"
-							placeholder="Titulo"
-							required
-							onChange={e => add(e.target.value, "name")}
-						/>
-						<textarea
-							className="form-control"
-							id="exampleFormControlTextarea1"
-							rows="3"
-							placeholder="Descripción"
-							required
-							onChange={e => add(e.target.value, "questionnarie_details")}
-						/>
+						<div className="form-group">
+							<input
+								className="form-control mb-2"
+								placeholder="Titulo"
+								required
+								onChange={e => add(e.target.value, "name")}
+							/>
+							<div className="valid-feedback">Válido</div>
+							<div className="invalid-feedback">Por favor complete este campo.</div>
+						</div>
+						<div className="form-group">
+							<textarea
+								className="form-control"
+								id="exampleFormControlTextarea1"
+								rows="3"
+								placeholder="Descripción"
+								required
+								onChange={e => add(e.target.value, "questionnarie_details")}
+							/>
+							<div className="valid-feedback">Válido</div>
+							<div className="invalid-feedback">Por favor complete este campo.</div>
+						</div>
 					</Modal.Body>
 					<Modal.Footer>
-						<Button type="submit" onClick={() => setModalShow(false)}>
-							Guardar
-						</Button>
+						<Button onClick={() => setModalShow(false)}>Cerrar</Button>
+						<Button type="submit">Guardar</Button>
+					</Modal.Footer>
+				</form>
+			</Modal>
+
+			<Modal show={modalShow1} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+				<Modal.Header closeButton onClick={() => setModalShow1(false)}>
+					<Modal.Title id="contained-modal-title-vcenter">Editar Cuestionario</Modal.Title>
+				</Modal.Header>
+
+				<form onSubmit={e => update(e, questionnarie_id)} className="was-validated">
+					<Modal.Body>
+						<div className="form-group">
+							<input
+								className="form-control mb-2"
+								placeholder="Titulo"
+								required
+								onChange={e => edit(e.target.value, "name")}
+							/>
+							<div className="valid-feedback">Válido</div>
+							<div className="invalid-feedback">Por favor complete este campo.</div>
+						</div>
+						<div className="form-group">
+							<textarea
+								className="form-control"
+								id="exampleFormControlTextarea1"
+								rows="3"
+								placeholder="Descripción"
+								required
+								onChange={e => edit(e.target.value, "questionnarie_details")}
+							/>
+							<div className="valid-feedback">Válido</div>
+							<div className="invalid-feedback">Por favor complete este campo.</div>
+						</div>
+					</Modal.Body>
+					<Modal.Footer>
+						<Button onClick={() => setModalShow1(false)}>Cerrar</Button>
+						<Button type="submit">Guardar</Button>
 					</Modal.Footer>
 				</form>
 			</Modal>
@@ -53,7 +99,15 @@ export const QuestionnarieForm = ({ list, title, add, submit, del }) => {
 										<h5>
 											<strong>{item.name}</strong>
 										</h5>
-										<FontAwesomeIcon icon={faEdit} className="ml-2 mr-2" />
+
+										<FontAwesomeIcon
+											icon={faEdit}
+											className="ml-2 mr-2"
+											onClick={() => {
+												setModalShow1(true);
+												setQuestionnarie_id(item.id);
+											}}
+										/>
 
 										<FontAwesomeIcon icon={faTrash} className="mr-2" onClick={() => del(item.id)} />
 
@@ -89,5 +143,7 @@ QuestionnarieForm.propTypes = {
 	title: PropTypes.string,
 	add: PropTypes.func,
 	submit: PropTypes.func,
-	del: PropTypes.func
+	del: PropTypes.func,
+	edit: PropTypes.func,
+	update: PropTypes.func
 };

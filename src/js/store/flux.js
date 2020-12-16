@@ -5,6 +5,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				staff: [
 					{ title: "Student Files", link: "/staff/files" },
 					{ title: "Job Profile", link: "/staff/job_profile" },
+					{ title: "Questionnaries", link: "/staff/job_profile/questionnaries" },
+					{ title: "Student Questionnaries", link: "/staff/job_profile/student_questionnarie" },
+					{ title: "Teacher Questionnaries", link: "/staff/job_profile/teacher_questionnarie" },
 					{ title: "Student Agreement", link: "/staff/agreements" },
 					{ title: "Financing Agreement", link: "/staff/financing" },
 					{ title: "Payment", link: "/staff/payments" },
@@ -155,6 +158,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			teacherAnswers: [],
 
+			newTeacherAnswer: "",
+
 			teacherQuestionnaries: [],
 
 			studentQuestionnaries: [],
@@ -168,7 +173,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				questionnarie_details: ""
 			},
 
+			editTeacherQuestionnarie: {
+				name: "",
+				questionnarie_details: ""
+			},
+
 			newStudentQuestionnarie: {
+				name: "",
+				questionnarie_details: ""
+			},
+
+			editStudentQuestionnarie: {
 				name: "",
 				questionnarie_details: ""
 			}
@@ -281,7 +296,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questions",
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/student_questions",
 					options
 				);
 				const data = await resp.json();
@@ -304,7 +319,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				const resp = await fetch(
-					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questions/${id}`,
+					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/student_questions/${id}`,
 					options
 				);
 				const data = await resp.json();
@@ -333,7 +348,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questions",
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/teacher_questions",
 					options
 				);
 				const data = await resp.json();
@@ -356,7 +371,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				const resp = await fetch(
-					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questions/${id}`,
+					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/teacher_questions/${id}`,
 					options
 				);
 				const data = await resp.json();
@@ -368,6 +383,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const { newTeacherQuestionnarie } = store;
 				newTeacherQuestionnarie[name] = value;
 				setStore({ newTeacherQuestionnarie: newTeacherQuestionnarie });
+			},
+
+			editTeacherQuestionnarie: (value, name) => {
+				const store = getStore();
+				const { editTeacherQuestionnarie } = store;
+				editTeacherQuestionnarie[name] = value;
+				setStore({ editTeacherQuestionnarie: editTeacherQuestionnarie });
 			},
 
 			submitTeacherQuestionnarie: async e => {
@@ -388,11 +410,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questionnaries",
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/teacher_questionnaries",
 					options
 				);
 				const data = await resp.json();
 				getActions().getTeacherQuestionnaries();
+			},
+
+			updateTeacherQuestionnarie: async (e, id) => {
+				e.preventDefault();
+				const store = getStore();
+				const { editTeacherQuestionnarie } = store;
+				const details = editTeacherQuestionnarie;
+				console.log(details);
+
+				let token = sessionStorage.getItem("data");
+
+				const options = {
+					method: "PUT",
+					body: JSON.stringify(details),
+					headers: {
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
+					}
+				};
+
+				const resp = await fetch(
+					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/teacher_questionnaries/${id}`,
+					options
+				);
+				const data = await resp.json();
+				getActions().getTeacherQuestionnaries();
+				if (data.msg == "Questionnarie Updated") return true;
+				else return false;
 			},
 
 			deleteTeacherQuestionnarie: async id => {
@@ -411,10 +461,62 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				const resp = await fetch(
-					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questionnaries/${id}`,
+					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/teacher_questionnaries/${id}`,
 					options
 				);
 				const data = await resp.json();
+			},
+
+			addTeacherAnswer: value => {
+				setStore({ newTeacherAnswer: value });
+			},
+
+			submitTeacherAnswer: async e => {
+				e.preventDefault();
+				const store = getStore();
+				const { newTeacherAnswer } = store;
+				const answer = newTeacherAnswer;
+
+				let token = sessionStorage.getItem("data");
+
+				const options = {
+					method: "POST",
+					body: JSON.stringify({ answer: answer }),
+					headers: {
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
+					}
+				};
+
+				const resp = await fetch(
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/teacher_answers",
+					options
+				);
+				const data = await resp.json();
+				getActions().getTeacherAnswers();
+			},
+
+			deleteTeacherAnswer: async id => {
+				const store = getStore();
+				store.teacherAnswers.splice(id - 1, 1);
+				setStore({ teacherAnswers: store.teacherAnswers });
+
+				let token = sessionStorage.getItem("data");
+
+				const options = {
+					method: "DELETE",
+					headers: {
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
+					}
+				};
+
+				const resp = await fetch(
+					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/teacher_answers/${id}`,
+					options
+				);
+				const data = await resp.json();
+				getActions().getTeacherAnswer();
 			},
 
 			addStudentQuestionnarie: (value, name) => {
@@ -422,6 +524,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const { newStudentQuestionnarie } = store;
 				newStudentQuestionnarie[name] = value;
 				setStore({ newStudentQuestionnarie: newStudentQuestionnarie });
+			},
+
+			editStudentQuestionnarie: (value, name) => {
+				const store = getStore();
+				const { editStudentQuestionnarie } = store;
+				editStudentQuestionnarie[name] = value;
+				setStore({ editStudentQuestionnarie: editStudentQuestionnarie });
 			},
 
 			submitStudentQuestionnarie: async e => {
@@ -442,11 +551,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questionnaries",
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/student_questionnaries",
 					options
 				);
 				const data = await resp.json();
 				getActions().getStudentQuestionnaries();
+			},
+
+			updateStudentQuestionnarie: async (e, id) => {
+				e.preventDefault();
+				const store = getStore();
+				const { editStudentQuestionnarie } = store;
+				const details = editStudentQuestionnarie;
+				console.log(details);
+
+				let token = sessionStorage.getItem("data");
+
+				const options = {
+					method: "PUT",
+					body: JSON.stringify(details),
+					headers: {
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
+					}
+				};
+
+				const resp = await fetch(
+					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/student_questionnaries/${id}`,
+					options
+				);
+				const data = await resp.json();
+				getActions().getStudentQuestionnaries();
+				if (data.msg == "Questionnarie Updated") return true;
+				else return false;
 			},
 
 			deleteStudentQuestionnarie: async id => {
@@ -466,7 +603,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				const resp = await fetch(
-					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questionnaries/${id}`,
+					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/student_questionnaries/${id}`,
 					options
 				);
 				const data = await resp.json();
@@ -477,7 +614,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getStaffUsers: async () => {
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/staff_users"
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/staff_users"
 				);
 				const data = await resp.json();
 				setStore({
@@ -487,7 +624,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getTeacherUsers: async () => {
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_users"
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/teacher_users"
 				);
 				const data = await resp.json();
 				setStore({
@@ -497,7 +634,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getStudentUsers: async () => {
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_users"
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/student_users"
 				);
 				const data = await resp.json();
 				setStore({
@@ -507,7 +644,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deleteStaffUser: async id => {
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/staff_users/" + `${id}`,
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/staff_users/" + `${id}`,
 					{
 						method: "DELETE",
 						headers: {
@@ -521,7 +658,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getfilesDataTable: async () => {
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/profiles"
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/profiles"
 				);
 				const data = await resp.json();
 				setStore({
@@ -531,7 +668,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getAgreementsTable: async id => {
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/enrrollment_agreements/" +
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/enrrollment_agreements/" +
 						`${id}`
 				);
 				const data = await resp.json();
@@ -542,7 +679,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getFinancingTable: async id => {
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/financing_agreements/" +
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/financing_agreements/" +
 						`${id}`
 				);
 				const data = await resp.json();
@@ -553,7 +690,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getPaymentTable: async () => {
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/payments"
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/payments"
 				);
 				const data = await resp.json();
 				setStore({
@@ -563,7 +700,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getInvoiceTable: async () => {
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/invoices"
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/invoices"
 				);
 				const data = await resp.json();
 				setStore({
@@ -573,7 +710,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getCreditNoteTable: async () => {
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/credit_notes"
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/credit_notes"
 				);
 				const data = await resp.json();
 				setStore({
@@ -589,7 +726,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				};
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questions",
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/teacher_questions",
 					options
 				);
 				const data = await resp.json();
@@ -606,7 +743,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				};
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_questionnaries",
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/teacher_questionnaries",
 					options
 				);
 
@@ -623,7 +760,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questionnaries",
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/student_questionnaries",
 					options
 				);
 
@@ -639,7 +776,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				};
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_questions",
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/student_questions",
 					options
 				);
 				const data = await resp.json();
@@ -655,7 +792,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				};
 				const resp = await fetch(
-					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/teacher_answers",
+					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/teacher_answers",
 					options
 				);
 				const data = await resp.json();

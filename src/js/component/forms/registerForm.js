@@ -13,7 +13,7 @@ export const RegisterForm = () => {
 
 	async function register() {
 		console.log("No errors, submit callback called!");
-		const resp = await fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us02.gitpod.io/student_users", {
+		const resp = await fetch("https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/student_users", {
 			method: "POST",
 			body: JSON.stringify(store.studentRegister),
 			headers: {
