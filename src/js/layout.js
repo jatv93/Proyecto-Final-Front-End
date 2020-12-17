@@ -40,6 +40,7 @@ import { StudentQuestionnaries } from "./views/staff/jobProfile/studentQuestionn
 import { TeacherQuestionnaries } from "./views/staff/jobProfile/teacherQuestionnaries";
 import { Questionnaries } from "./views/staff/jobProfile/questionnaries";
 
+
 //create your first component
 export const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -97,6 +98,7 @@ export const Layout = () => {
 						<Route exact path="/staff/create_staff_users" component={CreateStaffUsers} />
 						<Route exact path="/staff/create_teacher_users" component={CreateTeacherUsers} />
 						<Route exact path="/staff/student_users" component={StudentUsers} />
+					
 
 						<Route exact path="/teacher/:breathecode_id/form/:question" component={teacherAnswers} />
 						<Route exact path="/teacher/:breathecode_id/form" component={teachform} />

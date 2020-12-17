@@ -10,7 +10,9 @@ import "../../../styles/teacherQuestions.scss";
 export const StudentQuestions = () => {
 	const { store, actions } = useContext(Context);
 	const [modalShow, setModalShow] = React.useState(false);
+	const [modalShow1, setModalShow1] = React.useState(false);
 	const [questionnarie_id, setQuestionnarie_id] = useState(0);
+	const [question_id, setQuestion_id] = useState(0);
 
 	return (
 		<Fragment>
@@ -37,6 +39,32 @@ export const StudentQuestions = () => {
 				</form>
 			</Modal>
 
+			<Modal show={modalShow1} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+				<Modal.Header closeButton onClick={() => setModalShow1(false)}>
+					<Modal.Title id="contained-modal-title-vcenter">Editar Pregunta</Modal.Title>
+				</Modal.Header>
+
+				<form onSubmit={e => actions.updateStudentQuestion(e, question_id)} className="was-validated">
+					<Modal.Body>
+						<div className="form-group">
+							<textarea
+								className="form-control"
+								id="exampleFormControlTextarea1"
+								rows="3"
+								required
+								onChange={e => actions.editStudentQuestion(e.target.value)}
+							/>
+							<div className="valid-feedback">Válido</div>
+							<div className="invalid-feedback">Por favor complete este campo.</div>
+						</div>
+					</Modal.Body>
+					<Modal.Footer>
+						<Button onClick={() => setModalShow1(false)}>Cerrar</Button>
+						<Button type="submit">Guardar</Button>
+					</Modal.Footer>
+				</form>
+			</Modal>
+
 			<div className="row">
 				{store.studentQuestionnaries &&
 					store.studentQuestionnaries.map((questionnarie, index) => {
@@ -57,7 +85,15 @@ export const StudentQuestions = () => {
 													<ul key={index}>
 														<li>
 															{item.question}
-															<FontAwesomeIcon icon={faEdit} className="ml-2 mr-2" />
+															<FontAwesomeIcon
+																icon={faEdit}
+																className="ml-2 mr-2"
+																onClick={() => {
+																	setModalShow1(true);
+																	setQuestion_id(item.id);
+																	console.log(item.id);
+																}}
+															/>
 
 															<FontAwesomeIcon
 																icon={faTrash}

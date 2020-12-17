@@ -166,7 +166,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			newStudentQuestion: "",
 
+			editStudentQuestion: "",
+
 			newTeacherQuestion: "",
+
+			editTeacherQuestion: "",
 
 			newTeacherQuestionnarie: {
 				name: "",
@@ -278,6 +282,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ newStudentQuestion: value });
 			},
 
+			editStudentQuestion: value => {
+				setStore({ editStudentQuestion: value });
+			},
+
 			submitStudentQuestion: async (e, questionnarie_id) => {
 				e.preventDefault();
 				const store = getStore();
@@ -297,6 +305,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				const resp = await fetch(
 					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/student_questions",
+					options
+				);
+				const data = await resp.json();
+				getActions().getStudentQuestions();
+			},
+
+			updateStudentQuestion: async (e, id) => {
+				e.preventDefault();
+				const store = getStore();
+				const { editStudentQuestion } = store;
+				const question = editStudentQuestion;
+
+				let token = sessionStorage.getItem("data");
+
+				const options = {
+					method: "PUT",
+					body: JSON.stringify({ question: question }),
+					headers: {
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
+					}
+				};
+
+				const resp = await fetch(
+					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/student_questions/${id}`,
 					options
 				);
 				const data = await resp.json();
@@ -330,6 +363,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ newTeacherQuestion: value });
 			},
 
+			editTeacherQuestion: value => {
+				setStore({ editTeacherQuestion: value });
+			},
+
 			submitTeacherQuestion: async (e, questionnarie_id) => {
 				e.preventDefault();
 				const store = getStore();
@@ -349,6 +386,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				const resp = await fetch(
 					"https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/teacher_questions",
+					options
+				);
+				const data = await resp.json();
+				getActions().getTeacherQuestions();
+			},
+
+			updateTeacherQuestion: async (e, id) => {
+				e.preventDefault();
+				const store = getStore();
+				const { editTeacherQuestion } = store;
+				const question = editTeacherQuestion;
+
+				let token = sessionStorage.getItem("data");
+
+				const options = {
+					method: "PUT",
+					body: JSON.stringify({ question: question }),
+					headers: {
+						"Content-type": "application/json",
+						Authorization: `Bearer ${token}`
+					}
+				};
+
+				const resp = await fetch(
+					`https://3000-bbd8fc57-2353-4651-9394-13352bc59922.ws-us03.gitpod.io/teacher_questions/${id}`,
 					options
 				);
 				const data = await resp.json();
