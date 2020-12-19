@@ -1,6 +1,9 @@
 import React, { Fragment, useContext } from "react";
 import { Context } from "../../../store/appContext";
 import SideNav from "../../../component/sidenav";
+import { PDFDownloadLink, Document, Page } from "@react-pdf/renderer";
+import JobProfilePDF from "../../../component/jobProfilePDF";
+import { PreviewPDF } from "../../../component/previewPDF";
 
 export const StudentJobProfile = () => {
 	const { store, actions } = useContext(Context);
@@ -90,6 +93,11 @@ export const StudentJobProfile = () => {
 									</>
 								);
 							})}
+					</div>
+					<div className="col-lg-6 offset-lg-3 text-center btn btn-outline-primary">
+						<PDFDownloadLink document={<JobProfilePDF store={store} />} fileName="somename.pdf">
+							{({ blob, url, loading, error }) => (loading ? "Loading document..." : "Descargar en PDF")}
+						</PDFDownloadLink>
 					</div>
 				</div>
 			</SideNav>

@@ -190,7 +190,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			editStudentQuestionnarie: {
 				name: "",
 				questionnarie_details: ""
-			}
+			},
+
+			prueba: "prueba"
 		},
 
 		actions: {
