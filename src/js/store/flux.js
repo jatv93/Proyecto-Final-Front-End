@@ -65,34 +65,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			filesDataTable: [],
 
-			jobProfileTable: [
-				{
-					id: 1,
-					name: "Ramon",
-					lastName: "Perez",
-					cohort: "I",
-					modality: "PT",
-					breathecode_id: 150
-				},
-				{
-					id: 2,
-					name: "Orlando",
-					lastName: "Martinez",
-					cohort: "II",
-					modality: "PT",
-					breathecode_id: 100
-				},
-				{
-					id: 3,
-					name: "Fernando",
-					lastName: "Fernandez",
-					cohort: "II",
-					modality: "PT",
-					breathecode_id: 110
-				}
-			],
+			jobProfileTable: [],
 
 			studentPaymentsTable: [],
+
 			studentInvoiceTable: [],
 
 			studentCreditNoteTable: [],
@@ -190,9 +166,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			editStudentQuestionnarie: {
 				name: "",
 				questionnarie_details: ""
-			},
-
-			prueba: "prueba"
+			}
 		},
 
 		actions: {

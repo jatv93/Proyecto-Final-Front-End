@@ -8,7 +8,7 @@ const JobProfilePDF = ({ store }) => {
 		<Document>
 			<Page size="A4" style={styles.body}>
 				<Text style={styles.title}>Perfil Laboral</Text>
-				<Text style={styles.student}>Miguel de Cervantes</Text>
+				<Text style={styles.student}>Nombre y Apellido</Text>
 				<Text style={styles.subtitle}>Cuestionario Profesores</Text>
 
 				{store.teacherQuestionnaries &&
@@ -26,15 +26,15 @@ const JobProfilePDF = ({ store }) => {
 										})
 										.map((item, index) => {
 											const answer = store.teacherAnswers.find(
-												answer => answer.question_id == item.question_id
+												answer => answer.question_id == item.id
 											);
 											item.answer = answer ? answer.answer : null;
 											return (
 												<>
 													<View key={index}>
-														<Text style={styles.text}>{item.question}</Text>
+														<Text style={styles.question}>{item.question}</Text>
 
-														<Text style={styles.text}>{item.answer}</Text>
+														<Text style={styles.answer}>{item.answer}</Text>
 													</View>
 												</>
 											);
@@ -66,9 +66,9 @@ const JobProfilePDF = ({ store }) => {
 											return (
 												<>
 													<View key={index}>
-														<Text style={styles.text}>{item.question}</Text>
+														<Text style={styles.question}>{item.question}</Text>
 
-														<Text style={styles.text}>{item.answer}</Text>
+														<Text style={styles.answer}>{item.answer}</Text>
 													</View>
 												</>
 											);
@@ -105,12 +105,23 @@ const styles = StyleSheet.create({
 	},
 	subtitle: {
 		fontSize: 18,
-		margin: 12
+		margin: 12,
+		textAlign: "center"
 	},
 
 	subtitle2: {
 		fontSize: 16,
 		margin: 12
+	},
+	question: {
+		margin: 16,
+		fontSize: 14,
+		textAlign: "justify"
+	},
+	answer: {
+		margin: 12,
+		fontSize: 12,
+		textAlign: "justify"
 	}
 });
 

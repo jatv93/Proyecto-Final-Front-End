@@ -18,8 +18,8 @@ export const JobProfile = () => {
 						<div className="col-lg-12 mt-2 mb-4">
 							<Table
 								searchFields={["name", "lastName"]}
-								columns={["name", "lastName", "cohort", "modality"]}
-								list={store.jobProfileTable}
+								columns={["name", "lastName", "cohort", "breathecode_id"]}
+								list={store.filesDataTable}
 								scope={"/job_profile"}
 							/>
 						</div>

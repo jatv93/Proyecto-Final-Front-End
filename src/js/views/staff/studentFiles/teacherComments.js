@@ -6,16 +6,7 @@ import PropTypes from "prop-types";
 
 export const TeacherComments = props => {
 	const { store, actions } = useContext(Context);
-	const [question, setQuestion] = useState(null);
 
-	useEffect(() => {
-		setQuestion(
-			...store.teacherQuestionnaries.filter(item => {
-				return item.name === props.match.params.question;
-			}),
-			[]
-		);
-	});
 	return (
 		<Fragment>
 			<SideNav links={store.sideBarContent.staff}>
@@ -28,28 +19,42 @@ export const TeacherComments = props => {
 
 					<br />
 					<div className="row">
-						<div className="col-lg-6 offset-lg-3">
-							<h3 className="text-center">{!!question && question.name}</h3>
-						</div>
-						<div className="col-lg-10 offset-lg-1 pt-3 teacher-answers">
-							{store.teacherQuestions.map((item, index) => {
-								const answer = store.teacherAnswers.find(
-									answer => answer.question_id == item.question_id
-								);
-								item.answer = answer ? answer.answer : null;
-								return (
-									<>
-										<ul key={index}>
-											<li>
-												<h5>{item.question}</h5>
-											</li>
-										</ul>
-										<p>{item.answer}</p>
-									</>
-								);
-							})}
-						</div>
+						{store.teacherQuestionnaries.map((questionnarie, index) => {
+							return (
+								<>
+									<div className="col-lg-6 offset-lg-3" key={index}>
+										<h3 className="text-center">{questionnarie.name}</h3>
+									</div>
+									<div className="col-lg-10 offset-lg-1 pt-3">
+										{store.teacherQuestions
+											.filter(item => {
+												if (questionnarie.id === item.questionnarie_id) {
+													return item;
+												}
+											})
+											.map((item, index) => {
+												const answer = store.teacherAnswers.find(
+													answer => answer.question_id == item.id
+												);
+												item.answer = answer ? answer.answer : null;
+
+												return (
+													<>
+														<ul key={index}>
+															<li>
+																<h5>{item.question}</h5>
+															</li>
+															<p>{item.answer}</p>
+														</ul>
+													</>
+												);
+											})}
+									</div>
+								</>
+							);
+						})}
 					</div>
+
 					<br />
 					<br />
 				</div>
