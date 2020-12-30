@@ -31,7 +31,7 @@ export const Questionnaries = () => {
 						</div>
 						<div className="col-lg-6">
 							<QuestionnarieForm
-								list={store.studentQuestionnaries}
+								list={store.studentQuestionnaries && store.studentQuestionnaries}
 								title={"Cuestionarios de Estudiantes"}
 								add={actions.addStudentQuestionnarie}
 								submit={actions.submitStudentQuestionnarie}

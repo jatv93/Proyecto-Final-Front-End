@@ -34,7 +34,9 @@ export const StudentQuestions = () => {
 					</Modal.Body>
 					<Modal.Footer>
 						<Button onClick={() => setModalShow(false)}>Cerrar</Button>
-						<Button type="submit">Guardar</Button>
+						<Button type="submit" onClick={() => setModalShow(false)}>
+							Guardar
+						</Button>
 					</Modal.Footer>
 				</form>
 			</Modal>
@@ -60,7 +62,9 @@ export const StudentQuestions = () => {
 					</Modal.Body>
 					<Modal.Footer>
 						<Button onClick={() => setModalShow1(false)}>Cerrar</Button>
-						<Button type="submit">Guardar</Button>
+						<Button type="submit" onClick={() => setModalShow1(false)}>
+							Guardar
+						</Button>
 					</Modal.Footer>
 				</form>
 			</Modal>

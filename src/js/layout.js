@@ -9,9 +9,9 @@ import { Forgot_Password } from "./views/home/forgot_password";
 import injectContext from "./store/appContext";
 
 import { Footer } from "./component/footer";
-import { teachome } from "./views/teachers/home";
-import { teachform } from "./views/teachers/teacherForm";
-import { teacherAnswers } from "./views/teachers/questions";
+import { TeacherHome } from "./views/teachers/home";
+import { TeacherForm } from "./views/teachers/teacherForm";
+import { teacherAnswers } from "./views/teachers/teacherAnswers";
 
 import Profile from "./views/student/student_profile/profile";
 
@@ -99,8 +99,8 @@ export const Layout = () => {
 						<Route exact path="/staff/student_users" component={StudentUsers} />
 
 						<Route exact path="/teacher/:breathecode_id/form/:question" component={teacherAnswers} />
-						<Route exact path="/teacher/:breathecode_id/form" component={teachform} />
-						<Route exact path="/teacher" component={teachome} />
+						<Route exact path="/teacher/:breathecode_id/form" component={TeacherForm} />
+						<Route exact path="/teacher" component={TeacherHome} />
 
 						<Route exact path="/student/profile" component={Profile} />
 						<Route render={() => <h1>Not found!</h1>} />

@@ -4,8 +4,10 @@ import SideNav from "../../../component/sidenav";
 import { PDFDownloadLink, Document, Page } from "@react-pdf/renderer";
 import JobProfilePDF from "../../../component/jobProfilePDF";
 import { PreviewPDF } from "../../../component/previewPDF";
+import { propTypes } from "pdf-viewer-reactjs";
+import PropTypes from "prop-types";
 
-export const StudentJobProfile = () => {
+export const StudentJobProfile = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
@@ -35,9 +37,15 @@ export const StudentJobProfile = () => {
 														}
 													})
 													.map((item, index) => {
-														const answer = store.teacherAnswers.find(
-															answer => answer.question_id == item.question_id
-														);
+														const answer = store.teacherAnswers.find(answer => {
+															if (
+																answer.question_id == item.id &&
+																answer.breathecode_id ==
+																	props.match.params.breathecode_id
+															) {
+																return true;
+															}
+														});
 														item.answer = answer ? answer.answer : null;
 														return (
 															<>
@@ -45,8 +53,8 @@ export const StudentJobProfile = () => {
 																	<li>
 																		<h5>{item.question}</h5>
 																	</li>
+																	<p>{item.answer}</p>
 																</ul>
-																<p>{item.answer}</p>
 															</>
 														);
 													})}
@@ -94,6 +102,8 @@ export const StudentJobProfile = () => {
 								);
 							})}
 					</div>
+					<br />
+
 					<div className="col-lg-6 offset-lg-3 text-center btn btn-outline-primary">
 						<PDFDownloadLink document={<JobProfilePDF store={store} />} fileName="somename.pdf">
 							{({ blob, url, loading, error }) => (loading ? "Loading document..." : "Descargar en PDF")}
@@ -103,4 +113,8 @@ export const StudentJobProfile = () => {
 			</SideNav>
 		</Fragment>
 	);
+};
+
+StudentJobProfile.propTypes = {
+	match: PropTypes.objetc
 };

@@ -4,7 +4,7 @@ import SideNav from "../../component/sidenav";
 import { Context } from "../../store/appContext";
 import PropTypes from "prop-types";
 
-export const teachome = () => {
+export const TeacherHome = () => {
 	const { store, actions } = useContext(Context);
 
 	return (

@@ -7,6 +7,7 @@ export const teacherAnswers = props => {
 	const { store, actions } = useContext(Context);
 	const [studentFile, setStudentFile] = useState({});
 	const [question, setQuestion] = useState(null);
+	const breathecodeId = parseInt(props.match.params.breathecode_id);
 
 	useEffect(() => {
 		setStudentFile(
@@ -37,34 +38,48 @@ export const teacherAnswers = props => {
 
 							<div className="row">
 								<div className="col-lg-8 offset-lg-2 mt-3">
-									<form onSubmit={e => actions.submitTeacherAnswer(e)}>
-										{store.teacherQuestions &&
-											store.teacherQuestions
-												.filter(item => {
-													if (question.id === item.questionnarie_id) {
-														return item;
-													}
-												})
-												.map((item, index) => {
-													return (
-														<div className="form-group" key={index}>
-															<label>{item.question}</label>
-															<br />
+									{store.teacherQuestions &&
+										store.teacherQuestions
+											.filter(item => {
+												if (question.id === item.questionnarie_id) {
+													return item;
+												}
+											})
+											.map((item, index) => {
+												return (
+													<>
+														<form
+															onSubmit={e =>
+																actions.submitTeacherAnswer(
+																	e,
+																	breathecodeId,
+																	item.id,
+																	item.questionnarie_id
+																)
+															}>
+															<div className="form-group" key={index}>
+																<label>{item.question}</label>
+																<br />
 
-															<textarea
-																className="form-control"
-																id="exampleFormControlTextarea1"
-																rows="3"
-																required
-																onChange={e => actions.addTeacherAnswer(e.target.value)}
-															/>
-														</div>
-													);
-												})}
-										<button type="submit" className="submit btn btn-primary">
-											Enviar
-										</button>
-									</form>
+																<textarea
+																	className="form-control"
+																	id="exampleFormControlTextarea1"
+																	rows="3"
+																	required
+																	onChange={e =>
+																		actions.addTeacherAnswer(e.target.value)
+																	}
+																/>
+															</div>
+
+															<button type="submit" className="submit btn btn-primary">
+																Enviar
+															</button>
+														</form>
+													</>
+												);
+											})}
+
 									<br />
 								</div>
 							</div>

@@ -4,7 +4,7 @@ import SideNav from "../../component/sidenav";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-export const teachform = props => {
+export const TeacherForm = props => {
 	const { store, actions } = useContext(Context);
 	const [studentFile, setStudentFile] = useState({});
 
@@ -50,6 +50,6 @@ export const teachform = props => {
 	);
 };
 
-teachform.propTypes = {
+TeacherForm.propTypes = {
 	match: PropTypes.any
 };
