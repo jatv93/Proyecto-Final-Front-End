@@ -460,7 +460,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				const { editTeacherQuestionnarie } = store;
 				const details = editTeacherQuestionnarie;
-				console.log(details);
 
 				let token = sessionStorage.getItem("data");
 
@@ -509,7 +508,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ newTeacherAnswer: value });
 			},
 
-			submitTeacherAnswer: async e => {
+			submitTeacherAnswer: async (e, breathecodeId, id, questionnarie_id) => {
 				e.preventDefault();
 				const store = getStore();
 				const { newTeacherAnswer } = store;
@@ -519,7 +518,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				const options = {
 					method: "POST",
-					body: JSON.stringify({ answer: answer }),
+					body: JSON.stringify({
+						answer: answer,
+						teacher_question_id: id,
+						questionnarie_id: questionnarie_id,
+						breathecode_id: breathecodeId
+					}),
 					headers: {
 						"Content-type": "application/json",
 						Authorization: `Bearer ${token}`
