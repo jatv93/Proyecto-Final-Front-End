@@ -1,11 +1,11 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useContext } from "react";
 import { TeacherTable } from "../../component/tables/teacherTable";
 import SideNav from "../../component/sidenav";
 import { Context } from "../../store/appContext";
 import PropTypes from "prop-types";
 
 export const TeacherHome = () => {
-	const { store, actions } = useContext(Context);
+	const { store } = useContext(Context);
 
 	return (
 		<Fragment>
@@ -21,7 +21,7 @@ export const TeacherHome = () => {
 							<TeacherTable
 								searchFields={["name", "lastName", "email"]}
 								columns={["name", "lastName", "cohort", "email", "admission_date"]}
-								list={store.filesDataTable}
+								list={store.filesDataTable && store.filesDataTable}
 								scope={"/form"}
 							/>
 						</div>

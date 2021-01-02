@@ -1,11 +1,11 @@
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, useContext } from "react";
 import SideNav from "../../../component/sidenav";
 import { Context } from "../../../store/appContext";
 import "../../../../styles/teacherComments.scss";
 import PropTypes from "prop-types";
 
 export const TeacherComments = props => {
-	const { store, actions } = useContext(Context);
+	const { store } = useContext(Context);
 
 	return (
 		<Fragment>

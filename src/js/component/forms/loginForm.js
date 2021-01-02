@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import { Context } from "../../store/appContext";
 import useForm from "./useForm";
 import "../../../styles/teacherQuestions.scss";
-import { useEffect } from "react";
 
 export const LoginForm = props => {
 	const { store, actions } = useContext(Context);

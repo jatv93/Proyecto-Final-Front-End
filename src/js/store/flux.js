@@ -839,7 +839,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				);
 				const data = await resp.json();
 				setStore({
-					teacherAnswers: data
+					teacherAnswers: data.data
 				});
 			}
 		}

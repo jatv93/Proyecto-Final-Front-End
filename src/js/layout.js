@@ -11,7 +11,7 @@ import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
 import { TeacherHome } from "./views/teachers/home";
 import { TeacherForm } from "./views/teachers/teacherForm";
-import { teacherAnswers } from "./views/teachers/teacherAnswers";
+import { TeacherAnswers } from "./views/teachers/teacherAnswers";
 
 import Profile from "./views/student/student_profile/profile";
 
@@ -98,7 +98,7 @@ export const Layout = () => {
 						<Route exact path="/staff/create_teacher_users" component={CreateTeacherUsers} />
 						<Route exact path="/staff/student_users" component={StudentUsers} />
 
-						<Route exact path="/teacher/:breathecode_id/form/:question" component={teacherAnswers} />
+						<Route exact path="/teacher/:breathecode_id/form/:question" component={TeacherAnswers} />
 						<Route exact path="/teacher/:breathecode_id/form" component={TeacherForm} />
 						<Route exact path="/teacher" component={TeacherHome} />
 
